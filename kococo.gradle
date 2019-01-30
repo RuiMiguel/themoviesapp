@@ -1,0 +1,78 @@
+apply plugin: "jacoco"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+jacoco {
+    toolVersion = "0.8.2"
+}
+
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
+}
+
+project.afterEvaluate {
+    // Grab all build types and product flavors
+    def buildTypes = android.buildTypes.collect { type ->
+        type.name
+    }
+    def productFlavors = android.productFlavors.collect { flavor ->
+        flavor.name
+    }
+    // When no product flavors defined, use empty
+    if (!productFlavors) productFlavors.add('')
+
+    productFlavors.each { productFlavorName ->
+        buildTypes.each { buildTypeName ->
+            def sourceName
+            if (!productFlavorName) {
+                sourceName = "${buildTypeName}"
+            } else {
+                sourceName = "${productFlavorName}${buildTypeName.capitalize()}"
+            }
+
+            def testTaskName = "test${sourceName.capitalize()}UnitTest"
+
+            // Create coverage task of form 'testFlavorTypeCoverage' depending on 'testFlavorTypeUnitTest'
+            task "${testTaskName}Coverage"(type: JacocoReport) {
+                dependsOn "$testTaskName"
+
+                group = "Reporting"
+                description = "Generate Jacoco coverage reports on the ${sourceName.capitalize()} build."
+
+                def fileFilter = [
+                        '**/R.class',
+                        '**/R$*.class',
+                        '**/BuildConfig.*',
+                        '**/Manifest*.*',
+                        '**/*App.*',
+                        '**/*Fragment.*',
+                        '**/*Activity.*',
+                        '**/di/*'
+                ]
+                def debugTree = fileTree(
+                        dir: "${buildDir}/intermediates/classes/$productFlavorName/$buildTypeName",
+                        excludes: fileFilter)
+                def kotlinDebugTree = fileTree(dir: "${buildDir}/tmp/kotlin-classes/$sourceName/",
+                        excludes: fileFilter)
+
+                println "##info [jacocoReport sourceName=\'$sourceName\' "
+
+                classDirectories = files([debugTree], [kotlinDebugTree])
+                def coverageSourceDirs = [
+                        "src/main/java",
+                        "src/$productFlavorName/java",
+                        "src/$buildTypeName/java"
+                ]
+                additionalSourceDirs = files(coverageSourceDirs)
+                sourceDirectories = files(coverageSourceDirs)
+                executionData = files("${project.buildDir}/jacoco/${testTaskName}.exec")
+                reports {
+                    xml.enabled = true
+                    xml.destination file("${buildDir}/jacoco.xml")
+                    html.enabled = true
+                    html.destination file("${buildDir}/jacocoHtml")
+                }
+            }
+        }
+    }
+}

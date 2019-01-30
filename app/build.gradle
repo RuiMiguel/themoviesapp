@@ -1,0 +1,102 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: '../ktlint.gradle'
+apply from: '../kococo.gradle'
+
+
+def GIT_SHA = "GIT_SHA"
+def BUILD_TIME = "BUILD_TIME"
+def API_URL = "API_URL"
+def IMAGE_API_URL = "IMAGE_API_URL"
+
+android {
+    compileSdkVersion androidSdk.compile
+    defaultConfig {
+        minSdkVersion androidSdk.min
+        targetSdkVersion androidSdk.target
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            testCoverageEnabled true
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    productFlavors.whenObjectAdded { flavor ->
+        def version = rootProject.ext.version
+
+        flavor.versionCode generateAutoVersionCode()
+        flavor.versionName generateVersionName(version)
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        demo {
+            dimension "default"
+        }
+    }
+
+    project.android.applicationVariants.all { variant ->
+        variant.productFlavors.each { flavor ->
+
+            def flavorData = rootProject.ext[flavor.name]
+            def appName = flavorData.appName
+            def appId = getVariantFieldValue(flavorData.applicationId, variant.buildType.name)
+            def version = generateVersionName(rootProject.ext.version)
+            def code = generateAutoVersionCode()
+            //def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
+            def buildTime = new GregorianCalendar().format("MM-dd-yyyy' 'h:mm:ss a z")
+
+            if (variant.buildType.name != "release") {
+                def prefix = ""
+                if (variant.buildType.name == "debug") {
+                    //gitSha = "DEBUG"
+                    buildTime = "DEBUG"
+                    prefix = "[D] "
+                } else if (variant.buildType.name == "staging") {
+                    //gitSha = "STAGING"
+                    buildTime = "STAGING"
+                    prefix = "[S] "
+                }
+
+                appName = prefix + appName + "_$variant.buildType.name" + "_$version" + "($code)"
+            }
+
+            setVariantApplicationId(variant, appId)
+            setVariantResValue(variant, appName, "app_name", STRING.toLowerCase())
+
+            //setVariantBuildConfigField(variant, gitSha, GIT_SHA, STRING)
+            setVariantBuildConfigField(variant, buildTime, BUILD_TIME, STRING)
+            setVariantBuildConfigField(variant, flavorData.apiUrl, API_URL, STRING)
+            setVariantBuildConfigField(variant, flavorData.imageApiUrl, IMAGE_API_URL, STRING)
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

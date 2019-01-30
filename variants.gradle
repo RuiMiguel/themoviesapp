@@ -1,0 +1,12 @@
+ext {
+    version = [major: 0,
+               minor: 1,
+               patch: 0]
+
+    demo = [appName      : 'The Movies App',
+            applicationId: [debug: 'com.gigigo.themoviesapp'],
+
+            apiUrl       : [debug: 'https://api.themoviedb.org/3/'],
+            imageApiUrl     : [debug: 'https://image.tmdb.org/t/p/']
+    ]
+}
