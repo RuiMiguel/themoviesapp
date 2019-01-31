@@ -31,4 +31,9 @@ dependencies {
     implementation project(':base')
 
     implementation "androidx.recyclerview:recyclerview:$rootProject.libraries.recyclerView"
+
+    implementation "com.google.code.gson:gson:$libraries.gson"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.libraries.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.libraries.retrofit"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.libraries.okhttp3"
 }

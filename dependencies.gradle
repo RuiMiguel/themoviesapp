@@ -32,7 +32,7 @@ allprojects {
 
                 picasso      : '2.71828',
                 debugdb      : '1.0.4',
-                timber       : '4.6.1'
+                timber       : '4.7.1'
         ]
 
         testLibraries = [

@@ -11,16 +11,22 @@ class MainViewModel(private val getTrending: GetTrending) : ViewModel() {
     val isLoading: LiveData<Boolean>
         get() = _loading
 
+
     fun loadTrendings() {
-        val params = GetTrending.Params.forMediaTime(1,1)
-        getTrending(params).fold(
+        _loading.value = true
+
+        /*
+        getTrending().fold(
             {
+                _loading.value = false
 
             },
             {
+                _loading.value = false
 
             }
         )
+        */
     }
 
 }

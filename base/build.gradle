@@ -42,6 +42,10 @@ dependencies {
 
     api "io.arrow-kt:arrow-core:$rootProject.libraries.arrow"
 
+    api "org.koin:koin-android:$rootProject.libraries.koin"
+
+    api "com.jakewharton.timber:timber:$rootProject.libraries.timber"
+
     testImplementation "junit:junit:$rootProject.testLibraries.junit"
     androidTestImplementation "androidx.test:runner:$rootProject.testLibraries.runner"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.testLibraries.espressoCore"

@@ -9,7 +9,11 @@ import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.gigigo.themoviesapp.home.R
+import com.gigigo.themoviesapp.home.data.repository.TrendingDataRepository
+import com.gigigo.themoviesapp.home.data.source.NetworkDataSource
+import com.gigigo.themoviesapp.home.domain.usecases.GetTrending
 import com.gigigo.themoviesapp.home.viewmodel.MainViewModel
+import com.gigigo.themoviesapp.home.viewmodel.factory.MainViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
@@ -18,7 +22,8 @@ import kotlinx.android.synthetic.main.app_bar_main.toolbar
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var viewModel: MainViewModel
+    lateinit var viewModelFactory: MainViewModelFactory
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,7 +79,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
         viewModel.isLoading.observe(this, Observer {
 
         })
