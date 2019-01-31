@@ -24,6 +24,8 @@ allprojects {
                 coroutines   : '1.0.0',
                 ktx          : '1.0.1',
 
+                arrow        : '0.8.2',
+
                 retrofit     : '2.4.0',
                 okhttp3      : '3.11.0',
                 gson         : '2.8.2',

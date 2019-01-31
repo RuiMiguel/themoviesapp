@@ -1,21 +1,34 @@
-package com.gigigo.themoviesapp
+package com.gigigo.themoviesapp.home.ui
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
-import androidx.core.view.GravityCompat
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import com.gigigo.themoviesapp.home.R
+import com.gigigo.themoviesapp.home.viewmodel.MainViewModel
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.drawer_layout
+import kotlinx.android.synthetic.main.activity_main.nav_view
+import kotlinx.android.synthetic.main.app_bar_main.fab
+import kotlinx.android.synthetic.main.app_bar_main.toolbar
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity() {
+
+    lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        initUI()
+        initViewModel()
+    }
+
+    private fun initUI() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
@@ -33,7 +46,38 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-        nav_view.setNavigationItemSelectedListener(this)
+        nav_view.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_camera -> {
+                    // Handle the camera action
+                }
+                R.id.nav_gallery -> {
+
+                }
+                R.id.nav_slideshow -> {
+
+                }
+                R.id.nav_manage -> {
+
+                }
+                R.id.nav_share -> {
+
+                }
+                R.id.nav_send -> {
+
+                }
+            }
+
+            drawer_layout.closeDrawer(GravityCompat.START)
+            true
+        }
+    }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel.isLoading.observe(this, Observer {
+
+        })
     }
 
     override fun onBackPressed() {
@@ -58,32 +102,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.action_settings -> return true
             else -> return super.onOptionsItemSelected(item)
         }
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
-        when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
-            }
-            R.id.nav_gallery -> {
-
-            }
-            R.id.nav_slideshow -> {
-
-            }
-            R.id.nav_manage -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
-            }
-        }
-
-        drawer_layout.closeDrawer(GravityCompat.START)
-        return true
     }
 }

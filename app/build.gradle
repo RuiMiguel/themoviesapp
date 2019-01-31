@@ -93,28 +93,13 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "androidx.appcompat:appcompat:$rootProject.libraries.appcompat"
-    implementation "androidx.legacy:legacy-support-v4:$rootProject.libraries.legacySupport"
-    implementation "com.google.android.material:material:$rootProject.libraries.material"
-    implementation "androidx.constraintlayout:constraintlayout:$rootProject.libraries.constraint"
-    implementation "androidx.recyclerview:recyclerview:$rootProject.libraries.recyclerView"
+    implementation project(':base')
+    implementation project(':home')
 
-    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.libraries.lifecycle"
-    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.libraries.lifecycle"
     implementation "androidx.room:room-runtime:$rootProject.libraries.room"
     kapt "androidx.room:room-compiler:$rootProject.libraries.room"
     implementation "android.arch.navigation:navigation-fragment:$rootProject.libraries.navigation"
     implementation "android.arch.navigation:navigation-ui:$rootProject.libraries.navigation"
-
-    implementation "androidx.core:core-ktx:$rootProject.libraries.ktx"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    testImplementation "junit:junit:$rootProject.testLibraries.junit"
-    androidTestImplementation "androidx.test:runner:$rootProject.testLibraries.runner"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.testLibraries.espressoCore"
-
-    // Test helpers for LiveData
-    testImplementation "androidx.arch.core:core-testing:$rootProject.libraries.lifecycle"
 
     // Test helpers for Room
     testImplementation "androidx.room:room-testing:$rootProject.libraries.room"
