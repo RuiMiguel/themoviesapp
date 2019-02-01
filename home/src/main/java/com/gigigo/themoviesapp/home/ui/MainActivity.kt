@@ -85,9 +85,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViewModel() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
+
         viewModel.isLoading.observe(this, Observer {
             GlobalScope.launch(Dispatchers.Main) {
                 content_main.snackbar("loading $it")
+            }
+        })
+        viewModel.trendingMovies.observe(this, Observer {
+            GlobalScope.launch(Dispatchers.Main) {
+                content_main.snackbar("movies ${it.size}")
             }
         })
     }

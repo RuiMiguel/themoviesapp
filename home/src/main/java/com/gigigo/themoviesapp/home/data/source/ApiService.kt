@@ -8,5 +8,5 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("trending/{media_type}/{time_window}")
-    fun getTrending(@Path("media_type") media: Int, @Path("time_window") time: Int, @Query("api_key") apiKey: String): Call<ApiPage>
+    fun getTrending(@Path("media_type") media: String, @Path("time_window") time: String, @Query("api_key") apiKey: String): Call<ApiPage>
 }
