@@ -2,12 +2,6 @@ package com.gigigo.themoviesapp.home.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ApiError(
-    @SerializedName("status_message") val statusMessage: String?,
-    val success: Boolean?,
-    @SerializedName("status_code") val statusCode: Int?
-)
-
 data class ApiPage(
     val page: Int?,
     val results: List<ApiMovie>?,

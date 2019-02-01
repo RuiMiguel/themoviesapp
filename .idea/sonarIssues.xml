@@ -3,6 +3,11 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.4.0/451207353948708405a08287e2a315c3f23553fe/retrofit-2.4.0-sources.jar!/retrofit2/Retrofit.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../coca-cola-destapp-android/presentation/src/main/java/com/cocacola/destapp/presentation/di/DestappModule.kt">
           <value>
             <set />
@@ -68,7 +73,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/data/model/ApiError.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/data/utils/ConnectionInterceptor.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/data/utils/ErrorUtils.kt">
           <value>
             <set />
           </value>
