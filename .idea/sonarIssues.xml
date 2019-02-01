@@ -3,6 +3,11 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$PROJECT_DIR$/../coca-cola-destapp-android/presentation/src/main/java/com/cocacola/destapp/presentation/di/DestappModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../ferring-ferringo-android-kotlin/common/src/main/java/com/ferring/ferringo/common/domain/error/Failure.kt">
           <value>
             <set />
@@ -28,6 +33,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/gigigo/themoviesapp/TheMoviesApplication.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/gigigo/themoviesapp/utils/ApplicationLogger.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <value>
             <set />
@@ -48,12 +63,52 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/data/utils/ConnectionInterceptor.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/di/BaseModules.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/domain/error/Failure.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/domain/usecases/UseCase.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/Alerts.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/FragmentManagement.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/Image.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/Text.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/View.kt">
           <value>
             <set />
           </value>
@@ -128,6 +183,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/di/HomeModules.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/model/DomainModel.kt">
           <value>
             <set />
@@ -158,12 +218,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/res/layout/content_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/home/src/main/res/values/strings.xml">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/variants.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/fragment.kt">
           <value>
             <set />
           </value>

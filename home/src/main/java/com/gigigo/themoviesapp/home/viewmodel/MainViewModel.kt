@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.gigigo.themoviesapp.home.domain.usecases.GetTrending
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainViewModel(private val getTrending: GetTrending) : ViewModel() {
 
@@ -13,20 +16,20 @@ class MainViewModel(private val getTrending: GetTrending) : ViewModel() {
 
 
     fun loadTrendings() {
-        _loading.value = true
+        GlobalScope.launch(Dispatchers.IO) {
+            _loading.postValue(true)
 
-        /*
-        getTrending().fold(
-            {
-                _loading.value = false
+            getTrending().fold(
+                {
+                    _loading.postValue(false)
 
-            },
-            {
-                _loading.value = false
+                },
+                {
+                    _loading.postValue(false)
 
-            }
-        )
-        */
+                }
+            )
+        }
     }
 
 }

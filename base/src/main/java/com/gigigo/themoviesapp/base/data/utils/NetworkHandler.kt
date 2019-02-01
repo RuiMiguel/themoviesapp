@@ -1,4 +1,4 @@
-package com.gigigo.themoviesapp.home.data.utils
+package com.gigigo.themoviesapp.base.data.utils
 
 import android.content.Context
 import android.net.ConnectivityManager

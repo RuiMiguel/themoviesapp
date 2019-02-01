@@ -4,8 +4,9 @@ import com.gigigo.themoviesapp.home.data.model.ApiPage
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
-    @GET("/trending/{media_type}/{time_window}")
-    fun getTrending(@Path("media_type") media: Int, @Path("time_window") time: Int): Call<ApiPage>
+    @GET("trending/{media_type}/{time_window}")
+    fun getTrending(@Path("media_type") media: Int, @Path("time_window") time: Int, @Query("api_key") apiKey: String): Call<ApiPage>
 }

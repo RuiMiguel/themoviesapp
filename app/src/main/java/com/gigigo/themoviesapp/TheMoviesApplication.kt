@@ -1,6 +1,7 @@
 package com.gigigo.themoviesapp
 
 import android.app.Application
+import com.gigigo.themoviesapp.base.di.Property
 import com.gigigo.themoviesapp.base.di.baseModules
 import org.koin.android.ext.android.startKoin
 import org.koin.android.logger.AndroidLogger
@@ -13,13 +14,19 @@ class TheMoviesApplication : Application() {
     }
 
     private fun initDI() {
-        val extraProperties = HashMap<String, String>()
         startKoin(
             androidContext = this,
-            modules = listOf(baseModules),
-            extraProperties = extraProperties,
+            modules = baseModules,
+            extraProperties = getExtraProperties(),
             loadPropertiesFromFile = false,
             logger = AndroidLogger()
         )
+    }
+
+    private fun getExtraProperties(): HashMap<String, String> {
+        val extraProperties = HashMap<String, String>()
+        extraProperties[Property.API_URL] = BuildConfig.API_URL
+        extraProperties[Property.IMAGE_API_URL] = BuildConfig.IMAGE_API_URL
+        return extraProperties
     }
 }

@@ -7,6 +7,6 @@ ext {
             applicationId: [debug: 'com.gigigo.themoviesapp'],
 
             apiUrl       : [debug: 'https://api.themoviedb.org/3/'],
-            imageApiUrl     : [debug: 'https://image.tmdb.org/t/p/']
+            imageApiUrl  : [debug: 'https://image.tmdb.org/t/p/']
     ]
 }

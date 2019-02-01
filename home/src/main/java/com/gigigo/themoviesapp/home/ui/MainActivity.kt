@@ -8,10 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.gigigo.themoviesapp.base.ui.utils.extensions.snackbar
 import com.gigigo.themoviesapp.home.R
-import com.gigigo.themoviesapp.home.data.repository.TrendingDataRepository
-import com.gigigo.themoviesapp.home.data.source.NetworkDataSource
-import com.gigigo.themoviesapp.home.domain.usecases.GetTrending
+import com.gigigo.themoviesapp.home.di.homeModules
 import com.gigigo.themoviesapp.home.viewmodel.MainViewModel
 import com.gigigo.themoviesapp.home.viewmodel.factory.MainViewModelFactory
 import com.google.android.material.snackbar.Snackbar
@@ -19,16 +18,23 @@ import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.app_bar_main.fab
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
+import kotlinx.android.synthetic.main.content_main.content_main
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
+import org.koin.standalone.StandAloneContext.loadKoinModules
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var viewModelFactory: MainViewModelFactory
+    private val viewModelFactory by inject<MainViewModelFactory>()
     private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        loadKoinModules(homeModules)
         initUI()
         initViewModel()
     }
@@ -37,8 +43,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            viewModel.loadTrendings()
         }
 
         val toggle = ActionBarDrawerToggle(
@@ -81,7 +86,9 @@ class MainActivity : AppCompatActivity() {
     private fun initViewModel() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
         viewModel.isLoading.observe(this, Observer {
-
+            GlobalScope.launch(Dispatchers.Main) {
+                content_main.snackbar("loading $it")
+            }
         })
     }
 

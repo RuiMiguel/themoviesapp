@@ -6,6 +6,7 @@ import com.gigigo.themoviesapp.home.domain.usecases.GetTrending
 import com.gigigo.themoviesapp.home.viewmodel.MainViewModel
 
 class MainViewModelFactory(private val getTrending: GetTrending) : ViewModelProvider.Factory {
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return when {
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {

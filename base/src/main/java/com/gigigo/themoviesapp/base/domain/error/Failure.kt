@@ -1,9 +1,9 @@
 package com.gigigo.themoviesapp.base.domain.error
 
 sealed class Failure {
-    class GenericError(message: String? = null) : Failure()
-    class ServerError(message: String?) : Failure()
-    class NetworkFailure(message: String?) : Failure()
+    class GenericError(val message: String? = null) : Failure()
+    class ServerError(val message: String?) : Failure()
+    class NetworkFailure(val message: String?) : Failure()
 
-    abstract class FeatureFailure(message: String?) : Failure()
+    abstract class FeatureFailure(val message: String?) : Failure()
 }

@@ -40,11 +40,19 @@ dependencies {
     api "androidx.core:core-ktx:$rootProject.libraries.ktx"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.libraries.coroutines"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.libraries.coroutines"
+
     api "io.arrow-kt:arrow-core:$rootProject.libraries.arrow"
 
     api "org.koin:koin-android:$rootProject.libraries.koin"
 
     api "com.jakewharton.timber:timber:$rootProject.libraries.timber"
+
+    api "com.google.code.gson:gson:$libraries.gson"
+    api "com.squareup.retrofit2:retrofit:$rootProject.libraries.retrofit"
+    api "com.squareup.retrofit2:converter-gson:$rootProject.libraries.retrofit"
+    api "com.squareup.okhttp3:logging-interceptor:$rootProject.libraries.okhttp3"
 
     testImplementation "junit:junit:$rootProject.testLibraries.junit"
     androidTestImplementation "androidx.test:runner:$rootProject.testLibraries.runner"
