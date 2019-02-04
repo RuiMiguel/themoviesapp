@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import kotlin.coroutines.CoroutineContext
 
 class MainViewModel(private val getTrending: GetTrending) : ViewModel(), CoroutineScope {
@@ -24,6 +25,10 @@ class MainViewModel(private val getTrending: GetTrending) : ViewModel(), Corouti
     private val _trendingMovies = MutableLiveData<List<Movie>>()
     val trendingMovies: LiveData<List<Movie>>
         get() = _trendingMovies
+
+    init {
+        loadTrendings()
+    }
 
     fun loadTrendings() {
         launch {
@@ -45,5 +50,6 @@ class MainViewModel(private val getTrending: GetTrending) : ViewModel(), Corouti
     override fun onCleared() {
         super.onCleared()
         _job.cancel()
+        Timber.d("MainViewModel onCleared")
     }
 }

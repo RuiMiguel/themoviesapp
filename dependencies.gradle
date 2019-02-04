@@ -30,8 +30,7 @@ allprojects {
                 okhttp3             : '3.11.0',
                 gson                : '2.8.2',
 
-                glide               : '3.8.0',
-                glideTransformations: '2.0.2',
+                glide               : '4.6.1',
                 picasso             : '2.71828',
                 debugdb             : '1.0.4',
                 timber              : '4.7.1',

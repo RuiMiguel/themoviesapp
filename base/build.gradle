@@ -46,6 +46,8 @@ dependencies {
     api "io.arrow-kt:arrow-core:$libraries.arrow"
 
     api "org.koin:koin-android:$libraries.koin"
+    api "org.koin:koin-android-scope:$libraries.koin"
+    api "org.koin:koin-android-viewmodel:$libraries.koin"
 
     api "com.jakewharton.timber:timber:$libraries.timber"
 

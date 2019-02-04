@@ -8,33 +8,29 @@ import com.gigigo.themoviesapp.home.data.source.NetworkDataSource
 import com.gigigo.themoviesapp.home.domain.repository.TrendingRepository
 import com.gigigo.themoviesapp.home.domain.usecases.GetTrending
 import com.gigigo.themoviesapp.home.viewmodel.MainViewModel
-import com.gigigo.themoviesapp.home.viewmodel.factory.MainViewModelFactory
+import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.Module
 import org.koin.dsl.module.module
 
 @JvmField
 val homePresentationModule: Module = module {
-    single {
-        MainViewModelFactory(getTrending = get())
-    }
-
-    factory {
+    viewModel(override = true) {
         MainViewModel(getTrending = get())
     }
 }
 
 @JvmField
 val homeDomainModule: Module = module {
-    factory { GetTrending(trendingRepository = get()) }
+    factory(override = true) { GetTrending(trendingRepository = get()) }
 }
 
 @JvmField
 val homeDataModule: Module = module {
-    single {
+    single(override = true) {
         TrendingDataRepository(networkDataSource = get())
     } bind (TrendingRepository::class)
 
-    single {
+    single(override = true) {
         NetworkDataSource(
             apiKey = getProperty(Property.API_KEY),
             api = get(),
@@ -42,7 +38,7 @@ val homeDataModule: Module = module {
         )
     }
 
-    single { createApiService<ApiService>(get()) } bind (ApiService::class)
+    single(override = true) { createApiService<ApiService>(get()) } bind (ApiService::class)
 }
 
 @JvmField

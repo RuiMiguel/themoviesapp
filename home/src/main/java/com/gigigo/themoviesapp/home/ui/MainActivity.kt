@@ -3,46 +3,37 @@ package com.gigigo.themoviesapp.home.ui
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.GridLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.gigigo.baserecycleradapter.adapter.BaseRecyclerAdapter
-import com.gigigo.themoviesapp.base.BuildConfig
 import com.gigigo.themoviesapp.base.ui.utils.extensions.hide
 import com.gigigo.themoviesapp.base.ui.utils.extensions.screenSize
 import com.gigigo.themoviesapp.base.ui.utils.extensions.show
-import com.gigigo.themoviesapp.base.ui.utils.extensions.snackbar
 import com.gigigo.themoviesapp.home.R
 import com.gigigo.themoviesapp.home.di.homeModules
 import com.gigigo.themoviesapp.home.domain.model.Movie
 import com.gigigo.themoviesapp.home.viewmodel.MainViewModel
-import com.gigigo.themoviesapp.home.viewmodel.factory.MainViewModelFactory
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
-import kotlinx.android.synthetic.main.app_bar_main.fab
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
-import kotlinx.android.synthetic.main.content_main.content_main
 import kotlinx.android.synthetic.main.content_main.movies_list
 import kotlinx.android.synthetic.main.content_main.progress_bar_layout
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.standalone.StandAloneContext.loadKoinModules
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModelFactory by inject<MainViewModelFactory>()
-    private lateinit var viewModel: MainViewModel
+    private val viewModel by viewModel<MainViewModel>()
     private lateinit var adapter: BaseRecyclerAdapter<Movie>
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,10 +46,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun initUI() {
         setSupportActionBar(toolbar)
-
-        fab.setOnClickListener { view ->
-            viewModel.loadTrendings()
-        }
 
         initNavigationView()
 
@@ -106,22 +93,30 @@ class MainActivity : AppCompatActivity() {
     private fun initRecyclerView() {
         val size = screenSize()
 
-        adapter = BaseRecyclerAdapter(MovieViewHolderFactory(this, size, "https://image.tmdb.org/t/p/"))
+        val itemDecoratorVertical = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        val itemDecoratorHorizontal = DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL)
+        //itemDecoratorHorizontal.setDrawable(ContextCompat.getDrawable(this, R.))
+
+        adapter =
+            BaseRecyclerAdapter(MovieViewHolderFactory(this, size, "https://image.tmdb.org/t/p/"))
         adapter.bind(Movie::class.java, MovieViewHolder::class.java)
 
-        movies_list.layoutManager = GridLayoutManager(this, 3, RecyclerView.VERTICAL, false)
-        //movies_list.layoutManager = StaggeredGridLayoutManager(3, GridLayoutManager.VERTICAL)
+        val spanCount = if (size.widthPixels < size.heightPixels) 3 else 4
+        //movies_list.layoutManager = GridLayoutManager(this, spanCount, RecyclerView.VERTICAL, false)
+        movies_list.layoutManager =
+            StaggeredGridLayoutManager(spanCount, GridLayoutManager.VERTICAL)
+
+        movies_list.addItemDecoration(itemDecoratorVertical)
+        movies_list.addItemDecoration(itemDecoratorHorizontal)
 
         movies_list.setHasFixedSize(true)
         movies_list.adapter = adapter
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
-
         viewModel.isLoading.observe(this, Observer {
             GlobalScope.launch(Dispatchers.Main) {
-                when(it) {
+                when (it) {
                     true -> {
                         progress_bar_layout.show()
                     }
@@ -134,7 +129,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.trendingMovies.observe(this, Observer {
             GlobalScope.launch(Dispatchers.Main) {
                 adapter.addAll(it)
-                content_main.snackbar("movies ${it.size}")
             }
         })
     }
