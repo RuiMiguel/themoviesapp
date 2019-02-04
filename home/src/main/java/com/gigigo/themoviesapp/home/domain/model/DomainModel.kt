@@ -53,7 +53,8 @@ enum class TimeWindow constructor(val time: String) : Serializable {
     companion object {
         fun convertStringToEnum(str: String?): TimeWindow {
             TimeWindow.values().forEach { timeWindow ->
-                return timeWindow.time.takeIf { it.equals(str, ignoreCase = true) }.let { timeWindow }
+                return timeWindow.time.takeIf { it.equals(str, ignoreCase = true) }
+                    .let { timeWindow }
             }
             return WEEK
         }

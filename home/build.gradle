@@ -30,5 +30,8 @@ dependencies {
 
     implementation project(':base')
 
-    implementation "androidx.recyclerview:recyclerview:$rootProject.libraries.recyclerView"
+    implementation "androidx.recyclerview:recyclerview:$libraries.recyclerView"
+    implementation "com.github.Gigigo-Android-Devs:baserecycleradapter:$libraries.baseRecyclerAdapter"
+
+    implementation "com.github.bumptech.glide:glide:$libraries.glide"
 }

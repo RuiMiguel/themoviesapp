@@ -5,11 +5,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.gigigo.themoviesapp.home.domain.model.Movie
 import com.gigigo.themoviesapp.home.domain.usecases.GetTrending
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
-class MainViewModel(private val getTrending: GetTrending) : ViewModel() {
+class MainViewModel(private val getTrending: GetTrending) : ViewModel(), CoroutineScope {
+    private val _job = Job()
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.IO + _job
 
     private val _loading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean>
@@ -20,7 +26,7 @@ class MainViewModel(private val getTrending: GetTrending) : ViewModel() {
         get() = _trendingMovies
 
     fun loadTrendings() {
-        GlobalScope.launch(Dispatchers.IO) {
+        launch {
             _loading.postValue(true)
 
             getTrending().fold(
@@ -36,4 +42,8 @@ class MainViewModel(private val getTrending: GetTrending) : ViewModel() {
         }
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        _job.cancel()
+    }
 }

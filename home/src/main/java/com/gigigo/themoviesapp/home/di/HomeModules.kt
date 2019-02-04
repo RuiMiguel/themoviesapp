@@ -1,5 +1,6 @@
 package com.gigigo.themoviesapp.home.di
 
+import com.gigigo.themoviesapp.base.di.Property
 import com.gigigo.themoviesapp.base.di.createApiService
 import com.gigigo.themoviesapp.home.data.repository.TrendingDataRepository
 import com.gigigo.themoviesapp.home.data.source.ApiService
@@ -35,6 +36,7 @@ val homeDataModule: Module = module {
 
     single {
         NetworkDataSource(
+            apiKey = getProperty(Property.API_KEY),
             api = get(),
             networkHandler = get()
         )

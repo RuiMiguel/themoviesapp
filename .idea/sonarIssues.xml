@@ -3,12 +3,22 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.4.0/451207353948708405a08287e2a315c3f23553fe/retrofit-2.4.0-sources.jar!/retrofit2/Retrofit.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../coca-cola-destapp-android/presentation/src/main/java/com/cocacola/destapp/presentation/di/DestappModule.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../coca-cola-destapp-android/presentation/src/main/java/com/cocacola/destapp/presentation/presentation/ui/challenge/ChallengeDetailFragment.kt">
           <value>
             <set />
           </value>
@@ -29,6 +39,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build/generated/source/buildConfig/demo/debug/com/gigigo/themoviesapp/BuildConfig.java">
           <value>
             <set />
           </value>
@@ -119,6 +134,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/Image.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/SystemUi.kt">
           <value>
             <set />
           </value>
@@ -228,6 +248,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/MovieViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/MovieViewHolderFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/viewmodel/MainViewModel.kt">
           <value>
             <set />
@@ -239,6 +269,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/home/src/main/res/layout/content_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/res/layout/item_movie.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/res/layout/layout_loading.xml">
           <value>
             <set />
           </value>

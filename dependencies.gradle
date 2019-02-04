@@ -7,32 +7,36 @@ allprojects {
         ]
 
         libraries = [
-                appcompat    : '1.1.0-alpha01',
-                legacySupport: '1.0.0',
-                material     : '1.1.0-alpha02',
-                constraint   : '2.0.0-alpha3',
-                annotations  : '15.0',
-                recyclerView : '1.0.0',
+                appcompat           : '1.1.0-alpha01',
+                legacySupport       : '1.0.0',
+                material            : '1.1.0-alpha02',
+                constraint          : '2.0.0-alpha3',
+                annotations         : '15.0',
+                recyclerView        : '1.0.0',
 
-                playcore     : '1.3.6',
+                playcore            : '1.3.6',
 
-                lifecycle    : '2.0.0',
-                room         : '2.1.0-alpha04',
-                navigation   : '1.0.0-alpha11',
+                lifecycle           : '2.0.0',
+                room                : '2.1.0-alpha04',
+                navigation          : '1.0.0-alpha11',
 
-                koin         : '1.0.2',
-                coroutines   : '1.0.0',
-                ktx          : '1.0.1',
+                koin                : '1.0.2',
+                coroutines          : '1.0.0',
+                ktx                 : '1.0.1',
 
-                arrow        : '0.8.2',
+                arrow               : '0.8.2',
 
-                retrofit     : '2.4.0',
-                okhttp3      : '3.11.0',
-                gson         : '2.8.2',
+                retrofit            : '2.4.0',
+                okhttp3             : '3.11.0',
+                gson                : '2.8.2',
 
-                picasso      : '2.71828',
-                debugdb      : '1.0.4',
-                timber       : '4.7.1'
+                glide               : '3.8.0',
+                glideTransformations: '2.0.2',
+                picasso             : '2.71828',
+                debugdb             : '1.0.4',
+                timber              : '4.7.1',
+
+                baseRecyclerAdapter : '1.4.9'
         ]
 
         testLibraries = [

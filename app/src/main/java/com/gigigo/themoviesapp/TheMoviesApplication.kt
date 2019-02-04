@@ -25,6 +25,7 @@ class TheMoviesApplication : Application() {
 
     private fun getExtraProperties(): HashMap<String, String> {
         val extraProperties = HashMap<String, String>()
+        extraProperties[Property.API_KEY] = BuildConfig.API_KEY
         extraProperties[Property.API_URL] = BuildConfig.API_URL
         extraProperties[Property.IMAGE_API_URL] = BuildConfig.IMAGE_API_URL
         return extraProperties

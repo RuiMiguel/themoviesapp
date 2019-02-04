@@ -7,16 +7,14 @@ import com.gigigo.themoviesapp.base.data.utils.ErrorUtils
 import com.gigigo.themoviesapp.base.data.utils.NetworkHandler
 import com.gigigo.themoviesapp.base.domain.error.Failure
 import com.gigigo.themoviesapp.home.data.model.toPage
-import com.gigigo.themoviesapp.home.domain.model.MediaType
 import com.gigigo.themoviesapp.home.domain.model.Page
-import com.gigigo.themoviesapp.home.domain.model.TimeWindow
 
-class NetworkDataSource(private val api: ApiService, private val networkHandler: NetworkHandler) {
+class NetworkDataSource(private val apiKey: String, private val api: ApiService, private val networkHandler: NetworkHandler) {
     fun getTrending(media: String, time: String): Either<Failure, Page> {
         return when (networkHandler.isConnected) {
             true -> {
                 val response =
-                    api.getTrending(media, time, "72db0ed95f9ff0a4bb3c18f69780ef14").execute()
+                    api.getTrending(media, time, apiKey).execute()
                 if (response.isSuccessful) {
                     response.body()?.toPage()?.right()
                         ?: Failure.ServerError("Response error").left()

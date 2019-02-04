@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.BuildConfig
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module.Module
 import org.koin.dsl.module.module
@@ -53,6 +54,7 @@ val dataModule: Module = module {
 }
 
 object Property {
+    const val API_KEY = "API_KEY"
     const val API_URL = "API_URL"
     const val IMAGE_API_URL = "IMAGE_API_URL"
 }

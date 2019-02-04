@@ -6,6 +6,7 @@ ext {
     demo = [appName      : 'The Movies App',
             applicationId: [debug: 'com.gigigo.themoviesapp'],
 
+            apiKey: "72db0ed95f9ff0a4bb3c18f69780ef14",
             apiUrl       : [debug: 'https://api.themoviedb.org/3/'],
             imageApiUrl  : [debug: 'https://image.tmdb.org/t/p/']
     ]

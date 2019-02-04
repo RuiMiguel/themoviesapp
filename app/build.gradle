@@ -8,6 +8,7 @@ apply from: '../kococo.gradle'
 
 def GIT_SHA = "GIT_SHA"
 def BUILD_TIME = "BUILD_TIME"
+def API_KEY = "API_KEY"
 def API_URL = "API_URL"
 def IMAGE_API_URL = "IMAGE_API_URL"
 
@@ -84,6 +85,7 @@ android {
 
             //setVariantBuildConfigField(variant, gitSha, GIT_SHA, STRING)
             setVariantBuildConfigField(variant, buildTime, BUILD_TIME, STRING)
+            setVariantBuildConfigField(variant, flavorData.apiKey, API_KEY, STRING)
             setVariantBuildConfigField(variant, flavorData.apiUrl, API_URL, STRING)
             setVariantBuildConfigField(variant, flavorData.imageApiUrl, IMAGE_API_URL, STRING)
         }
@@ -96,11 +98,11 @@ dependencies {
     implementation project(':base')
     implementation project(':home')
 
-    implementation "androidx.room:room-runtime:$rootProject.libraries.room"
-    kapt "androidx.room:room-compiler:$rootProject.libraries.room"
-    implementation "android.arch.navigation:navigation-fragment:$rootProject.libraries.navigation"
-    implementation "android.arch.navigation:navigation-ui:$rootProject.libraries.navigation"
+    implementation "androidx.room:room-runtime:$libraries.room"
+    kapt "androidx.room:room-compiler:$libraries.room"
+    implementation "android.arch.navigation:navigation-fragment:$libraries.navigation"
+    implementation "android.arch.navigation:navigation-ui:$libraries.navigation"
 
     // Test helpers for Room
-    testImplementation "androidx.room:room-testing:$rootProject.libraries.room"
+    testImplementation "androidx.room:room-testing:$libraries.room"
 }
