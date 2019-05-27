@@ -1,4 +1,4 @@
-package com.gigigo.themoviesapp.base.domain.model
+package com.gigigo.themoviesapp.splash.domain.model
 
 data class Configuration(
     val images: Images,

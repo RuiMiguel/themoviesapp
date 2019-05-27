@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.gigigo.baserecycleradapter.adapter.BaseRecyclerAdapter
+import com.gigigo.themoviesapp.base.ui.navigation.Navigator
 import com.gigigo.themoviesapp.base.ui.utils.extensions.hide
 import com.gigigo.themoviesapp.base.ui.utils.extensions.screenSize
 import com.gigigo.themoviesapp.base.ui.utils.extensions.show
@@ -23,14 +24,22 @@ import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
 import kotlinx.android.synthetic.main.content_main.movies_list
 import kotlinx.android.synthetic.main.content_main.progress_bar_layout
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.standalone.StandAloneContext.loadKoinModules
-import kotlin.system.measureTimeMillis
+import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CoroutineScope {
+    private val _job = Job()
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + _job
+
+    private val navigator: Navigator by inject()
 
     private val viewModel by viewModel<MainViewModel>()
     private lateinit var adapter: BaseRecyclerAdapter<Movie>
@@ -42,6 +51,14 @@ class MainActivity : AppCompatActivity() {
         loadKoinModules(homeModules)
         initUI()
         initViewModel()
+
+        navigator.activity = this
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _job.cancel()
+        navigator.activity = null
     }
 
     private fun initUI() {
@@ -115,22 +132,26 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViewModel() {
         viewModel.isLoading.observe(this, Observer {
-            GlobalScope.launch(Dispatchers.Main) {
-                when (it) {
-                    true -> {
-                        progress_bar_layout.show()
-                    }
-                    false -> {
-                        progress_bar_layout.hide()
-                    }
-                }
-            }
+            showLoading(it)
         })
         viewModel.trendingMovies.observe(this, Observer {
-            GlobalScope.launch(Dispatchers.Main) {
+            launch(Dispatchers.Main) {
                 adapter.addAll(it)
             }
         })
+    }
+
+    private fun showLoading(loading: Boolean) {
+        launch(Dispatchers.Main) {
+            when (loading) {
+                true -> {
+                    progress_bar_layout.show()
+                }
+                false -> {
+                    progress_bar_layout.hide()
+                }
+            }
+        }
     }
 
     override fun onBackPressed() {

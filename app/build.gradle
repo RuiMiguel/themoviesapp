@@ -19,6 +19,14 @@ android {
         minSdkVersion androidSdk.min
         targetSdkVersion androidSdk.target
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
+        multiDexEnabled true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -33,6 +41,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -96,13 +105,34 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':base')
+    implementation project(':splash')
     implementation project(':home')
 
-    implementation "androidx.room:room-runtime:$libraries.room"
-    kapt "androidx.room:room-compiler:$libraries.room"
-    implementation "android.arch.navigation:navigation-fragment:$libraries.navigation"
-    implementation "android.arch.navigation:navigation-ui:$libraries.navigation"
+    implementation "androidx.multidex:multidex:$libraries.multidex"
 
-    // Test helpers for Room
-    testImplementation "androidx.room:room-testing:$libraries.room"
+    //implementation "androidx.browser:browser:$libraries.browser"
+
+    implementation "com.github.Gigigo-Android-Devs:gigigo-permissions-library-android:$libraries.permissions"
+
+    // Firebase
+    //implementation "com.google.firebase:firebase-core:$libraries.firebaseCore"
+    //implementation "com.google.firebase:firebase-messaging:$libraries.firebaseMessaging"
+
+    //Google SignIn
+    //implementation "com.google.android.gms:play-services-auth:$libraries.googleSignIn"
+
+    //Facebook SignIn
+    //implementation "com.facebook.android:facebook-login:$libraries.facebookSignIn"
+
+    //Room
+    //implementation "androidx.room:room-common:$libraries.room"
+    kapt "androidx.room:room-compiler:$libraries.room"
+    implementation "androidx.room:room-runtime:$libraries.room"
+    implementation "androidx.room:room-ktx:$libraries.room"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$libraries.navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$libraries.navigation"
+
+    debugImplementation "com.amitshekhar.android:debug-db:$libraries.debugDatabase"
 }

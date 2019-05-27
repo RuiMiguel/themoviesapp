@@ -1,7 +1,7 @@
-package com.gigigo.themoviesapp.base.data.model
+package com.gigigo.themoviesapp.splash.data.model
 
-import com.gigigo.themoviesapp.base.domain.model.Configuration
-import com.gigigo.themoviesapp.base.domain.model.Images
+import com.gigigo.themoviesapp.splash.domain.model.Configuration
+import com.gigigo.themoviesapp.splash.domain.model.Images
 
 fun ApiConfiguration.toConfiguration(): Configuration {
     return Configuration(
@@ -11,7 +11,15 @@ fun ApiConfiguration.toConfiguration(): Configuration {
 }
 
 private fun emptyImages() =
-    Images("", "", emptyList(), emptyList(), emptyList(), emptyList(), emptyList())
+    Images(
+        "",
+        "",
+        emptyList(),
+        emptyList(),
+        emptyList(),
+        emptyList(),
+        emptyList()
+    )
 
 fun ApiImages.toImages(): Images {
     return Images(

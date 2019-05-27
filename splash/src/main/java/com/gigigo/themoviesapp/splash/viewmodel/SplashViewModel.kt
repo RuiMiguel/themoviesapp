@@ -1,11 +1,10 @@
-package com.gigigo.themoviesapp.home.viewmodel
+package com.gigigo.themoviesapp.splash.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.gigigo.themoviesapp.home.domain.model.Movie
-import com.gigigo.themoviesapp.home.domain.usecases.GetTrending
-import com.gigigo.themoviesapp.home.viewmodel.navigation.HomeCoordinator
+import com.gigigo.themoviesapp.splash.domain.usecases.GetConfiguration
+import com.gigigo.themoviesapp.splash.viewmodel.navigation.SplashCoordinator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -13,10 +12,11 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import kotlin.coroutines.CoroutineContext
 
-class MainViewModel(
-    private val coordinator: HomeCoordinator,
-    private val getTrending: GetTrending
-) : ViewModel(), CoroutineScope {
+class SplashViewModel(
+    private val coordinator: SplashCoordinator,
+    private val getConfiguration: GetConfiguration
+) : ViewModel(),
+    CoroutineScope {
     private val _job = Job()
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.IO + _job
@@ -25,26 +25,22 @@ class MainViewModel(
     val isLoading: LiveData<Boolean>
         get() = _loading
 
-    private val _trendingMovies = MutableLiveData<List<Movie>>()
-    val trendingMovies: LiveData<List<Movie>>
-        get() = _trendingMovies
-
     init {
-        loadTrendings()
+        loadConfiguration()
     }
 
-    fun loadTrendings() {
+    private fun loadConfiguration() {
         launch {
             _loading.postValue(true)
 
-            getTrending().fold(
+            getConfiguration().fold(
                 {
                     _loading.postValue(false)
 
                 },
                 {
                     _loading.postValue(false)
-                    _trendingMovies.postValue(it)
+                    coordinator.goHome()
                 }
             )
         }
@@ -53,6 +49,6 @@ class MainViewModel(
     override fun onCleared() {
         super.onCleared()
         _job.cancel()
-        Timber.d("MainViewModel onCleared")
+        Timber.d("SplashViewModel onCleared")
     }
 }

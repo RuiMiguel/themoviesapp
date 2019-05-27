@@ -3,6 +3,7 @@ package com.gigigo.themoviesapp
 import android.app.Application
 import com.gigigo.themoviesapp.base.di.Property
 import com.gigigo.themoviesapp.base.di.baseModules
+import com.gigigo.themoviesapp.di.appModules
 import org.koin.android.ext.android.startKoin
 import org.koin.android.logger.AndroidLogger
 
@@ -16,7 +17,7 @@ class TheMoviesApplication : Application() {
     private fun initDI() {
         startKoin(
             androidContext = this,
-            modules = baseModules,
+            modules = appModules.union(baseModules).toList(),
             extraProperties = getExtraProperties(),
             loadPropertiesFromFile = false,
             logger = AndroidLogger()

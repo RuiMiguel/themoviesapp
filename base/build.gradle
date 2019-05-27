@@ -11,7 +11,6 @@ android {
         targetSdkVersion androidSdk.target
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -30,36 +29,50 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api "androidx.appcompat:appcompat:$libraries.appcompat"
-    api "androidx.legacy:legacy-support-v4:$libraries.legacySupport"
+    api "androidx.constraintlayout:constraintlayout:$libraries.constraintLayout"
     api "com.google.android.material:material:$libraries.material"
-    api "androidx.constraintlayout:constraintlayout:$libraries.constraint"
+    api "androidx.annotation:annotation:${libraries.annotation}"
 
-    api "androidx.lifecycle:lifecycle-extensions:$libraries.lifecycle"
-    kapt "androidx.lifecycle:lifecycle-compiler:$libraries.lifecycle"
-
-    api "androidx.core:core-ktx:$libraries.ktx"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "androidx.core:core-ktx:$libraries.ktx"
 
+    // Coroutines
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$libraries.coroutines"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$libraries.coroutines"
 
+    // Arrow
     api "io.arrow-kt:arrow-core:$libraries.arrow"
 
+    // Koin for Kotlin
     api "org.koin:koin-android:$libraries.koin"
-    api "org.koin:koin-android-scope:$libraries.koin"
-    api "org.koin:koin-android-viewmodel:$libraries.koin"
+    api "org.koin:koin-androidx-viewmodel:$libraries.koin"
 
-    api "com.jakewharton.timber:timber:$libraries.timber"
+    // View Model and Live Data
+    api "androidx.lifecycle:lifecycle-extensions:$libraries.lifecycle"
 
+    // Worker Manager
+    //api "androidx.work:work-runtime-ktx:$libraries.workManager"
+
+    // Retrofit
     api "com.google.code.gson:gson:$libraries.gson"
     api "com.squareup.retrofit2:retrofit:$libraries.retrofit"
-    api "com.squareup.retrofit2:converter-gson:$libraries.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$libraries.retrofit"
     api "com.squareup.okhttp3:logging-interceptor:$libraries.okhttp3"
 
-    testImplementation "junit:junit:$testLibraries.junit"
-    androidTestImplementation "androidx.test:runner:$testLibraries.runner"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$testLibraries.espressoCore"
+    // Glide
+    api "com.github.bumptech.glide:glide:${libraries.glide}"
+    kapt "com.github.bumptech.glide:compiler:${libraries.glide}"
+    implementation ("com.github.bumptech.glide:okhttp3-integration:${libraries.glide}"){
+        exclude group: 'glide-parent'
+    }
 
-    // Test helpers for LiveData
-    testImplementation "androidx.arch.core:core-testing:$libraries.lifecycle"
+    // Logs
+    api "com.jakewharton.timber:timber:${libraries.timber}"
+
+    // Test
+    api "junit:junit:$testLibraries.junit"
+    api "androidx.arch.core:core-testing:$testLibraries.archCore"
+    api "org.mockito:mockito-core:$testLibraries.mockito"
+    api "com.nhaarman.mockitokotlin2:mockito-kotlin:$testLibraries.mockitokt"
+    androidTestImplementation "androidx.work:work-testing:$libraries.workManager"
 }

@@ -10,7 +10,7 @@ import java.io.IOException
 object ErrorUtils: KoinComponent{
     private val retrofit: Retrofit by inject()
 
-    fun parseError(response: Response<*>): ApiError {
+    fun parseError(response: Response<*>): ApiError? {
         val converter = retrofit.responseBodyConverter<ApiError>(ApiError::class.java, arrayOf())
 
         return try {

@@ -12,11 +12,10 @@ class ConnectionInterceptor(private val networkHandler: NetworkHandler) : Interc
         when (networkHandler.isConnected) {
             true -> {
                 val request = chain.request()
-                val response = chain.proceed(request)
-                return response
+                return chain.proceed(request)
             }
             false -> {
-                throw IOException("")
+                throw IOException("Network not connected!")
             }
         }
     }

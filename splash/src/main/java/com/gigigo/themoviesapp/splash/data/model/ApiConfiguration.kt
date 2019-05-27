@@ -1,4 +1,4 @@
-package com.gigigo.themoviesapp.base.data.model
+package com.gigigo.themoviesapp.splash.data.model
 
 import com.google.gson.annotations.SerializedName
 
