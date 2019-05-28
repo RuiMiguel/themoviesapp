@@ -15,14 +15,14 @@ import org.koin.dsl.module.module
 
 @JvmField
 val homePresentationModule: Module = module {
-    viewModel {
+    viewModel(override = true) {
         MainViewModel(
             coordinator = get(),
             getTrending = get()
         )
     }
 
-    single {
+    single(override = true) {
         HomeCoordinator(
             navigation = get()
         )
@@ -31,23 +31,23 @@ val homePresentationModule: Module = module {
 
 @JvmField
 val homeDomainModule: Module = module {
-    factory { GetTrending(trendingRepository = get()) }
+    factory(override = true)  { GetTrending(trendingRepository = get()) }
 }
 
 @JvmField
 val homeDataModule: Module = module {
-    single {
+    single(override = true)  {
         TrendingDataRepository(networkDataSource = get())
     } bind (TrendingRepository::class)
 
-    single {
+    single(override = true) {
         NetworkDataSource(
             apiKey = getProperty(Property.API_KEY),
             api = get()
         )
     }
 
-    single { createApiService<ApiService>(get()) } bind (ApiService::class)
+    single(override = true) { createApiService<ApiService>(get()) } bind (ApiService::class)
 }
 
 @JvmField

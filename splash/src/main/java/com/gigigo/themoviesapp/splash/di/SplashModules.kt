@@ -15,14 +15,14 @@ import org.koin.dsl.module.module
 
 @JvmField
 val splashPresentationModule: Module = module {
-    viewModel {
+    viewModel(override = true) {
         SplashViewModel(
             coordinator = get(),
             getConfiguration = get()
         )
     }
 
-    single {
+    single(override = true) {
         SplashCoordinator(
             navigation = get()
         )
@@ -31,7 +31,7 @@ val splashPresentationModule: Module = module {
 
 @JvmField
 val splashDomainModule: Module = module {
-    factory {
+    factory(override = true)  {
         GetConfiguration(
             configurationRepository = get()
         )
@@ -40,18 +40,18 @@ val splashDomainModule: Module = module {
 
 @JvmField
 val splashDataModule: Module = module {
-    single {
+    single(override = true)  {
         ConfigurationDataRepository(networkDataSource = get())
     } bind (ConfigurationRepository::class)
 
-    single {
+    single(override = true) {
         NetworkDataSource(
             apiKey = getProperty(Property.API_KEY),
             api = get()
         )
     }
 
-    single { createApiService<ApiService>(get()) } bind (ApiService::class)
+    single(override = true) { createApiService<ApiService>(get()) } bind (ApiService::class)
 }
 
 @JvmField
