@@ -2,23 +2,12 @@ package com.gigigo.themoviesapp.home.domain.model
 
 import java.io.Serializable
 
-data class Page(
-    val page: Int,
-    val results: List<Movie>,
-    val totalPages: Int,
-    val totalResults: Int
-)
-
 data class Movie(
     val adult: Boolean,
     val backdropPath: String,
-    val firstAirDate: String,
     val genreIds: List<Int>,
     val id: Int,
-    val name: String,
-    val originCountry: List<String>,
     val originalLanguage: String,
-    val originalName: String,
     val originalTitle: String,
     val overview: String,
     val popularity: Double,
@@ -29,6 +18,39 @@ data class Movie(
     val voteAverage: Double,
     val voteCount: Int
 )
+
+data class LatestMovie (
+    val adult: Boolean,
+    val backdropPath: String,
+    val belongsToCollection: Any,
+    val budget: Int,
+    val genres: List<Genre>,
+    val homepage: String,
+    val id: Int,
+    val imdbId: String,
+    val originalLanguage: String,
+    val originalTitle: String,
+    val overview: String,
+    val popularity: Int,
+    val posterPath: String,
+    val productionCompanies: List<Any> ,
+    val productionCountries: List<Any>,
+    val releaseDate: String,
+    val revenue: Int,
+    val runtime: Int,
+    val spokenLanguages: List<Any>,
+    val status: String,
+    val tagLine: String,
+    val title: String,
+    val video: Boolean,
+    val voteAverage: Int,
+    val voteCount: Int
+) {
+    data class Genre(
+        val id: Int,
+        val name: String
+    )
+}
 
 enum class MediaType constructor(val type: String) : Serializable {
     ALL("all"),
@@ -60,3 +82,4 @@ enum class TimeWindow constructor(val time: String) : Serializable {
         }
     }
 }
+
