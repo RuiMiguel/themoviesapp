@@ -9,20 +9,22 @@ import com.gigigo.themoviesapp.home.domain.repository.TrendingRepository
 import com.gigigo.themoviesapp.home.domain.usecases.GetTrending
 import com.gigigo.themoviesapp.home.viewmodel.MainViewModel
 import com.gigigo.themoviesapp.home.viewmodel.navigation.HomeCoordinator
-import org.koin.androidx.viewmodel.ext.koin.viewModel
-import org.koin.dsl.module.Module
-import org.koin.dsl.module.module
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.Module
+import org.koin.dsl.bind
+import org.koin.dsl.module
+
 
 @JvmField
 val homePresentationModule: Module = module {
-    viewModel(override = true) {
+    viewModel {
         MainViewModel(
             coordinator = get(),
             getTrending = get()
         )
     }
 
-    single(override = true) {
+    single {
         HomeCoordinator(
             navigation = get()
         )
@@ -31,23 +33,23 @@ val homePresentationModule: Module = module {
 
 @JvmField
 val homeDomainModule: Module = module {
-    factory(override = true)  { GetTrending(trendingRepository = get()) }
+    factory { GetTrending(trendingRepository = get()) }
 }
 
 @JvmField
 val homeDataModule: Module = module {
-    single(override = true)  {
+    single {
         TrendingDataRepository(networkDataSource = get())
-    } bind (TrendingRepository::class)
+    } bind TrendingRepository::class
 
-    single(override = true) {
+    single {
         NetworkDataSource(
             apiKey = getProperty(Property.API_KEY),
             api = get()
         )
     }
 
-    single(override = true) { createApiService<ApiService>(get()) } bind (ApiService::class)
+    single { createApiService<ApiService>(get()) } bind ApiService::class
 }
 
 @JvmField

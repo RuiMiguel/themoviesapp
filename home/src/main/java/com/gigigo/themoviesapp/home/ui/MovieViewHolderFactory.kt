@@ -12,10 +12,11 @@ class MovieViewHolderFactory(
     private val size: DisplayMetrics,
     private val apiImageUrl: String
 ) : BaseViewHolderFactory(context) {
-    override fun create(valueClass: Class<*>?, parent: ViewGroup): BaseViewHolder<*>? {
+
+    override fun create(valueClass: Class<*>, parent: ViewGroup): BaseViewHolder<*> {
         return when (valueClass) {
             Movie::class.java -> MovieViewHolder(context, parent, size, apiImageUrl)
-            else -> null
+            else -> super.create(valueClass, parent)
         }
     }
 }

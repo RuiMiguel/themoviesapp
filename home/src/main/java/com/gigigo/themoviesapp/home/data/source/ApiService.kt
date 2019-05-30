@@ -7,7 +7,11 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("trending/{media_type}/{time_window}")
+    companion object {
+        private const val TRENDING = "trending/{media_type}/{time_window}"
+    }
+
+    @GET(TRENDING)
     fun getTrending(
         @Path("media_type") media: String,
         @Path("time_window") time: String,

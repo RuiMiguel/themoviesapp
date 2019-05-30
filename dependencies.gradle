@@ -28,10 +28,10 @@ ext {
 
             lifecycle          : '2.0.0',
             room               : '2.1.0-beta01',
-            navigation         : '2.1.0-alpha02',
+            navigation         : '2.1.0-alpha04',
             workManager        : '2.0.0-rc01',
 
-            koin               : '1.0.2',
+            koin               : '2.0.0',
             coroutines         : '1.0.0',
             ktx                : '1.2.0-alpha01',
 
@@ -47,7 +47,7 @@ ext {
             timber             : '4.7.1',
 
             permissions        : '0.3RC',
-            baseRecyclerAdapter: '2.0.1RC',
+            baseRecyclerAdapter: 'feature~kotlin-SNAPSHOT', //2.3.0
 
             debugDatabase      : '1.0.4'
     ]

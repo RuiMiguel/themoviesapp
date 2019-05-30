@@ -71,6 +71,7 @@ dependencies {
 
     // Test
     api "junit:junit:$testLibraries.junit"
+    api "org.koin:koin-test:$libraries.koin"
     api "androidx.arch.core:core-testing:$testLibraries.archCore"
     api "org.mockito:mockito-core:$testLibraries.mockito"
     api "com.nhaarman.mockitokotlin2:mockito-kotlin:$testLibraries.mockitokt"

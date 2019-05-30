@@ -9,20 +9,21 @@ import com.gigigo.themoviesapp.splash.data.source.ApiService
 import com.gigigo.themoviesapp.splash.data.source.NetworkDataSource
 import com.gigigo.themoviesapp.splash.viewmodel.SplashViewModel
 import com.gigigo.themoviesapp.splash.viewmodel.navigation.SplashCoordinator
-import org.koin.androidx.viewmodel.ext.koin.viewModel
-import org.koin.dsl.module.Module
-import org.koin.dsl.module.module
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.Module
+import org.koin.dsl.bind
+import org.koin.dsl.module
 
 @JvmField
 val splashPresentationModule: Module = module {
-    viewModel(override = true) {
+    viewModel {
         SplashViewModel(
             coordinator = get(),
             getConfiguration = get()
         )
     }
 
-    single(override = true) {
+    single {
         SplashCoordinator(
             navigation = get()
         )
@@ -40,18 +41,18 @@ val splashDomainModule: Module = module {
 
 @JvmField
 val splashDataModule: Module = module {
-    single(override = true)  {
+    single {
         ConfigurationDataRepository(networkDataSource = get())
-    } bind (ConfigurationRepository::class)
+    } bind ConfigurationRepository::class
 
-    single(override = true) {
+    single {
         NetworkDataSource(
             apiKey = getProperty(Property.API_KEY),
             api = get()
         )
     }
 
-    single(override = true) { createApiService<ApiService>(get()) } bind (ApiService::class)
+    single { createApiService<ApiService>(get()) } bind ApiService::class
 }
 
 @JvmField

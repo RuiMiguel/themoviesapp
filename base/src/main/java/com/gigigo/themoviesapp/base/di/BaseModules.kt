@@ -8,8 +8,10 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidApplication
-import org.koin.dsl.module.Module
-import org.koin.dsl.module.module
+import org.koin.core.module.Module
+import org.koin.core.qualifier.named
+import org.koin.dsl.bind
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -33,14 +35,14 @@ val dataModule: Module = module {
         provideLoggingInterceptor()
     } bind HttpLoggingInterceptor::class
 
-    single("ConnectionInterceptor") {
+    single(named("ConnectionInterceptor")) {
         ConnectionInterceptor(networkHandler = get())
     } bind Interceptor::class
 
     single {
         createOkHttpClient(
             loggingInterceptor = get(),
-            errorInterceptor = get("ConnectionInterceptor")
+            errorInterceptor = get(named("ConnectionInterceptor"))
         )
     }
 

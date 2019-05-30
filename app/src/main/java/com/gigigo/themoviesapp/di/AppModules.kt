@@ -2,14 +2,15 @@ package com.gigigo.themoviesapp.di
 
 import com.gigigo.themoviesapp.base.ui.navigation.Navigator
 import com.gigigo.themoviesapp.navigation.AppNavigator
-import org.koin.dsl.module.Module
-import org.koin.dsl.module.module
+import org.koin.core.module.Module
+import org.koin.dsl.bind
+import org.koin.dsl.module
 
 @JvmField
 val appPresentationModule: Module = module {
     single {
         AppNavigator()
-    } bind (Navigator::class)
+    } bind Navigator::class
 }
 
 @JvmField

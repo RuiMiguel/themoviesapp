@@ -33,6 +33,86 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/README.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/app/src/main/java/com/gigigo/baserecycleradapter_demoapp/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/app/src/main/java/com/gigigo/baserecycleradapter_demoapp/entities/ImageCell.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/app/src/main/java/com/gigigo/baserecycleradapter_demoapp/entities/ImageCell.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/app/src/main/java/com/gigigo/baserecycleradapter_demoapp/entities/TextCell.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/app/src/main/java/com/gigigo/baserecycleradapter_demoapp/factory/CustomViewHolderFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/app/src/main/java/com/gigigo/baserecycleradapter_demoapp/viewholder/ImageViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/app/src/main/java/com/gigigo/baserecycleradapter_demoapp/viewholder/TextViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/baserecycleradapter/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/baserecycleradapter/src/main/java/com/gigigo/baserecycleradapter/adapter/BaseRecyclerAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/baserecycleradapter/src/main/java/com/gigigo/baserecycleradapter/debouncedlisteners/DebouncedClickHandler.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/baserecycleradapter/src/main/java/com/gigigo/baserecycleradapter/debouncedlisteners/DebouncedOnClickListener.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/baserecycleradapter/src/main/java/com/gigigo/baserecycleradapter/debouncedlisteners/DebouncedOnLongClickListener.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/baserecycleradapter/src/main/java/com/gigigo/baserecycleradapter/viewholder/BaseViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../gigigo-baseRecyclerAdapter-library-android/baserecycleradapter/src/main/java/com/gigigo/baserecycleradapter/viewholder/BaseViewHolderFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../klikin-user-android-3/app/build.gradle">
           <value>
             <set />
@@ -228,7 +308,497 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/data/model/Product.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/data/repository/ScanRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/data/rest/api/DELETE_WITH_BODY.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/data/rest/api/ScanApiService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/domain/interactor/RemoveShoppingProductFromCartUseCase.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/fragment/payment/PaymentSelectionFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/fragment/scan/ScanProductFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/fragment/scan/ShoppingCartFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/fragment/scan/adapter/ScanProductBigPromoListAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/fragment/scan/adapter/ScanProductListAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/fragment/scan/adapter/ScanProductPromoListAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/fragment/scan/viewholder/CartProductBigPromoViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/fragment/scan/viewholder/CartProductPromoViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/fragment/scan/viewholder/CartProductViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/lists/holder/CashbackMovementAggregateViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/lists/holder/CommerceRowViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/lists/holder/PaymentTransactionAggregateViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/viewmodel/ExploreViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/viewmodel/ScanViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/widget/Button.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/color/botom_navigation_bar_item_color.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/color/selector_appearance_map_option.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/color/switch_thumb_color.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/color/switch_track_color.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/background_button_commerce_show_map.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/background_button_primary_pill.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/background_button_primary_rounded.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/background_button_primary_square.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/background_movement_aggregate_blue.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/background_movement_aggregate_dark_blue.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/background_movement_aggregate_gold.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/background_movement_aggregate_orange.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/button_background_primary.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/button_floating_navigation_bottom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_account_filled.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_account_outline.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_add_product.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_box.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_box_outline.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_cart_preview.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_chevron_down.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_edit.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_home_filled.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_home_outline.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_phone.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_phone_orange.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_pointer_filled_orange.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_round_button.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_substract_product.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_switch_track.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_tag_filled.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_tag_outline.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_thumb_checked.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_thumb_unchecked.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_track_checked.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/ic_track_unchecked.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/seekbar_add_amount_thumb.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/switch_thumb.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/switch_track.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/drawable/test.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout-h900dp/fragment_authentication.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/content_home_explore.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/content_scan_cart.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/content_scan_product.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_about_waylet.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_advertisement.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_app_settings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_appearance_settings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_authentication.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_commerce_detail.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_dialog_select_pump.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_gamification_info.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_home.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_home_account.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_home_explore.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_home_offer_plans.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_payment_methods.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_payment_success.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_profile.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_promotion_friend.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_recover_password.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_repsol_cad_info.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/fragment_shopping_cart.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/list_item_cart_product.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/list_item_cart_product_big_promo.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/list_item_cart_product_promo.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/list_item_cashback_movement_aggregate.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/list_item_commerce.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/list_item_gamification_movement_aggregate.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/list_item_payment_transaction_aggregate.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/list_item_payment_transaction_item.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/list_item_payment_transaction_section.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/list_item_profile_personal_data_image.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/list_item_saving_movement_item.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/layout/view_amount_selector.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/menu/home_bottom_menu.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/values/colors.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/res/values/styles.xml">
           <value>
             <set />
           </value>
@@ -328,6 +898,56 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/account/FiscalDataListFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/account/MyBillsFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/account/viewholder/AccountBillHeaderViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/account/viewholder/AccountBillViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/account/viewholder/FiscalDataViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/ads/AdsDialog.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/ads/DetailAdsFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/ads/viewholder/AdsActionViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/ads/viewholder/AdsDialogActionViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/ads/viewholder/AdsSectionViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/detail/DetailFragment.kt">
           <value>
             <set />
@@ -368,6 +988,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/home/viewholder/AdsViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/home/viewholder/BillViewHolder.kt">
           <value>
             <set />
@@ -389,6 +1014,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/map/MapMarker.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/register/RegisterFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/scan/CameraPermissionFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/scan/ScanFormFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/scan/viewholder/FiscalDataScanViewHolder.kt">
           <value>
             <set />
           </value>
@@ -1058,6 +1703,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/data/model/ApiMovieModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/data/model/ApiTvModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/data/model/MOVIEAPI.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/data/model/TVAPI.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/data/model/TmdbModel.kt">
           <value>
             <set />
@@ -1073,7 +1738,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/data/source/MovieApiService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/data/source/NetworkDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/data/source/TvApiService.kt">
           <value>
             <set />
           </value>

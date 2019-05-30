@@ -16,7 +16,10 @@ import com.gigigo.themoviesapp.base.ui.utils.extensions.hide
 import com.gigigo.themoviesapp.base.ui.utils.extensions.screenSize
 import com.gigigo.themoviesapp.base.ui.utils.extensions.show
 import com.gigigo.themoviesapp.home.R
+import com.gigigo.themoviesapp.home.di.homeDataModule
+import com.gigigo.themoviesapp.home.di.homeDomainModule
 import com.gigigo.themoviesapp.home.di.homeModules
+import com.gigigo.themoviesapp.home.di.homePresentationModule
 import com.gigigo.themoviesapp.home.domain.model.Movie
 import com.gigigo.themoviesapp.home.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
@@ -30,7 +33,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.standalone.StandAloneContext.loadKoinModules
+import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
 import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
@@ -48,7 +52,8 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        loadKoinModules(homeModules)
+        homeModules.forEach { loadKoinModules(it) }
+
         initUI()
         initViewModel()
 
@@ -58,6 +63,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
     override fun onDestroy() {
         super.onDestroy()
         _job.cancel()
+        unloadKoinModules(homeModules)
         navigator.activity = null
     }
 
@@ -116,7 +122,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
         adapter =
             BaseRecyclerAdapter(MovieViewHolderFactory(this, size, "https://image.tmdb.org/t/p/"))
-        adapter.bind(Movie::class.java, MovieViewHolder::class.java)
+        adapter.bind<Movie, MovieViewHolder>()
 
         val spanCount = if (size.widthPixels < size.heightPixels) 3 else 4
         //movies_list.layoutManager = GridLayoutManager(this, spanCount, RecyclerView.VERTICAL, false)

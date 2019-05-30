@@ -4,8 +4,8 @@ import android.app.Application
 import com.gigigo.themoviesapp.base.di.Property
 import com.gigigo.themoviesapp.base.di.baseModules
 import com.gigigo.themoviesapp.di.appModules
-import org.koin.android.ext.android.startKoin
-import org.koin.android.logger.AndroidLogger
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
 class TheMoviesApplication : Application() {
     override fun onCreate() {
@@ -15,13 +15,12 @@ class TheMoviesApplication : Application() {
     }
 
     private fun initDI() {
-        startKoin(
-            androidContext = this,
-            modules = appModules.union(baseModules).toList(),
-            extraProperties = getExtraProperties(),
-            loadPropertiesFromFile = false,
-            logger = AndroidLogger()
-        )
+        startKoin {
+            androidContext(applicationContext)
+            modules(appModules.union(baseModules).toList())
+            properties(getExtraProperties())
+            printLogger()
+        }
     }
 
     private fun getExtraProperties(): HashMap<String, String> {
