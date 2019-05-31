@@ -12,7 +12,12 @@ import com.gigigo.themoviesapp.home.data.source.TvApiService
 import com.gigigo.themoviesapp.home.data.source.TvNetworkDataSource
 import com.gigigo.themoviesapp.home.domain.repository.MovieRepository
 import com.gigigo.themoviesapp.home.domain.repository.TrendingRepository
+import com.gigigo.themoviesapp.home.domain.usecases.GetLatestMovie
+import com.gigigo.themoviesapp.home.domain.usecases.GetNowPlayingMovies
+import com.gigigo.themoviesapp.home.domain.usecases.GetPopularMovies
+import com.gigigo.themoviesapp.home.domain.usecases.GetTopRatedMovies
 import com.gigigo.themoviesapp.home.domain.usecases.GetTrending
+import com.gigigo.themoviesapp.home.domain.usecases.GetUpcomingMovies
 import com.gigigo.themoviesapp.home.viewmodel.MainViewModel
 import com.gigigo.themoviesapp.home.viewmodel.navigation.HomeCoordinator
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -26,7 +31,12 @@ val homePresentationModule: Module = module {
     viewModel {
         MainViewModel(
             coordinator = get(),
-            getTrending = get()
+            getTrending = get(),
+            getLatestMovie = get(),
+            getNowPlayingMovies = get(),
+            getPopularMovies = get(),
+            getTopRatedMovies = get(),
+            getUpcomingMovies = get()
         )
     }
 
@@ -40,6 +50,12 @@ val homePresentationModule: Module = module {
 @JvmField
 val homeDomainModule: Module = module {
     factory { GetTrending(trendingRepository = get()) }
+
+    factory { GetLatestMovie(movieRepository = get()) }
+    factory { GetNowPlayingMovies(movieRepository = get()) }
+    factory { GetPopularMovies(movieRepository = get()) }
+    factory { GetTopRatedMovies(movieRepository = get()) }
+    factory { GetUpcomingMovies(movieRepository = get()) }
 }
 
 @JvmField

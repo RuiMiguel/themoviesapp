@@ -17,9 +17,9 @@ class MovieNetworkDataSource(
     private val api: MovieApiService
 ) {
 
-    fun getLatest(time: String): Either<Failure, LatestMovie> {
+    fun getLatest(language: String): Either<Failure, LatestMovie> {
         return Try {
-            api.getLatest(time, apiKey).execute()
+            api.getLatest(language, apiKey).execute()
 
         }.fold(
             {

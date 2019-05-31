@@ -4,7 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.gigigo.themoviesapp.home.domain.model.Movie
+import com.gigigo.themoviesapp.home.domain.usecases.GetLatestMovie
+import com.gigigo.themoviesapp.home.domain.usecases.GetNowPlayingMovies
+import com.gigigo.themoviesapp.home.domain.usecases.GetPopularMovies
+import com.gigigo.themoviesapp.home.domain.usecases.GetTopRatedMovies
 import com.gigigo.themoviesapp.home.domain.usecases.GetTrending
+import com.gigigo.themoviesapp.home.domain.usecases.GetUpcomingMovies
 import com.gigigo.themoviesapp.home.viewmodel.navigation.HomeCoordinator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +20,12 @@ import kotlin.coroutines.CoroutineContext
 
 class MainViewModel(
     private val coordinator: HomeCoordinator,
-    private val getTrending: GetTrending
+    private val getTrending: GetTrending,
+    private val getLatestMovie: GetLatestMovie,
+    private val getNowPlayingMovies: GetNowPlayingMovies,
+    private val getPopularMovies: GetPopularMovies,
+    private val getTopRatedMovies: GetTopRatedMovies,
+    private val getUpcomingMovies: GetUpcomingMovies
 ) : ViewModel(), CoroutineScope {
     private val _job = Job()
     override val coroutineContext: CoroutineContext

@@ -23,6 +23,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../econocom-showroom-android/app/src/main/java/com/econocom/showroom/android/main/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../econocom-showroom-android/app/src/main/java/com/econocom/showroom/android/ocm/OcmWrapperImp.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../ferring-ferringo-android-kotlin/common/src/main/java/com/ferring/ferringo/common/domain/error/Failure.kt">
           <value>
             <set />
@@ -329,6 +339,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/domain/interactor/RemoveShoppingProductFromCartUseCase.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-3/app/src/main/java/es/waylet/presentation/fragment/CommerceDetailFragment.kt">
           <value>
             <set />
           </value>
@@ -1823,7 +1838,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/usecases/GetLatestMovies.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/usecases/GetNowPlayingMovies.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/usecases/GetPopularMovies.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/usecases/GetTopRatedMovies.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/usecases/GetTrending.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/usecases/GetUpcomingMovies.kt">
           <value>
             <set />
           </value>

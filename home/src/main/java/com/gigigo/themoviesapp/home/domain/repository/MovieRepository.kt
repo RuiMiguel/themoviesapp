@@ -7,7 +7,7 @@ import com.gigigo.themoviesapp.home.domain.model.Movie
 import com.gigigo.themoviesapp.home.domain.model.Page
 
 interface MovieRepository {
-    fun getLatest(time: String): Either<Failure, LatestMovie>
+    fun getLatest(language: String): Either<Failure, LatestMovie>
 
     fun getNowPlaying(language: String, page: Int, region: String): Either<Failure, Page<Movie>>
 

@@ -12,8 +12,8 @@ class MovieDataRepository(
     private val networkDataSource: MovieNetworkDataSource
 ) : MovieRepository {
 
-    override fun getLatest(time: String): Either<Failure, LatestMovie> {
-        return networkDataSource.getLatest(time)
+    override fun getLatest(language: String): Either<Failure, LatestMovie> {
+        return networkDataSource.getLatest(language)
     }
 
     override fun getNowPlaying(
