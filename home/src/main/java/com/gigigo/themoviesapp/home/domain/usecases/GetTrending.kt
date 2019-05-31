@@ -29,7 +29,7 @@ class GetTrending(private val trendingRepository: TrendingRepository) :
     }
 
     private fun onHandleError(failure: Failure): Either<Failure, List<Movie>> = failure.left()
-    private fun onHandleSuccess(data: Page): Either<Failure, List<Movie>> = data.results.right()
+    private fun onHandleSuccess(data: Page<Movie>): Either<Failure, List<Movie>> = data.results.right()
 
     class Params private constructor(val mediaType: MediaType, val timeWindow: TimeWindow) {
         companion object {
