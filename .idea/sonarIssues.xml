@@ -1743,6 +1743,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/data/repository/TvDataRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/data/source/ApiService.kt">
           <value>
             <set />
@@ -1809,6 +1814,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/repository/TrendingRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/repository/TvRepository.kt">
           <value>
             <set />
           </value>

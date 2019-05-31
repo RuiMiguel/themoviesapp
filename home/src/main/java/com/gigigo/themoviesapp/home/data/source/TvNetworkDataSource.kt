@@ -40,8 +40,7 @@ class TvNetworkDataSource(
 
     fun getAiringToday(
         language: String,
-        page: Int,
-        region: String
+        page: Int
     ): Either<Failure, Page<Tv>> {
         return Try {
             api.getAiringToday(language, page, apiKey).execute()
@@ -65,8 +64,7 @@ class TvNetworkDataSource(
 
     fun getOnTheAir(
         language: String,
-        page: Int,
-        region: String
+        page: Int
     ): Either<Failure, Page<Tv>> {
         return Try {
             api.getOnTheAir(language, page, apiKey).execute()
@@ -90,8 +88,7 @@ class TvNetworkDataSource(
 
     fun getPopular(
         language: String,
-        page: Int,
-        region: String
+        page: Int
     ): Either<Failure, Page<Tv>> {
         return Try {
             api.getPopular(language, page, apiKey).execute()
@@ -115,8 +112,7 @@ class TvNetworkDataSource(
 
     fun getTopRated(
         language: String,
-        page: Int,
-        region: String
+        page: Int
     ): Either<Failure, Page<Tv>> {
         return Try {
             api.getTopRated(language, page, apiKey).execute()
