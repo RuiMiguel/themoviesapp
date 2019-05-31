@@ -12,13 +12,13 @@ data class Tv(
     val overview: String,
     val popularity: Double,
     val posterPath: String,
-    val voteAverage: Int,
+    val voteAverage: Double,
     val voteCount: Int
 )
 
 data class LatestTv(
-    val backdropPath: Any,
-    val createdBy: List<Any>,
+    val backdropPath: String,
+    val createdBy: List<String>,
     val episodeRunTime: List<Int>,
     val firstAirDate: String,
     val genres: List<Genre>,
@@ -34,14 +34,14 @@ data class LatestTv(
     val originCountry: List<String>,
     val originalLanguage: String,
     val originalName: String,
-    val overview: Any,
+    val overview: String,
     val popularity: Int,
-    val posterPath: Any,
-    val productionCompanies: List<Any>,
+    val posterPath: String,
+    val productionCompanies: List<String>,
     val seasons: List<Season>,
     val status: String,
     val type: String,
-    val voteAverage: Int,
+    val voteAverage: Double,
     val voteCount: Int
 ) {
     data class Network(
@@ -53,7 +53,7 @@ data class LatestTv(
         val airDate: String,
         val episodeCount: Int,
         val id: Int,
-        val posterPath: Any,
+        val posterPath: String,
         val seasonNumber: Int
     )
 

@@ -21,7 +21,7 @@ interface TvApiService {
     fun getLatest(
         @Path("language") time: String,
         @Query("api_key") apiKey: String
-    ): Call<ApiPage<ApiLatestTv>>
+    ): Call<ApiLatestTv>
 
     @GET(AIRING_TODAY)
     fun getAiringToday(

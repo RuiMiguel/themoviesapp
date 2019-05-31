@@ -22,7 +22,7 @@ data class Movie(
 data class LatestMovie (
     val adult: Boolean,
     val backdropPath: String,
-    val belongsToCollection: Any,
+    val belongsToCollection: String,
     val budget: Int,
     val genres: List<Genre>,
     val homepage: String,
@@ -33,17 +33,17 @@ data class LatestMovie (
     val overview: String,
     val popularity: Int,
     val posterPath: String,
-    val productionCompanies: List<Any> ,
-    val productionCountries: List<Any>,
+    val productionCompanies: List<String> ,
+    val productionCountries: List<String>,
     val releaseDate: String,
     val revenue: Int,
     val runtime: Int,
-    val spokenLanguages: List<Any>,
+    val spokenLanguages: List<String>,
     val status: String,
     val tagLine: String,
     val title: String,
     val video: Boolean,
-    val voteAverage: Int,
+    val voteAverage: Double,
     val voteCount: Int
 ) {
     data class Genre(

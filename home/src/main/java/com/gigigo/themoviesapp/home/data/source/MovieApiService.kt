@@ -21,7 +21,7 @@ interface MovieApiService {
     fun getLatest(
         @Path("language") time: String,
         @Query("api_key") apiKey: String
-    ): Call<ApiPage<ApiLatestMovie>>
+    ): Call<ApiLatestMovie>
 
     @GET(NOW_PLAYING)
     fun getNowPlaying(
