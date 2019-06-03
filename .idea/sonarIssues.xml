@@ -1443,6 +1443,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/java/com/gigigo/mcdonaldsbr/utils/GoogleMapsUtils.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdonalds-mcentrega-android/src/main/java/com/gigigo/macentrega/domain/usecase/GetCategoriesUseCase.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdonalds-mcentrega-android/src/main/java/com/gigigo/macentrega/domain/usecase/UseCase.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../samples/bottomSheet/app/src/main/java/com/gigigo/bottomsheetapp/BottomSheetFragment.kt">
           <value>
             <set />
@@ -1914,6 +1934,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/decoration/PaddingDecoration.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/factory/MovieViewHolderFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/viewholder/LatestMovieViewHolder.kt">
           <value>
             <set />
           </value>

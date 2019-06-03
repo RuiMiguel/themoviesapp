@@ -1,4 +1,4 @@
-package com.gigigo.themoviesapp.home.ui
+package com.gigigo.themoviesapp.home.ui.viewholder
 
 import android.content.Context
 import android.util.DisplayMetrics
@@ -9,19 +9,20 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.gigigo.baserecycleradapter.viewholder.BaseViewHolder
 import com.gigigo.themoviesapp.home.R
+import com.gigigo.themoviesapp.home.domain.model.LatestMovie
 import com.gigigo.themoviesapp.home.domain.model.Movie
 
-class MovieViewHolder(
+class LatestMovieViewHolder(
     private val context: Context,
     parent: ViewGroup,
     val size: DisplayMetrics,
     private val apiImageUrl: String
 ) :
-    BaseViewHolder<Movie>(context, parent, R.layout.item_movie) {
+    BaseViewHolder<LatestMovie>(context, parent, R.layout.item_movie) {
 
     private val image = itemView.findViewById<ImageView>(R.id.movie_thumbnail)
 
-    override fun bindTo(data: Movie, position: Int) {
+    override fun bindTo(data: LatestMovie, position: Int) {
         val requestOption = RequestOptions()
             .placeholder(R.drawable.placeholder_movie).centerCrop()
 

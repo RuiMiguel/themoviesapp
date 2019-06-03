@@ -7,11 +7,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.gigigo.baserecycleradapter.adapter.BaseRecyclerAdapter
 import com.gigigo.themoviesapp.base.ui.navigation.Navigator
 import com.gigigo.themoviesapp.base.ui.utils.extensions.hide
@@ -19,14 +16,23 @@ import com.gigigo.themoviesapp.base.ui.utils.extensions.screenSize
 import com.gigigo.themoviesapp.base.ui.utils.extensions.show
 import com.gigigo.themoviesapp.home.R
 import com.gigigo.themoviesapp.home.di.homeModules
+import com.gigigo.themoviesapp.home.domain.model.LatestMovie
 import com.gigigo.themoviesapp.home.domain.model.Movie
 import com.gigigo.themoviesapp.home.ui.decoration.PaddingDecoration
+import com.gigigo.themoviesapp.home.ui.factory.MovieViewHolderFactory
+import com.gigigo.themoviesapp.home.ui.viewholder.LatestMovieViewHolder
+import com.gigigo.themoviesapp.home.ui.viewholder.MovieViewHolder
 import com.gigigo.themoviesapp.home.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
-import kotlinx.android.synthetic.main.content_main.movies_list
+import kotlinx.android.synthetic.main.content_main.latest_movies_list
+import kotlinx.android.synthetic.main.content_main.now_playing_movies_list
+import kotlinx.android.synthetic.main.content_main.popular_movies_list
 import kotlinx.android.synthetic.main.content_main.progress_bar_layout
+import kotlinx.android.synthetic.main.content_main.top_rated_movies_list
+import kotlinx.android.synthetic.main.content_main.trending_movies_list
+import kotlinx.android.synthetic.main.content_main.upcoming_movies_list
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -46,7 +52,12 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     private val navigator: Navigator by inject()
 
     private val viewModel by viewModel<HomeViewModel>()
-    private lateinit var adapter: BaseRecyclerAdapter<Movie>
+    private lateinit var lastestAdapter: BaseRecyclerAdapter<LatestMovie>
+    private lateinit var nowPlayingAdapter: BaseRecyclerAdapter<Movie>
+    private lateinit var popularAdapter: BaseRecyclerAdapter<Movie>
+    private lateinit var topRatedAdapter: BaseRecyclerAdapter<Movie>
+    private lateinit var trendingAdapter: BaseRecyclerAdapter<Movie>
+    private lateinit var upcomingAdapter: BaseRecyclerAdapter<Movie>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,13 +105,10 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
                 R.id.nav_tv_shows -> {
 
                 }
-                R.id.nav_manage -> {
+                R.id.nav_settings -> {
 
                 }
                 R.id.nav_share -> {
-
-                }
-                R.id.nav_send -> {
 
                 }
             }
@@ -111,55 +119,172 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun initRecyclerView() {
+        initLatestRecycler()
+        initNowPlayingRecycler()
+        initPopularRecycler()
+        initTopRatedRecycler()
+        initTrendingRecycler()
+        initUpcomingRecycler()
+    }
+
+    private fun initLatestRecycler() {
         val size = screenSize()
 
-        adapter =
-            BaseRecyclerAdapter(MovieViewHolderFactory(this, size, "https://image.tmdb.org/t/p/"))
-        adapter.bind<Movie, MovieViewHolder>()
+        lastestAdapter =
+            BaseRecyclerAdapter(
+                MovieViewHolderFactory(
+                    this,
+                    size,
+                    "https://image.tmdb.org/t/p/"
+                )
+            )
+        lastestAdapter.bind<LatestMovie, LatestMovieViewHolder>()
 
-        movies_list.layoutManager =  LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        movies_list.addItemDecoration(PaddingDecoration(resources, 12, 8, 12))
-        movies_list.setHasFixedSize(true)
-        movies_list.adapter = adapter
+        latest_movies_list.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        latest_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
+        latest_movies_list.setHasFixedSize(true)
+        latest_movies_list.adapter = lastestAdapter
+    }
+
+    private fun initNowPlayingRecycler() {
+        val size = screenSize()
+
+        nowPlayingAdapter =
+            BaseRecyclerAdapter(
+                MovieViewHolderFactory(
+                    this,
+                    size,
+                    "https://image.tmdb.org/t/p/"
+                )
+            )
+        nowPlayingAdapter.bind<Movie, MovieViewHolder>()
+
+        now_playing_movies_list.layoutManager =
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        now_playing_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
+        now_playing_movies_list.setHasFixedSize(true)
+        now_playing_movies_list.adapter = nowPlayingAdapter
+    }
+
+    private fun initPopularRecycler() {
+        val size = screenSize()
+
+        popularAdapter =
+            BaseRecyclerAdapter(
+                MovieViewHolderFactory(
+                    this,
+                    size,
+                    "https://image.tmdb.org/t/p/"
+                )
+            )
+        popularAdapter.bind<Movie, MovieViewHolder>()
+
+        popular_movies_list.layoutManager =
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        popular_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
+        popular_movies_list.setHasFixedSize(true)
+        popular_movies_list.adapter = popularAdapter
+    }
+
+    private fun initTopRatedRecycler() {
+        val size = screenSize()
+
+        topRatedAdapter =
+            BaseRecyclerAdapter(
+                MovieViewHolderFactory(
+                    this,
+                    size,
+                    "https://image.tmdb.org/t/p/"
+                )
+            )
+        topRatedAdapter.bind<Movie, MovieViewHolder>()
+
+        top_rated_movies_list.layoutManager =
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        top_rated_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
+        top_rated_movies_list.setHasFixedSize(true)
+        top_rated_movies_list.adapter = topRatedAdapter
+    }
+
+    private fun initTrendingRecycler() {
+        val size = screenSize()
+
+        trendingAdapter =
+            BaseRecyclerAdapter(
+                MovieViewHolderFactory(
+                    this,
+                    size,
+                    "https://image.tmdb.org/t/p/"
+                )
+            )
+        trendingAdapter.bind<Movie, MovieViewHolder>()
+
+        trending_movies_list.layoutManager =
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        trending_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
+        trending_movies_list.setHasFixedSize(true)
+        trending_movies_list.adapter = trendingAdapter
+    }
+
+    private fun initUpcomingRecycler() {
+        val size = screenSize()
+
+        upcomingAdapter =
+            BaseRecyclerAdapter(
+                MovieViewHolderFactory(
+                    this,
+                    size,
+                    "https://image.tmdb.org/t/p/"
+                )
+            )
+        upcomingAdapter.bind<Movie, MovieViewHolder>()
+
+        upcoming_movies_list.layoutManager =
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        upcoming_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
+        upcoming_movies_list.setHasFixedSize(true)
+        upcoming_movies_list.adapter = upcomingAdapter
     }
 
     private fun initViewModel() {
         viewModel.isLoading.observe(this, Observer { loadingMap ->
-            val loadingTrendingMovies = loadingMap?.get(HomeViewModel.Loading.TRENDING) ?: false
             val loadingLatestMovie = loadingMap?.get(HomeViewModel.Loading.LATEST) ?: false
-            val loadingNowPlayingMovies = loadingMap?.get(HomeViewModel.Loading.NOW_PLAYING) ?: false
+            val loadingNowPlayingMovies =
+                loadingMap?.get(HomeViewModel.Loading.NOW_PLAYING) ?: false
             val loadingPopularMovies = loadingMap?.get(HomeViewModel.Loading.POPULAR) ?: false
             val loadingTopRatedMovies = loadingMap?.get(HomeViewModel.Loading.TOP_RATED) ?: false
+            val loadingTrendingMovies = loadingMap?.get(HomeViewModel.Loading.TRENDING) ?: false
             val loadingUpcomingMovies = loadingMap?.get(HomeViewModel.Loading.UPCOMING) ?: false
         })
-        viewModel.trendingMovies.observe(this, Observer {
-            launch {
-                adapter.addAll(it)
-            }
-        })
+
         viewModel.latestMovie.observe(this, Observer {
             launch {
-                //adapter.addAll(it)
+                lastestAdapter.addAll(it)
             }
         })
         viewModel.nowPlayingMovies.observe(this, Observer {
             launch {
-                //adapter.addAll(it)
+                nowPlayingAdapter.addAll(it)
             }
         })
         viewModel.popularMovies.observe(this, Observer {
             launch {
-                //adapter.addAll(it)
+                popularAdapter.addAll(it)
             }
         })
         viewModel.topRatedMovies.observe(this, Observer {
             launch {
-                //adapter.addAll(it)
+                topRatedAdapter.addAll(it)
+            }
+        })
+        viewModel.trendingMovies.observe(this, Observer {
+            launch {
+                trendingAdapter.addAll(it)
             }
         })
         viewModel.upcomingMovies.observe(this, Observer {
             launch {
-                //adapter.addAll(it)
+                upcomingAdapter.addAll(it)
             }
         })
     }

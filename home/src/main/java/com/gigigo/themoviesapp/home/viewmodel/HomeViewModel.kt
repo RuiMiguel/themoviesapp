@@ -49,8 +49,8 @@ class HomeViewModel(
     val trendingMovies: LiveData<List<Movie>>
         get() = _trendingMovies
 
-    private val _latestMovie = MutableLiveData<LatestMovie>()
-    val latestMovie: LiveData<LatestMovie>
+    private val _latestMovie = MutableLiveData<List<LatestMovie>>()
+    val latestMovie: LiveData<List<LatestMovie>>
         get() = _latestMovie
 
     private val _nowPlayingMovies = MutableLiveData<List<Movie>>()
@@ -82,24 +82,15 @@ class HomeViewModel(
     }
 
     object Loading {
-        const val TRENDING = "trending"
         const val LATEST = "latest"
         const val NOW_PLAYING = "now_playing"
         const val POPULAR = "popular"
         const val TOP_RATED = "top_rated"
+        const val TRENDING = "trending"
         const val UPCOMING = "upcoming"
     }
 
     fun initLoading() {
-        _loading.addSource(_loadingTrendingMovies) { value ->
-            val map = _loading.value ?: mutableMapOf()
-            val oldValue = map[Loading.TRENDING]
-            if (oldValue != value) {
-                map[Loading.TRENDING] = value
-                _loading.value = map
-            }
-        }
-
         _loading.addSource(_loadingLatestMovie) { value ->
             val map = _loading.value ?: mutableMapOf()
             val oldValue = map[Loading.LATEST]
@@ -136,6 +127,15 @@ class HomeViewModel(
             }
         }
 
+        _loading.addSource(_loadingTrendingMovies) { value ->
+            val map = _loading.value ?: mutableMapOf()
+            val oldValue = map[Loading.TRENDING]
+            if (oldValue != value) {
+                map[Loading.TRENDING] = value
+                _loading.value = map
+            }
+        }
+
         _loading.addSource(_loadingUpcomingMovies) { value ->
             val map = _loading.value ?: mutableMapOf()
             val oldValue = map[Loading.UPCOMING]
@@ -143,23 +143,6 @@ class HomeViewModel(
                 map[Loading.UPCOMING] = value
                 _loading.value = map
             }
-        }
-    }
-
-    fun loadTrendings() {
-        launch {
-            _loadingTrendingMovies.postValue(true)
-
-            getTrendingMovies().fold(
-                {
-                    _loadingTrendingMovies.postValue(false)
-
-                },
-                {
-                    _loadingTrendingMovies.postValue(false)
-                    _trendingMovies.postValue(it)
-                }
-            )
         }
     }
 
@@ -174,7 +157,7 @@ class HomeViewModel(
                 },
                 {
                     _loadingLatestMovie.postValue(false)
-                    _latestMovie.postValue(it)
+                    _latestMovie.postValue(listOf(it))
                 }
             )
         }
@@ -226,6 +209,23 @@ class HomeViewModel(
                 {
                     _loadingTopRatedMovies.postValue(false)
                     _topRatedMovies.postValue(it)
+                }
+            )
+        }
+    }
+
+    fun loadTrendings() {
+        launch {
+            _loadingTrendingMovies.postValue(true)
+
+            getTrendingMovies().fold(
+                {
+                    _loadingTrendingMovies.postValue(false)
+
+                },
+                {
+                    _loadingTrendingMovies.postValue(false)
+                    _trendingMovies.postValue(it)
                 }
             )
         }
