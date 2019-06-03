@@ -998,6 +998,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/home/decoration/PaddingOffsetDecoration.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../klikin/user-android-mexico/app/src/main/java/es/waylet/mexico/ui/home/viewholder/AdViewHolder.kt">
           <value>
             <set />
@@ -1633,6 +1638,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/MetricUtils.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/SystemUi.kt">
           <value>
             <set />
@@ -1659,6 +1669,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/base/src/main/res/layout/layout_loading.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/res/values-v21/colors.xml">
           <value>
             <set />
           </value>
@@ -1838,6 +1853,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/usecases/GetLatestMovie.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/usecases/GetLatestMovies.kt">
           <value>
             <set />
@@ -1863,7 +1883,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/usecases/GetTrendingMovies.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/domain/usecases/GetUpcomingMovies.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/HomeActivity.kt">
           <value>
             <set />
           </value>
@@ -1879,6 +1909,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/MovieViewHolderFactory.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/decoration/PaddingDecoration.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/viewmodel/HomeViewModel.kt">
           <value>
             <set />
           </value>
@@ -1924,6 +1964,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/home/src/main/res/layout/layout_loading.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/res/menu/activity_main_drawer.xml">
           <value>
             <set />
           </value>

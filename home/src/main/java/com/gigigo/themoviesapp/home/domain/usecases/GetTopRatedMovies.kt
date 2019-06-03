@@ -33,7 +33,7 @@ class GetTopRatedMovies(private val movieRepository: MovieRepository) :
     }
 
     private fun initParams(params: Params?): Params {
-        val language = params?.language ?: "en-US"
+        val language = params?.language ?: "en-US" //ISO639-1
         val page = params?.page ?: 1 //page 1..1000 default 1
         val region = params?.region ?: "" //region ISO3166-1 uppercase ^[A-Z](2)$
 

@@ -9,6 +9,8 @@ import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.gigigo.baserecycleradapter.adapter.BaseRecyclerAdapter
 import com.gigigo.themoviesapp.base.ui.navigation.Navigator
@@ -16,12 +18,10 @@ import com.gigigo.themoviesapp.base.ui.utils.extensions.hide
 import com.gigigo.themoviesapp.base.ui.utils.extensions.screenSize
 import com.gigigo.themoviesapp.base.ui.utils.extensions.show
 import com.gigigo.themoviesapp.home.R
-import com.gigigo.themoviesapp.home.di.homeDataModule
-import com.gigigo.themoviesapp.home.di.homeDomainModule
 import com.gigigo.themoviesapp.home.di.homeModules
-import com.gigigo.themoviesapp.home.di.homePresentationModule
 import com.gigigo.themoviesapp.home.domain.model.Movie
-import com.gigigo.themoviesapp.home.viewmodel.MainViewModel
+import com.gigigo.themoviesapp.home.ui.decoration.PaddingDecoration
+import com.gigigo.themoviesapp.home.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
@@ -37,7 +37,7 @@ import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity(), CoroutineScope {
+class HomeActivity : AppCompatActivity(), CoroutineScope {
     private val _job = Job()
 
     override val coroutineContext: CoroutineContext
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
     private val navigator: Navigator by inject()
 
-    private val viewModel by viewModel<MainViewModel>()
+    private val viewModel by viewModel<HomeViewModel>()
     private lateinit var adapter: BaseRecyclerAdapter<Movie>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -88,13 +88,10 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
         nav_view.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.nav_camera -> {
-                    // Handle the camera action
-                }
-                R.id.nav_gallery -> {
+                R.id.nav_movies -> {
 
                 }
-                R.id.nav_slideshow -> {
+                R.id.nav_tv_shows -> {
 
                 }
                 R.id.nav_manage -> {
@@ -116,33 +113,53 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
     private fun initRecyclerView() {
         val size = screenSize()
 
-        val itemDecoratorVertical = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-        val itemDecoratorHorizontal = DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL)
-        //itemDecoratorHorizontal.setDrawable(ContextCompat.getDrawable(this, R.))
-
         adapter =
             BaseRecyclerAdapter(MovieViewHolderFactory(this, size, "https://image.tmdb.org/t/p/"))
         adapter.bind<Movie, MovieViewHolder>()
 
-        val spanCount = if (size.widthPixels < size.heightPixels) 3 else 4
-        //movies_list.layoutManager = GridLayoutManager(this, spanCount, RecyclerView.VERTICAL, false)
-        movies_list.layoutManager =
-            StaggeredGridLayoutManager(spanCount, GridLayoutManager.VERTICAL)
-
-        movies_list.addItemDecoration(itemDecoratorVertical)
-        movies_list.addItemDecoration(itemDecoratorHorizontal)
-
+        movies_list.layoutManager =  LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        movies_list.addItemDecoration(PaddingDecoration(resources, 12, 8, 12))
         movies_list.setHasFixedSize(true)
         movies_list.adapter = adapter
     }
 
     private fun initViewModel() {
-        viewModel.isLoading.observe(this, Observer {
-            showLoading(it)
+        viewModel.isLoading.observe(this, Observer { loadingMap ->
+            val loadingTrendingMovies = loadingMap?.get(HomeViewModel.Loading.TRENDING) ?: false
+            val loadingLatestMovie = loadingMap?.get(HomeViewModel.Loading.LATEST) ?: false
+            val loadingNowPlayingMovies = loadingMap?.get(HomeViewModel.Loading.NOW_PLAYING) ?: false
+            val loadingPopularMovies = loadingMap?.get(HomeViewModel.Loading.POPULAR) ?: false
+            val loadingTopRatedMovies = loadingMap?.get(HomeViewModel.Loading.TOP_RATED) ?: false
+            val loadingUpcomingMovies = loadingMap?.get(HomeViewModel.Loading.UPCOMING) ?: false
         })
         viewModel.trendingMovies.observe(this, Observer {
-            launch(Dispatchers.Main) {
+            launch {
                 adapter.addAll(it)
+            }
+        })
+        viewModel.latestMovie.observe(this, Observer {
+            launch {
+                //adapter.addAll(it)
+            }
+        })
+        viewModel.nowPlayingMovies.observe(this, Observer {
+            launch {
+                //adapter.addAll(it)
+            }
+        })
+        viewModel.popularMovies.observe(this, Observer {
+            launch {
+                //adapter.addAll(it)
+            }
+        })
+        viewModel.topRatedMovies.observe(this, Observer {
+            launch {
+                //adapter.addAll(it)
+            }
+        })
+        viewModel.upcomingMovies.observe(this, Observer {
+            launch {
+                //adapter.addAll(it)
             }
         })
     }

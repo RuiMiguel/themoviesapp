@@ -11,10 +11,10 @@ import com.gigigo.themoviesapp.home.domain.model.Page
 import com.gigigo.themoviesapp.home.domain.model.TimeWindow
 import com.gigigo.themoviesapp.home.domain.repository.TrendingRepository
 
-class GetTrending(private val trendingRepository: TrendingRepository) :
-    UseCase<List<Movie>, GetTrending.Params>() {
-    override fun run(params: GetTrending.Params?): Either<Failure, List<Movie>> {
-        val trendingParams = params ?: defaultParams()
+class GetTrendingMovies(private val trendingRepository: TrendingRepository) :
+    UseCase<List<Movie>, GetTrendingMovies.Params>() {
+    override fun run(params: GetTrendingMovies.Params?): Either<Failure, List<Movie>> {
+        val trendingParams = initParams(params)
         val response = trendingRepository.getTrending(trendingParams.mediaType, trendingParams.timeWindow)
         return response.fold(::onHandleError, ::onHandleSuccess)
     }
@@ -25,11 +25,15 @@ class GetTrending(private val trendingRepository: TrendingRepository) :
     class Params private constructor(val mediaType: MediaType, val timeWindow: TimeWindow) {
         companion object {
             @JvmStatic
-            fun forMediaTime(mediaType: MediaType, timeWindow: TimeWindow): Params {
+            fun withParams(mediaType: MediaType, timeWindow: TimeWindow): Params {
                 return Params(mediaType, timeWindow)
             }
         }
     }
 
-    private fun defaultParams(): GetTrending.Params = Params.forMediaTime(MediaType.ALL, TimeWindow.WEEK)
+    private fun initParams(params: Params?): Params {
+        val mediaType = params?.mediaType ?: MediaType.ALL
+        val timeWindow = params?.timeWindow ?: TimeWindow.WEEK
+        return Params.withParams(mediaType, timeWindow)
+    }
 }
