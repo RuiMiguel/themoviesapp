@@ -24,7 +24,7 @@ class LatestMovieViewHolder(
 
     override fun bindTo(data: LatestMovie, position: Int) {
         val requestOption = RequestOptions()
-            .placeholder(R.drawable.placeholder_movie).centerCrop()
+            .placeholder(R.drawable.ic_movie_placeholder).centerCrop()
 
         val imageWidthRatio = if (size.widthPixels < size.heightPixels) 3 else 4
         val imageHeightRatio = 3.0/2.0

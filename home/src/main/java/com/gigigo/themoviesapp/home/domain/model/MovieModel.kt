@@ -33,8 +33,8 @@ data class LatestMovie (
     val overview: String,
     val popularity: Int,
     val posterPath: String,
-    val productionCompanies: List<String> ,
-    val productionCountries: List<String>,
+    val productionCompanies: List<String>,
+    val productionCountries: List<Country>,
     val releaseDate: String,
     val revenue: Int,
     val runtime: Int,
@@ -48,6 +48,11 @@ data class LatestMovie (
 ) {
     data class Genre(
         val id: Int,
+        val name: String
+    )
+
+    data class Country(
+        val id: String,
         val name: String
     )
 }

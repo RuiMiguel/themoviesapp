@@ -1688,6 +1688,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/res/drawable/ic_movie_placeholder.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/base/src/main/res/layout/layout_loading.xml">
           <value>
             <set />
@@ -1948,6 +1953,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/viewholder/MovieViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/viewmodel/HomeViewModel.kt">
           <value>
             <set />
@@ -1964,6 +1974,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/viewmodel/navigation/HomeCoordinator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/res/drawable/ic_movie_placeholder.xml">
           <value>
             <set />
           </value>

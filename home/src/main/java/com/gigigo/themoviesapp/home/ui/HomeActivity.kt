@@ -79,11 +79,16 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun initUI() {
-        setSupportActionBar(toolbar)
+        initToolbar()
 
         initNavigationView()
 
         initRecyclerView()
+    }
+
+    private fun initToolbar() {
+        setSupportActionBar(toolbar)
+        title = "Movies"
     }
 
     private fun initNavigationView() {

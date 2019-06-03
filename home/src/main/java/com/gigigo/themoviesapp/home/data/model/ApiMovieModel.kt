@@ -34,7 +34,7 @@ data class ApiLatestMovie(
     @SerializedName("popularity") val popularity: Int? = null,
     @SerializedName("poster_path") val posterPath: String? = null,
     @SerializedName("production_companies") val productionCompanies: List<String>? = null,
-    @SerializedName("production_countries") val productionCountries: List<String>? = null,
+    @SerializedName("production_countries") val productionCountries: List<ApiCountry>? = null,
     @SerializedName("release_date") val releaseDate: String? = null,
     @SerializedName("revenue") val revenue: Int? = null,
     @SerializedName("runtime") val runtime: Int? = null,
@@ -48,6 +48,11 @@ data class ApiLatestMovie(
 ) {
     data class ApiGenre(
         @SerializedName("id") val id: Int? = null,
+        @SerializedName("name") val name: String? = null
+    )
+
+    data class ApiCountry(
+        @SerializedName("iso_3166_1") val id: String? = null,
         @SerializedName("name") val name: String? = null
     )
 }

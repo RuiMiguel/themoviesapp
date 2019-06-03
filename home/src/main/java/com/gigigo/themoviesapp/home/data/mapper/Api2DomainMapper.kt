@@ -82,7 +82,7 @@ fun ApiLatestMovie.toLatestMovie(): LatestMovie {
         popularity = this.popularity ?: 0,
         posterPath = this.posterPath ?: "",
         productionCompanies = this.productionCompanies ?: emptyList(),
-        productionCountries = this.productionCountries ?: emptyList(),
+        productionCountries = this.productionCountries?.map { it.toCountry() } ?: emptyList(),
         releaseDate = this.releaseDate ?: "",
         revenue = this.revenue ?: 0,
         runtime = this.runtime ?: 0,
@@ -130,6 +130,13 @@ fun ApiLatestTv.toLatestTv(): LatestTv {
 fun ApiLatestMovie.ApiGenre.toGenre(): LatestMovie.Genre {
     return LatestMovie.Genre(
         id = this.id ?: 0,
+        name = this.name ?: ""
+    )
+}
+
+fun ApiLatestMovie.ApiCountry.toCountry(): LatestMovie.Country {
+    return LatestMovie.Country(
+        id = this.id ?: "",
         name = this.name ?: ""
     )
 }
