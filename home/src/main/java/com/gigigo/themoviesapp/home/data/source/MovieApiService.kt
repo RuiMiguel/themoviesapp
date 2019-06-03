@@ -19,39 +19,39 @@ interface MovieApiService {
 
     @GET(LATEST)
     fun getLatest(
-        @Path("language") time: String,
+        @Query("language") time: String,
         @Query("api_key") apiKey: String
     ): Call<ApiLatestMovie>
 
     @GET(NOW_PLAYING)
     fun getNowPlaying(
-        @Path("language") time: String,
-        @Path("page") page: Int,
-        @Path("region") region: String,
+        @Query("language") time: String,
+        @Query("page") page: Int,
+        @Query("region") region: String,
         @Query("api_key") apiKey: String
     ): Call<ApiPage<ApiMovie>>
 
     @GET(POPULAR)
     fun getPopular(
-        @Path("language") time: String,
-        @Path("page") page: Int,
-        @Path("region") region: String,
+        @Query("language") time: String,
+        @Query("page") page: Int,
+        @Query("region") region: String,
         @Query("api_key") apiKey: String
     ): Call<ApiPage<ApiMovie>>
 
     @GET(TOP_RATED)
     fun getTopRated(
-        @Path("language") time: String,
-        @Path("page") page: Int,
-        @Path("region") region: String,
+        @Query("language") time: String,
+        @Query("page") page: Int,
+        @Query("region") region: String,
         @Query("api_key") apiKey: String
     ): Call<ApiPage<ApiMovie>>
 
     @GET(UPCOMING)
     fun getUpcoming(
-        @Path("language") time: String,
-        @Path("page") page: Int,
-        @Path("region") region: String,
+        @Query("language") time: String,
+        @Query("page") page: Int,
+        @Query("region") region: String,
         @Query("api_key") apiKey: String
     ): Call<ApiPage<ApiMovie>>
 }
