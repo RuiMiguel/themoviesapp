@@ -18,10 +18,20 @@ import com.gigigo.themoviesapp.home.R
 import com.gigigo.themoviesapp.home.di.homeModules
 import com.gigigo.themoviesapp.home.domain.model.LatestMovie
 import com.gigigo.themoviesapp.home.domain.model.Movie
+import com.gigigo.themoviesapp.home.domain.model.NowPlayingMovie
+import com.gigigo.themoviesapp.home.domain.model.PopularMovie
+import com.gigigo.themoviesapp.home.domain.model.TopRatedMovie
+import com.gigigo.themoviesapp.home.domain.model.TrendingMovie
+import com.gigigo.themoviesapp.home.domain.model.UpcomingMovie
 import com.gigigo.themoviesapp.home.ui.decoration.PaddingDecoration
 import com.gigigo.themoviesapp.home.ui.factory.MovieViewHolderFactory
 import com.gigigo.themoviesapp.home.ui.viewholder.LatestMovieViewHolder
 import com.gigigo.themoviesapp.home.ui.viewholder.MovieViewHolder
+import com.gigigo.themoviesapp.home.ui.viewholder.NowPlayingMovieViewHolder
+import com.gigigo.themoviesapp.home.ui.viewholder.PopularMovieViewHolder
+import com.gigigo.themoviesapp.home.ui.viewholder.TopRatedMovieViewHolder
+import com.gigigo.themoviesapp.home.ui.viewholder.TrendingMovieViewHolder
+import com.gigigo.themoviesapp.home.ui.viewholder.UpcomingMovieViewHolder
 import com.gigigo.themoviesapp.home.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
@@ -52,6 +62,7 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     private val navigator: Navigator by inject()
 
     private val viewModel by viewModel<HomeViewModel>()
+    private lateinit var movieViewHolderFactory: MovieViewHolderFactory
     private lateinit var lastestAdapter: BaseRecyclerAdapter<LatestMovie>
     private lateinit var nowPlayingAdapter: BaseRecyclerAdapter<Movie>
     private lateinit var popularAdapter: BaseRecyclerAdapter<Movie>
@@ -124,6 +135,13 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun initRecyclerView() {
+        val size = screenSize()
+        movieViewHolderFactory = MovieViewHolderFactory(
+            this,
+            size,
+            "https://image.tmdb.org/t/p/"
+        )
+
         initLatestRecycler()
         initNowPlayingRecycler()
         initPopularRecycler()
@@ -133,16 +151,7 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun initLatestRecycler() {
-        val size = screenSize()
-
-        lastestAdapter =
-            BaseRecyclerAdapter(
-                MovieViewHolderFactory(
-                    this,
-                    size,
-                    "https://image.tmdb.org/t/p/"
-                )
-            )
+        lastestAdapter = BaseRecyclerAdapter(movieViewHolderFactory)
         lastestAdapter.bind<LatestMovie, LatestMovieViewHolder>()
 
         latest_movies_list.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
@@ -152,17 +161,8 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun initNowPlayingRecycler() {
-        val size = screenSize()
-
-        nowPlayingAdapter =
-            BaseRecyclerAdapter(
-                MovieViewHolderFactory(
-                    this,
-                    size,
-                    "https://image.tmdb.org/t/p/"
-                )
-            )
-        nowPlayingAdapter.bind<Movie, MovieViewHolder>()
+        nowPlayingAdapter = BaseRecyclerAdapter(movieViewHolderFactory)
+        nowPlayingAdapter.bind<NowPlayingMovie, NowPlayingMovieViewHolder>()
 
         now_playing_movies_list.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
@@ -172,17 +172,8 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun initPopularRecycler() {
-        val size = screenSize()
-
-        popularAdapter =
-            BaseRecyclerAdapter(
-                MovieViewHolderFactory(
-                    this,
-                    size,
-                    "https://image.tmdb.org/t/p/"
-                )
-            )
-        popularAdapter.bind<Movie, MovieViewHolder>()
+        popularAdapter = BaseRecyclerAdapter(movieViewHolderFactory)
+        popularAdapter.bind<PopularMovie, PopularMovieViewHolder>()
 
         popular_movies_list.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
@@ -192,17 +183,8 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun initTopRatedRecycler() {
-        val size = screenSize()
-
-        topRatedAdapter =
-            BaseRecyclerAdapter(
-                MovieViewHolderFactory(
-                    this,
-                    size,
-                    "https://image.tmdb.org/t/p/"
-                )
-            )
-        topRatedAdapter.bind<Movie, MovieViewHolder>()
+        topRatedAdapter = BaseRecyclerAdapter(movieViewHolderFactory)
+        topRatedAdapter.bind<TopRatedMovie, TopRatedMovieViewHolder>()
 
         top_rated_movies_list.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
@@ -212,17 +194,8 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun initTrendingRecycler() {
-        val size = screenSize()
-
-        trendingAdapter =
-            BaseRecyclerAdapter(
-                MovieViewHolderFactory(
-                    this,
-                    size,
-                    "https://image.tmdb.org/t/p/"
-                )
-            )
-        trendingAdapter.bind<Movie, MovieViewHolder>()
+        trendingAdapter = BaseRecyclerAdapter(movieViewHolderFactory)
+        trendingAdapter.bind<TrendingMovie, TrendingMovieViewHolder>()
 
         trending_movies_list.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
@@ -232,17 +205,8 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun initUpcomingRecycler() {
-        val size = screenSize()
-
-        upcomingAdapter =
-            BaseRecyclerAdapter(
-                MovieViewHolderFactory(
-                    this,
-                    size,
-                    "https://image.tmdb.org/t/p/"
-                )
-            )
-        upcomingAdapter.bind<Movie, MovieViewHolder>()
+        upcomingAdapter = BaseRecyclerAdapter(movieViewHolderFactory)
+        upcomingAdapter.bind<UpcomingMovie, UpcomingMovieViewHolder>()
 
         upcoming_movies_list.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
@@ -254,8 +218,7 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     private fun initViewModel() {
         viewModel.isLoading.observe(this, Observer { loadingMap ->
             val loadingLatestMovie = loadingMap?.get(HomeViewModel.Loading.LATEST) ?: false
-            val loadingNowPlayingMovies =
-                loadingMap?.get(HomeViewModel.Loading.NOW_PLAYING) ?: false
+            val loadingNowPlayingMovies = loadingMap?.get(HomeViewModel.Loading.NOW_PLAYING) ?: false
             val loadingPopularMovies = loadingMap?.get(HomeViewModel.Loading.POPULAR) ?: false
             val loadingTopRatedMovies = loadingMap?.get(HomeViewModel.Loading.TOP_RATED) ?: false
             val loadingTrendingMovies = loadingMap?.get(HomeViewModel.Loading.TRENDING) ?: false

@@ -5,23 +5,27 @@ import arrow.core.left
 import arrow.core.right
 import com.gigigo.themoviesapp.base.domain.error.Failure
 import com.gigigo.themoviesapp.base.domain.usecases.UseCase
-import com.gigigo.themoviesapp.home.domain.model.MediaType
-import com.gigigo.themoviesapp.home.domain.model.Movie
 import com.gigigo.themoviesapp.home.domain.model.Page
-import com.gigigo.themoviesapp.home.domain.model.TimeWindow
+import com.gigigo.themoviesapp.home.domain.model.TopRatedMovie
 import com.gigigo.themoviesapp.home.domain.repository.MovieRepository
-import com.gigigo.themoviesapp.home.domain.repository.TrendingRepository
 
 class GetTopRatedMovies(private val movieRepository: MovieRepository) :
-    UseCase<List<Movie>, GetTopRatedMovies.Params>() {
-    override fun run(params: GetTopRatedMovies.Params?): Either<Failure, List<Movie>> {
+    UseCase<List<TopRatedMovie>, GetTopRatedMovies.Params>() {
+    override fun run(params: GetTopRatedMovies.Params?): Either<Failure, List<TopRatedMovie>> {
         val topRatedParams = initParams(params)
-        val response = movieRepository.getTopRated(topRatedParams.language, topRatedParams.page, topRatedParams.region)
+        val response = movieRepository.getTopRated(
+            topRatedParams.language,
+            topRatedParams.page,
+            topRatedParams.region
+        )
         return response.fold(::onHandleError, ::onHandleSuccess)
     }
 
-    private fun onHandleError(failure: Failure): Either<Failure, List<Movie>> = failure.left()
-    private fun onHandleSuccess(data: Page<Movie>): Either<Failure, List<Movie>> = data.results.right()
+    private fun onHandleError(failure: Failure): Either<Failure, List<TopRatedMovie>> =
+        failure.left()
+
+    private fun onHandleSuccess(data: Page<out TopRatedMovie>): Either<Failure, List<TopRatedMovie>> =
+        data.results.right()
 
     class Params private constructor(val language: String, val page: Int, val region: String) {
         companion object {

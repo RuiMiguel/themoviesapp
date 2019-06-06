@@ -7,12 +7,13 @@ import com.gigigo.themoviesapp.home.domain.model.MediaType
 import com.gigigo.themoviesapp.home.domain.model.Movie
 import com.gigigo.themoviesapp.home.domain.model.Page
 import com.gigigo.themoviesapp.home.domain.model.TimeWindow
+import com.gigigo.themoviesapp.home.domain.model.TrendingMovie
 import com.gigigo.themoviesapp.home.domain.repository.TrendingRepository
 
 class TrendingDataRepository(
     private val networkDataSource: NetworkDataSource
 ) : TrendingRepository {
-    override fun getTrending(mediaType: MediaType, timeWindow: TimeWindow): Either<Failure, Page<Movie>> {
+    override fun getTrending(mediaType: MediaType, timeWindow: TimeWindow): Either<Failure, Page<out TrendingMovie>> {
         return networkDataSource.getTrending(mediaType.type, timeWindow.time)
     }
 }

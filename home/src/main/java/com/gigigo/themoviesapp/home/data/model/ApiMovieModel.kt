@@ -33,12 +33,12 @@ data class ApiLatestMovie(
     @SerializedName("overview") val overview: String? = null,
     @SerializedName("popularity") val popularity: Int? = null,
     @SerializedName("poster_path") val posterPath: String? = null,
-    @SerializedName("production_companies") val productionCompanies: List<String>? = null,
+    @SerializedName("production_companies") val productionCompanies: List<ApiCompany>? = null,
     @SerializedName("production_countries") val productionCountries: List<ApiCountry>? = null,
     @SerializedName("release_date") val releaseDate: String? = null,
     @SerializedName("revenue") val revenue: Int? = null,
     @SerializedName("runtime") val runtime: Int? = null,
-    @SerializedName("spoken_languages") val spokenLanguages: List<String>? = null,
+    @SerializedName("spoken_languages") val spokenLanguages: List<ApiLanguage>? = null,
     @SerializedName("status") val status: String? = null,
     @SerializedName("tagline") val tagLine: String? = null,
     @SerializedName("title") val title: String? = null,
@@ -51,8 +51,20 @@ data class ApiLatestMovie(
         @SerializedName("name") val name: String? = null
     )
 
+    data class ApiLanguage(
+        @SerializedName("iso_639_1") val id: String? = null,
+        @SerializedName("name") val name: String? = null
+    )
+
     data class ApiCountry(
         @SerializedName("iso_3166_1") val id: String? = null,
         @SerializedName("name") val name: String? = null
+    )
+
+    data class ApiCompany(
+        @SerializedName("id") val id: Int? = null,
+        @SerializedName("name") val name: String? = null,
+        @SerializedName("logo_path") val logoPath: String? = null,
+        @SerializedName("origin_country") val originCountry: String? = null
     )
 }

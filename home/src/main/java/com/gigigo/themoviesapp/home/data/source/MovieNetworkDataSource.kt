@@ -10,7 +10,11 @@ import com.gigigo.themoviesapp.home.data.mapper.toLatestMovie
 import com.gigigo.themoviesapp.home.data.mapper.toPageMovie
 import com.gigigo.themoviesapp.home.domain.model.LatestMovie
 import com.gigigo.themoviesapp.home.domain.model.Movie
+import com.gigigo.themoviesapp.home.domain.model.NowPlayingMovie
 import com.gigigo.themoviesapp.home.domain.model.Page
+import com.gigigo.themoviesapp.home.domain.model.PopularMovie
+import com.gigigo.themoviesapp.home.domain.model.TopRatedMovie
+import com.gigigo.themoviesapp.home.domain.model.UpcomingMovie
 
 class MovieNetworkDataSource(
     private val apiKey: String,
@@ -20,7 +24,6 @@ class MovieNetworkDataSource(
     fun getLatest(language: String): Either<Failure, LatestMovie> {
         return Try {
             api.getLatest(language, apiKey).execute()
-
         }.fold(
             {
                 Failure.NetworkFailure(it.message ?: "Network error: ${it.message}").left()
@@ -42,17 +45,16 @@ class MovieNetworkDataSource(
         language: String,
         page: Int,
         region: String
-    ): Either<Failure, Page<Movie>> {
+    ): Either<Failure, Page<out NowPlayingMovie>> {
         return Try {
             api.getNowPlaying(language, page, region, apiKey).execute()
-
         }.fold(
             {
                 Failure.NetworkFailure(it.message ?: "Network error: ${it.message}").left()
             },
             { response ->
                 if (response.isSuccessful) {
-                    response.body()?.toPageMovie()?.right()
+                    response.body()?.toPageMovie<NowPlayingMovie>()?.right()
                         ?: Failure.ServerError("Response error").left()
                 } else {
                     val message =
@@ -67,17 +69,16 @@ class MovieNetworkDataSource(
         language: String,
         page: Int,
         region: String
-    ): Either<Failure, Page<Movie>> {
+    ): Either<Failure, Page<out PopularMovie>> {
         return Try {
             api.getPopular(language, page, region, apiKey).execute()
-
         }.fold(
             {
                 Failure.NetworkFailure(it.message ?: "Network error: ${it.message}").left()
             },
             { response ->
                 if (response.isSuccessful) {
-                    response.body()?.toPageMovie()?.right()
+                    response.body()?.toPageMovie<PopularMovie>()?.right()
                         ?: Failure.ServerError("Response error").left()
                 } else {
                     val message =
@@ -92,17 +93,16 @@ class MovieNetworkDataSource(
         language: String,
         page: Int,
         region: String
-    ): Either<Failure, Page<Movie>> {
+    ): Either<Failure, Page<out TopRatedMovie>> {
         return Try {
             api.getTopRated(language, page, region, apiKey).execute()
-
         }.fold(
             {
                 Failure.NetworkFailure(it.message ?: "Network error: ${it.message}").left()
             },
             { response ->
                 if (response.isSuccessful) {
-                    response.body()?.toPageMovie()?.right()
+                    response.body()?.toPageMovie<TopRatedMovie>()?.right()
                         ?: Failure.ServerError("Response error").left()
                 } else {
                     val message =
@@ -117,17 +117,16 @@ class MovieNetworkDataSource(
         language: String,
         page: Int,
         region: String
-    ): Either<Failure, Page<Movie>> {
+    ): Either<Failure, Page<out UpcomingMovie>> {
         return Try {
             api.getUpcoming(language, page, region, apiKey).execute()
-
         }.fold(
             {
                 Failure.NetworkFailure(it.message ?: "Network error: ${it.message}").left()
             },
             { response ->
                 if (response.isSuccessful) {
-                    response.body()?.toPageMovie()?.right()
+                    response.body()?.toPageMovie<UpcomingMovie>()?.right()
                         ?: Failure.ServerError("Response error").left()
                 } else {
                     val message =

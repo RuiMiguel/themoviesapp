@@ -11,31 +11,34 @@ import com.gigigo.baserecycleradapter.viewholder.BaseViewHolder
 import com.gigigo.themoviesapp.home.R
 import com.gigigo.themoviesapp.home.domain.model.Movie
 
-class MovieViewHolder(
+open class MovieViewHolder<T : Movie>(
     private val context: Context,
     parent: ViewGroup,
-    val size: DisplayMetrics,
-    private val apiImageUrl: String
+    private val size: DisplayMetrics,
+    private val apiImageUrl: String,
+    layoutResId: Int
 ) :
-    BaseViewHolder<Movie>(context, parent, R.layout.item_movie) {
+    BaseViewHolder<T>(context, parent, layoutResId) {
 
     private val image = itemView.findViewById<ImageView>(R.id.movie_thumbnail)
 
-    override fun bindTo(data: Movie, position: Int) {
+    override fun bindTo(data: T, position: Int) {
         val requestOption = RequestOptions()
             .placeholder(R.drawable.ic_movie_placeholder).centerCrop()
 
         val imageWidthRatio = if (size.widthPixels < size.heightPixels) 3 else 4
-        val imageHeightRatio = 3.0/2.0
+        val imageHeightRatio = 3.0 / 2.0
 
-        image.layoutParams.width = size.widthPixels/imageWidthRatio
-        image.layoutParams.height = (imageHeightRatio*image.layoutParams.width).toInt()
+        image?.let {
+            it.layoutParams.width = size.widthPixels / imageWidthRatio
+            it.layoutParams.height = (imageHeightRatio * it.layoutParams.width).toInt()
 
-        Glide.with(context)
-            .load("${apiImageUrl}w500${data.posterPath}")
-            .transition(DrawableTransitionOptions.withCrossFade())
-            .thumbnail(Glide.with(context).load("").apply(requestOption))
-            .apply(requestOption)
-            .into(image)
+            Glide.with(context)
+                .load("${apiImageUrl}w500${data.posterPath}")
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .thumbnail(Glide.with(context).load("").apply(requestOption))
+                .apply(requestOption)
+                .into(it)
+        }
     }
 }

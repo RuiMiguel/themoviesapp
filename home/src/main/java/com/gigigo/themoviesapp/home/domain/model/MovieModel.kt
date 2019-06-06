@@ -2,24 +2,184 @@ package com.gigigo.themoviesapp.home.domain.model
 
 import java.io.Serializable
 
-data class Movie(
-    val adult: Boolean,
-    val backdropPath: String,
-    val genreIds: List<Int>,
-    val id: Int,
-    val originalLanguage: String,
-    val originalTitle: String,
-    val overview: String,
-    val popularity: Double,
-    val posterPath: String,
-    val releaseDate: String,
-    val title: String,
-    val video: Boolean,
-    val voteAverage: Double,
-    val voteCount: Int
+open class Movie(
+    open val adult: Boolean,
+    open val backdropPath: String,
+    open val genreIds: List<Int>,
+    open val id: Int,
+    open val originalLanguage: String,
+    open val originalTitle: String,
+    open val overview: String,
+    open val popularity: Double,
+    open val posterPath: String,
+    open val releaseDate: String,
+    open val title: String,
+    open val video: Boolean,
+    open val voteAverage: Double,
+    open val voteCount: Int
 )
 
-data class LatestMovie (
+data class NowPlayingMovie(
+    override val adult: Boolean,
+    override val backdropPath: String,
+    override val genreIds: List<Int>,
+    override val id: Int,
+    override val originalLanguage: String,
+    override val originalTitle: String,
+    override val overview: String,
+    override val popularity: Double,
+    override val posterPath: String,
+    override val releaseDate: String,
+    override val title: String,
+    override val video: Boolean,
+    override val voteAverage: Double,
+    override val voteCount: Int
+) : Movie(
+    adult,
+    backdropPath,
+    genreIds,
+    id,
+    originalLanguage,
+    originalTitle,
+    overview,
+    popularity,
+    posterPath,
+    releaseDate,
+    title,
+    video,
+    voteAverage,
+    voteCount
+)
+
+data class PopularMovie(
+    override val adult: Boolean,
+    override val backdropPath: String,
+    override val genreIds: List<Int>,
+    override val id: Int,
+    override val originalLanguage: String,
+    override val originalTitle: String,
+    override val overview: String,
+    override val popularity: Double,
+    override val posterPath: String,
+    override val releaseDate: String,
+    override val title: String,
+    override val video: Boolean,
+    override val voteAverage: Double,
+    override val voteCount: Int
+) : Movie(
+    adult,
+    backdropPath,
+    genreIds,
+    id,
+    originalLanguage,
+    originalTitle,
+    overview,
+    popularity,
+    posterPath,
+    releaseDate,
+    title,
+    video,
+    voteAverage,
+    voteCount
+)
+
+data class TopRatedMovie(
+    override val adult: Boolean,
+    override val backdropPath: String,
+    override val genreIds: List<Int>,
+    override val id: Int,
+    override val originalLanguage: String,
+    override val originalTitle: String,
+    override val overview: String,
+    override val popularity: Double,
+    override val posterPath: String,
+    override val releaseDate: String,
+    override val title: String,
+    override val video: Boolean,
+    override val voteAverage: Double,
+    override val voteCount: Int
+) : Movie(
+    adult,
+    backdropPath,
+    genreIds,
+    id,
+    originalLanguage,
+    originalTitle,
+    overview,
+    popularity,
+    posterPath,
+    releaseDate,
+    title,
+    video,
+    voteAverage,
+    voteCount
+)
+
+data class TrendingMovie(
+    override val adult: Boolean,
+    override val backdropPath: String,
+    override val genreIds: List<Int>,
+    override val id: Int,
+    override val originalLanguage: String,
+    override val originalTitle: String,
+    override val overview: String,
+    override val popularity: Double,
+    override val posterPath: String,
+    override val releaseDate: String,
+    override val title: String,
+    override val video: Boolean,
+    override val voteAverage: Double,
+    override val voteCount: Int
+) : Movie(
+    adult,
+    backdropPath,
+    genreIds,
+    id,
+    originalLanguage,
+    originalTitle,
+    overview,
+    popularity,
+    posterPath,
+    releaseDate,
+    title,
+    video,
+    voteAverage,
+    voteCount
+)
+
+data class UpcomingMovie(
+    override val adult: Boolean,
+    override val backdropPath: String,
+    override val genreIds: List<Int>,
+    override val id: Int,
+    override val originalLanguage: String,
+    override val originalTitle: String,
+    override val overview: String,
+    override val popularity: Double,
+    override val posterPath: String,
+    override val releaseDate: String,
+    override val title: String,
+    override val video: Boolean,
+    override val voteAverage: Double,
+    override val voteCount: Int
+) : Movie(
+    adult,
+    backdropPath,
+    genreIds,
+    id,
+    originalLanguage,
+    originalTitle,
+    overview,
+    popularity,
+    posterPath,
+    releaseDate,
+    title,
+    video,
+    voteAverage,
+    voteCount
+)
+
+data class LatestMovie(
     val adult: Boolean,
     val backdropPath: String,
     val belongsToCollection: String,
@@ -33,12 +193,12 @@ data class LatestMovie (
     val overview: String,
     val popularity: Int,
     val posterPath: String,
-    val productionCompanies: List<String>,
+    val productionCompanies: List<Company>,
     val productionCountries: List<Country>,
     val releaseDate: String,
     val revenue: Int,
     val runtime: Int,
-    val spokenLanguages: List<String>,
+    val spokenLanguages: List<Language>,
     val status: String,
     val tagLine: String,
     val title: String,
@@ -51,9 +211,21 @@ data class LatestMovie (
         val name: String
     )
 
+    data class Language(
+        val id: String,
+        val name: String
+    )
+
     data class Country(
         val id: String,
         val name: String
+    )
+
+    data class Company(
+        val id: Int,
+        val name: String,
+        val logoPath: String,
+        val originCountry: String
     )
 }
 

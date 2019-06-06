@@ -7,14 +7,14 @@ import arrow.core.right
 import com.gigigo.themoviesapp.base.data.utils.ErrorUtils
 import com.gigigo.themoviesapp.base.domain.error.Failure
 import com.gigigo.themoviesapp.home.data.mapper.toPageMovie
-import com.gigigo.themoviesapp.home.domain.model.Movie
 import com.gigigo.themoviesapp.home.domain.model.Page
+import com.gigigo.themoviesapp.home.domain.model.TrendingMovie
 
 class NetworkDataSource(
     private val apiKey: String,
     private val api: ApiService
 ) {
-    fun getTrending(media: String, time: String): Either<Failure, Page<Movie>> {
+    fun getTrending(media: String, time: String): Either<Failure, Page<out TrendingMovie>> {
         return Try {
             api.getTrending(media, time, apiKey).execute()
 
@@ -24,7 +24,7 @@ class NetworkDataSource(
             },
             { response ->
                 if (response.isSuccessful) {
-                    response.body()?.toPageMovie()?.right()
+                    response.body()?.toPageMovie<TrendingMovie>()?.right()
                         ?: Failure.ServerError("Response error").left()
                 } else {
                     val message =

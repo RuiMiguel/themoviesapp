@@ -8,13 +8,18 @@ import com.gigigo.themoviesapp.home.data.model.ApiTv
 import com.gigigo.themoviesapp.home.domain.model.LatestMovie
 import com.gigigo.themoviesapp.home.domain.model.LatestTv
 import com.gigigo.themoviesapp.home.domain.model.Movie
+import com.gigigo.themoviesapp.home.domain.model.NowPlayingMovie
 import com.gigigo.themoviesapp.home.domain.model.Page
+import com.gigigo.themoviesapp.home.domain.model.PopularMovie
+import com.gigigo.themoviesapp.home.domain.model.TopRatedMovie
+import com.gigigo.themoviesapp.home.domain.model.TrendingMovie
 import com.gigigo.themoviesapp.home.domain.model.Tv
+import com.gigigo.themoviesapp.home.domain.model.UpcomingMovie
 
-fun ApiPage<ApiMovie>.toPageMovie(): Page<Movie> {
+inline fun <reified T : Movie> ApiPage<ApiMovie>.toPageMovie(): Page<out T> {
     return Page(
         page = this.page ?: 0,
-        results = this.results?.map { it.toMovie() } ?: emptyList(),
+        results = this.results?.map { it.toMovie<T>() } ?: emptyList(),
         totalPages = this.total_pages ?: 0,
         totalResults = this.total_results ?: 0
     )
@@ -29,23 +34,102 @@ fun ApiPage<ApiTv>.toPageTv(): Page<Tv> {
     )
 }
 
-fun ApiMovie.toMovie(): Movie {
-    return Movie(
-        adult = this.adult ?: false,
-        backdropPath = this.backdropPath ?: "",
-        genreIds = this.genreIds ?: emptyList(),
-        id = this.id ?: 0,
-        originalLanguage = this.originalLanguage ?: "",
-        originalTitle = this.originalTitle ?: "",
-        overview = this.overview ?: "",
-        popularity = this.popularity ?: 0.0,
-        posterPath = this.posterPath ?: "",
-        releaseDate = this.releaseDate ?: "",
-        title = this.title ?: "",
-        video = this.video ?: false,
-        voteAverage = this.voteAverage ?: 0.0,
-        voteCount = this.voteCount ?: 0
-    )
+inline fun <reified T: Movie> ApiMovie.toMovie(): T {
+    return when(T::class) {
+        NowPlayingMovie::class -> {
+            NowPlayingMovie(
+                adult = this.adult ?: false,
+                backdropPath = this.backdropPath ?: "",
+                genreIds = this.genreIds ?: emptyList(),
+                id = this.id ?: 0,
+                originalLanguage = this.originalLanguage ?: "",
+                originalTitle = this.originalTitle ?: "",
+                overview = this.overview ?: "",
+                popularity = this.popularity ?: 0.0,
+                posterPath = this.posterPath ?: "",
+                releaseDate = this.releaseDate ?: "",
+                title = this.title ?: "",
+                video = this.video ?: false,
+                voteAverage = this.voteAverage ?: 0.0,
+                voteCount = this.voteCount ?: 0
+            )
+        }
+        PopularMovie::class -> {
+            PopularMovie(
+                adult = this.adult ?: false,
+                backdropPath = this.backdropPath ?: "",
+                genreIds = this.genreIds ?: emptyList(),
+                id = this.id ?: 0,
+                originalLanguage = this.originalLanguage ?: "",
+                originalTitle = this.originalTitle ?: "",
+                overview = this.overview ?: "",
+                popularity = this.popularity ?: 0.0,
+                posterPath = this.posterPath ?: "",
+                releaseDate = this.releaseDate ?: "",
+                title = this.title ?: "",
+                video = this.video ?: false,
+                voteAverage = this.voteAverage ?: 0.0,
+                voteCount = this.voteCount ?: 0
+            )
+        }
+        TopRatedMovie::class -> {
+            TopRatedMovie(
+                adult = this.adult ?: false,
+                backdropPath = this.backdropPath ?: "",
+                genreIds = this.genreIds ?: emptyList(),
+                id = this.id ?: 0,
+                originalLanguage = this.originalLanguage ?: "",
+                originalTitle = this.originalTitle ?: "",
+                overview = this.overview ?: "",
+                popularity = this.popularity ?: 0.0,
+                posterPath = this.posterPath ?: "",
+                releaseDate = this.releaseDate ?: "",
+                title = this.title ?: "",
+                video = this.video ?: false,
+                voteAverage = this.voteAverage ?: 0.0,
+                voteCount = this.voteCount ?: 0
+            )
+        }
+        TrendingMovie::class -> {
+            TrendingMovie(
+                adult = this.adult ?: false,
+                backdropPath = this.backdropPath ?: "",
+                genreIds = this.genreIds ?: emptyList(),
+                id = this.id ?: 0,
+                originalLanguage = this.originalLanguage ?: "",
+                originalTitle = this.originalTitle ?: "",
+                overview = this.overview ?: "",
+                popularity = this.popularity ?: 0.0,
+                posterPath = this.posterPath ?: "",
+                releaseDate = this.releaseDate ?: "",
+                title = this.title ?: "",
+                video = this.video ?: false,
+                voteAverage = this.voteAverage ?: 0.0,
+                voteCount = this.voteCount ?: 0
+            )
+        }
+        UpcomingMovie::class -> {
+            UpcomingMovie(
+                adult = this.adult ?: false,
+                backdropPath = this.backdropPath ?: "",
+                genreIds = this.genreIds ?: emptyList(),
+                id = this.id ?: 0,
+                originalLanguage = this.originalLanguage ?: "",
+                originalTitle = this.originalTitle ?: "",
+                overview = this.overview ?: "",
+                popularity = this.popularity ?: 0.0,
+                posterPath = this.posterPath ?: "",
+                releaseDate = this.releaseDate ?: "",
+                title = this.title ?: "",
+                video = this.video ?: false,
+                voteAverage = this.voteAverage ?: 0.0,
+                voteCount = this.voteCount ?: 0
+            )
+        }
+        else -> {
+            null
+        }
+    } as T
 }
 
 fun ApiTv.toTv(): Tv {
@@ -81,12 +165,12 @@ fun ApiLatestMovie.toLatestMovie(): LatestMovie {
         overview = this.overview ?: "",
         popularity = this.popularity ?: 0,
         posterPath = this.posterPath ?: "",
-        productionCompanies = this.productionCompanies ?: emptyList(),
+        productionCompanies = this.productionCompanies?.map { it.toCompany() } ?: emptyList(),
         productionCountries = this.productionCountries?.map { it.toCountry() } ?: emptyList(),
         releaseDate = this.releaseDate ?: "",
         revenue = this.revenue ?: 0,
         runtime = this.runtime ?: 0,
-        spokenLanguages = this.spokenLanguages ?: emptyList(),
+        spokenLanguages = this.spokenLanguages?.map { it.toLanguage() } ?: emptyList(),
         status = this.status ?: "",
         tagLine = this.tagLine ?: "",
         title = this.title ?: "",
@@ -134,10 +218,26 @@ fun ApiLatestMovie.ApiGenre.toGenre(): LatestMovie.Genre {
     )
 }
 
+fun ApiLatestMovie.ApiLanguage.toLanguage(): LatestMovie.Language {
+    return LatestMovie.Language(
+        id = this.id ?: "",
+        name = this.name ?: ""
+    )
+}
+
 fun ApiLatestMovie.ApiCountry.toCountry(): LatestMovie.Country {
     return LatestMovie.Country(
         id = this.id ?: "",
         name = this.name ?: ""
+    )
+}
+
+fun ApiLatestMovie.ApiCompany.toCompany(): LatestMovie.Company {
+    return LatestMovie.Company(
+        id = this.id ?: 0,
+        name = this.name ?: "",
+        logoPath = this.logoPath ?: "",
+        originCountry = this.originCountry ?: ""
     )
 }
 

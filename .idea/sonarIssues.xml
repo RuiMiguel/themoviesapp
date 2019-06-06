@@ -1448,7 +1448,132 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/java/com/gigigo/mcdonaldsbr/modules/coupons/MyCouponMenuActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/java/com/gigigo/mcdonaldsbr/modules/coupons/detailgeneratedcoupons/DetailMainGeneratedCouponActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/java/com/gigigo/mcdonaldsbr/modules/coupons/list/CouponsSectionFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/java/com/gigigo/mcdonaldsbr/modules/coupons/list/viewholders/FeaturedCategoryCouponListViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/java/com/gigigo/mcdonaldsbr/modules/coupons/list/viewholders/RegularHorizontalCouponListViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/java/com/gigigo/mcdonaldsbr/modules/main/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/java/com/gigigo/mcdonaldsbr/modules/main/coupons/CouponsSectionFragmentOld.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/java/com/gigigo/mcdonaldsbr/ui/coupons/couponshome/CouponHomeFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/java/com/gigigo/mcdonaldsbr/utils/GoogleMapsUtils.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/java/com/gigigo/mcdonaldsbr/utils/Utils.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/res/layout/activity_detail_generated_coupon_layout.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/app/src/main/res/layout/view_regular_coupon_list_horizontal_layout.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/core_ui/src/main/java/com/gigigo/mcdonalds/ui/extension/Text.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/core_ui/src/main/java/com/gigigo/mcdonalds/ui/extensions/Text.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/data/src/main/java/com/gigigo/mcdonaldsbr/data/api/cloudfront/ConfigNetworkDataSourceImp.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/data/src/main/java/com/gigigo/mcdonaldsbr/data/api/coupons/CouponsNetworkDataSourceImp.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/data/src/main/java/com/gigigo/mcdonaldsbr/data/api/entities/response/configuration/ApiGlobalParameters.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/data/src/main/java/com/gigigo/mcdonaldsbr/data/api/entities/response/configuration/ApiIdentityManager.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/data/src/main/java/com/gigigo/mcdonaldsbr/data/api/entities/response/configuration/ConfigurationMapper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/data/src/main/java/com/gigigo/mcdonaldsbr/data/api/entities/response/coupons/CouponsMapper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/data/src/main/java/com/gigigo/mcdonaldsbr/data/api/entities/response/coupons/coupondetail/ApiCoupon.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/data/src/main/java/com/gigigo/mcdonaldsbr/data/database/entities/GlobalParametersDatabase.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/data/src/main/java/com/gigigo/mcdonaldsbr/data/database/mappers/DbConfigMapper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/dependencies.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/domain/src/main/java/com/gigigo/mcdonalds/domain/entities/configuration/GlobalParameters.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/domain/src/main/java/com/gigigo/mcdonalds/domain/entities/coupons/Coupon.kt">
           <value>
             <set />
           </value>
@@ -1459,6 +1584,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdonalds-mcentrega-android/src/main/java/com/gigigo/macentrega/domain/usecase/UseCase.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/presentation/src/main/java/com/gigigo/mcdonalds/presentation/modules/main/MainPresenter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/variants.gradle">
           <value>
             <set />
           </value>
@@ -1663,6 +1798,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/PlayServices.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/SystemUi.kt">
           <value>
             <set />
@@ -1684,6 +1824,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/viewmodel/SplashViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/res/drawable/ic_circle_vote.xml">
           <value>
             <set />
           </value>
@@ -1958,6 +2103,31 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/viewholder/NowPlayingMovieViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/viewholder/PopularMovieViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/viewholder/TopRatedMovieViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/viewholder/TrendingMovieViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/viewholder/UpcomingMovieViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/viewmodel/HomeViewModel.kt">
           <value>
             <set />
@@ -2004,6 +2174,31 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/home/src/main/res/layout/item_movie.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/res/layout/item_now_playing_movie.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/res/layout/item_popular_movie.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/res/layout/item_top_rated_movie.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/res/layout/item_trending_movie.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/res/layout/item_upcoming_movie.xml">
           <value>
             <set />
           </value>

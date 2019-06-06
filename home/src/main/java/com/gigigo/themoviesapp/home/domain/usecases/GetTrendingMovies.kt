@@ -6,21 +6,25 @@ import arrow.core.right
 import com.gigigo.themoviesapp.base.domain.error.Failure
 import com.gigigo.themoviesapp.base.domain.usecases.UseCase
 import com.gigigo.themoviesapp.home.domain.model.MediaType
-import com.gigigo.themoviesapp.home.domain.model.Movie
 import com.gigigo.themoviesapp.home.domain.model.Page
 import com.gigigo.themoviesapp.home.domain.model.TimeWindow
+import com.gigigo.themoviesapp.home.domain.model.TrendingMovie
 import com.gigigo.themoviesapp.home.domain.repository.TrendingRepository
 
 class GetTrendingMovies(private val trendingRepository: TrendingRepository) :
-    UseCase<List<Movie>, GetTrendingMovies.Params>() {
-    override fun run(params: GetTrendingMovies.Params?): Either<Failure, List<Movie>> {
+    UseCase<List<TrendingMovie>, GetTrendingMovies.Params>() {
+    override fun run(params: GetTrendingMovies.Params?): Either<Failure, List<TrendingMovie>> {
         val trendingParams = initParams(params)
-        val response = trendingRepository.getTrending(trendingParams.mediaType, trendingParams.timeWindow)
+        val response =
+            trendingRepository.getTrending(trendingParams.mediaType, trendingParams.timeWindow)
         return response.fold(::onHandleError, ::onHandleSuccess)
     }
 
-    private fun onHandleError(failure: Failure): Either<Failure, List<Movie>> = failure.left()
-    private fun onHandleSuccess(data: Page<Movie>): Either<Failure, List<Movie>> = data.results.right()
+    private fun onHandleError(failure: Failure): Either<Failure, List<TrendingMovie>> =
+        failure.left()
+
+    private fun onHandleSuccess(data: Page<out TrendingMovie>): Either<Failure, List<TrendingMovie>> =
+        data.results.right()
 
     class Params private constructor(val mediaType: MediaType, val timeWindow: TimeWindow) {
         companion object {

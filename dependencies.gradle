@@ -47,7 +47,7 @@ ext {
             timber             : '4.7.1',
 
             permissions        : '0.3RC',
-            baseRecyclerAdapter: 'feature~kotlin-SNAPSHOT', //2.3.0
+            baseRecyclerAdapter: '2.3.0',
 
             debugDatabase      : '1.0.4'
     ]

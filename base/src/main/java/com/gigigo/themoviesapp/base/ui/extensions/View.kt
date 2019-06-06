@@ -31,11 +31,11 @@ fun View?.gone() {
 }
 
 
-fun View?.fadeIn() {
+fun View?.fadeIn(fadeDuration: Long? = 1000) {
     this?.let { view ->
         clearAnimation()
         val animation = AlphaAnimation(alpha, 1f).apply {
-            duration = 1000
+            duration = fadeDuration ?: 1000
             interpolator = AccelerateDecelerateInterpolator()
             setAnimationListener(object : Animation.AnimationListener {
                 override fun onAnimationRepeat(animation: Animation?) {
@@ -54,12 +54,12 @@ fun View?.fadeIn() {
     }
 }
 
-fun View?.fadeOut() {
+fun View?.fadeOut(fadeDuration: Long? = 1000) {
     this?.let { view ->
         clearAnimation()
 
         val animation = AlphaAnimation(alpha, 0f).apply {
-            duration = 1000
+            duration = fadeDuration ?: 1000
             interpolator = AccelerateDecelerateInterpolator()
             setAnimationListener(object : Animation.AnimationListener {
                 override fun onAnimationRepeat(animation: Animation?) {
