@@ -64,11 +64,11 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     private val viewModel by viewModel<HomeViewModel>()
     private lateinit var movieViewHolderFactory: MovieViewHolderFactory
     private lateinit var lastestAdapter: BaseRecyclerAdapter<LatestMovie>
-    private lateinit var nowPlayingAdapter: BaseRecyclerAdapter<Movie>
-    private lateinit var popularAdapter: BaseRecyclerAdapter<Movie>
-    private lateinit var topRatedAdapter: BaseRecyclerAdapter<Movie>
-    private lateinit var trendingAdapter: BaseRecyclerAdapter<Movie>
-    private lateinit var upcomingAdapter: BaseRecyclerAdapter<Movie>
+    private lateinit var nowPlayingAdapter: BaseRecyclerAdapter<NowPlayingMovie>
+    private lateinit var popularAdapter: BaseRecyclerAdapter<PopularMovie>
+    private lateinit var topRatedAdapter: BaseRecyclerAdapter<TopRatedMovie>
+    private lateinit var trendingAdapter: BaseRecyclerAdapter<TrendingMovie>
+    private lateinit var upcomingAdapter: BaseRecyclerAdapter<UpcomingMovie>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -232,27 +232,27 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
         })
         viewModel.nowPlayingMovies.observe(this, Observer {
             launch {
-                nowPlayingAdapter.addAll(it)
+                nowPlayingAdapter.addAll(it as List<NowPlayingMovie>)
             }
         })
         viewModel.popularMovies.observe(this, Observer {
             launch {
-                popularAdapter.addAll(it)
+                popularAdapter.addAll(it as List<PopularMovie>)
             }
         })
         viewModel.topRatedMovies.observe(this, Observer {
             launch {
-                topRatedAdapter.addAll(it)
+                topRatedAdapter.addAll(it as List<TopRatedMovie>)
             }
         })
         viewModel.trendingMovies.observe(this, Observer {
             launch {
-                trendingAdapter.addAll(it)
+                trendingAdapter.addAll(it as List<TrendingMovie>)
             }
         })
         viewModel.upcomingMovies.observe(this, Observer {
             launch {
-                upcomingAdapter.addAll(it)
+                upcomingAdapter.addAll(it as List<UpcomingMovie>)
             }
         })
     }
