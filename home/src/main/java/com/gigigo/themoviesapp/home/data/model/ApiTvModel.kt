@@ -1,5 +1,6 @@
 package com.gigigo.themoviesapp.home.data.model
 
+import com.gigigo.themoviesapp.base.data.model.ApiGenre
 import com.google.gson.annotations.SerializedName
 
 data class ApiTv(
@@ -57,10 +58,5 @@ data class ApiLatestTv(
         @SerializedName("id") val id: Int? = null,
         @SerializedName("poster_path") val posterPath: String? = null,
         @SerializedName("season_number") val seasonNumber: Int? = null
-    )
-
-    data class ApiGenre(
-        @SerializedName("id") val id: Int? = null,
-        @SerializedName("name") val name: String? = null
     )
 }

@@ -49,6 +49,11 @@ android {
         abortOnError false
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     productFlavors.whenObjectAdded { flavor ->
         def version = rootProject.ext.version
 
@@ -131,8 +136,8 @@ dependencies {
     implementation "androidx.room:room-ktx:$libraries.room"
 
     // Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:$libraries.navigation"
-    implementation "androidx.navigation:navigation-ui-ktx:$libraries.navigation"
+    //implementation "androidx.navigation:navigation-fragment-ktx:$libraries.navigation"
+    //implementation "androidx.navigation:navigation-ui-ktx:$libraries.navigation"
 
     debugImplementation "com.amitshekhar.android:debug-db:$libraries.debugDatabase"
 }

@@ -1,5 +1,9 @@
 package com.gigigo.themoviesapp.home.domain.model
 
+import com.gigigo.themoviesapp.base.domain.model.Company
+import com.gigigo.themoviesapp.base.domain.model.Country
+import com.gigigo.themoviesapp.base.domain.model.Genre
+import com.gigigo.themoviesapp.base.domain.model.Language
 import java.io.Serializable
 
 open class Movie(
@@ -205,29 +209,7 @@ data class LatestMovie(
     val video: Boolean,
     val voteAverage: Double,
     val voteCount: Int
-) {
-    data class Genre(
-        val id: Int,
-        val name: String
-    )
-
-    data class Language(
-        val id: String,
-        val name: String
-    )
-
-    data class Country(
-        val id: String,
-        val name: String
-    )
-
-    data class Company(
-        val id: Int,
-        val name: String,
-        val logoPath: String,
-        val originCountry: String
-    )
-}
+)
 
 enum class MediaType constructor(val type: String) : Serializable {
     ALL("all"),

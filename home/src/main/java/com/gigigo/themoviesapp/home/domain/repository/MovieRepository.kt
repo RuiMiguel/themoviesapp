@@ -3,9 +3,8 @@ package com.gigigo.themoviesapp.home.domain.repository
 import arrow.core.Either
 import com.gigigo.themoviesapp.base.domain.error.Failure
 import com.gigigo.themoviesapp.home.domain.model.LatestMovie
-import com.gigigo.themoviesapp.home.domain.model.Movie
 import com.gigigo.themoviesapp.home.domain.model.NowPlayingMovie
-import com.gigigo.themoviesapp.home.domain.model.Page
+import com.gigigo.themoviesapp.base.domain.model.Page
 import com.gigigo.themoviesapp.home.domain.model.PopularMovie
 import com.gigigo.themoviesapp.home.domain.model.TopRatedMovie
 import com.gigigo.themoviesapp.home.domain.model.UpcomingMovie

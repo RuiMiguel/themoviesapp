@@ -1698,6 +1698,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/data/mapper/Api2DomainMapper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/data/model/Api2DomainMapper.kt">
           <value>
             <set />
@@ -1714,6 +1719,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/data/model/ApiError.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/data/model/ApiModel.kt">
           <value>
             <set />
           </value>
@@ -1748,12 +1758,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/domain/DomainModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/domain/error/Failure.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/domain/model/BaseModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/domain/model/DomainModel.kt">
           <value>
             <set />
           </value>
@@ -1778,6 +1798,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/Response.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/Result.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/Alerts.kt">
           <value>
             <set />
@@ -1789,6 +1819,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/Image.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/extensions/Lifecycle.kt">
           <value>
             <set />
           </value>
@@ -1819,6 +1854,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/ui/navigation/Navigator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/viewmodel/BaseViewModel.kt">
           <value>
             <set />
           </value>
@@ -1869,6 +1909,51 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/detail/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/data/mapper/Api2DomainMapper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/data/model/ApiMovieModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/data/model/TEST.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/data/repository/MovieDataRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/data/source/MovieApiService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/data/source/MovieNetworkDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/di/DetailModules.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/domain/model/MovieModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/domain/repository/MovieRepository.kt">
           <value>
             <set />
           </value>

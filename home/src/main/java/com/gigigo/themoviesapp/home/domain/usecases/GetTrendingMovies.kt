@@ -6,7 +6,7 @@ import arrow.core.right
 import com.gigigo.themoviesapp.base.domain.error.Failure
 import com.gigigo.themoviesapp.base.domain.usecases.UseCase
 import com.gigigo.themoviesapp.home.domain.model.MediaType
-import com.gigigo.themoviesapp.home.domain.model.Page
+import com.gigigo.themoviesapp.base.domain.model.Page
 import com.gigigo.themoviesapp.home.domain.model.TimeWindow
 import com.gigigo.themoviesapp.home.domain.model.TrendingMovie
 import com.gigigo.themoviesapp.home.domain.repository.TrendingRepository

@@ -6,10 +6,11 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.gigigo.baserecycleradapter.adapter.BaseRecyclerAdapter
+import com.gigigo.themoviesapp.base.ui.Result
+import com.gigigo.themoviesapp.base.ui.extensions.observe
 import com.gigigo.themoviesapp.base.ui.navigation.Navigator
 import com.gigigo.themoviesapp.base.ui.utils.extensions.hide
 import com.gigigo.themoviesapp.base.ui.utils.extensions.screenSize
@@ -17,7 +18,6 @@ import com.gigigo.themoviesapp.base.ui.utils.extensions.show
 import com.gigigo.themoviesapp.home.R
 import com.gigigo.themoviesapp.home.di.homeModules
 import com.gigigo.themoviesapp.home.domain.model.LatestMovie
-import com.gigigo.themoviesapp.home.domain.model.Movie
 import com.gigigo.themoviesapp.home.domain.model.NowPlayingMovie
 import com.gigigo.themoviesapp.home.domain.model.PopularMovie
 import com.gigigo.themoviesapp.home.domain.model.TopRatedMovie
@@ -26,7 +26,6 @@ import com.gigigo.themoviesapp.home.domain.model.UpcomingMovie
 import com.gigigo.themoviesapp.home.ui.decoration.PaddingDecoration
 import com.gigigo.themoviesapp.home.ui.factory.MovieViewHolderFactory
 import com.gigigo.themoviesapp.home.ui.viewholder.LatestMovieViewHolder
-import com.gigigo.themoviesapp.home.ui.viewholder.MovieViewHolder
 import com.gigigo.themoviesapp.home.ui.viewholder.NowPlayingMovieViewHolder
 import com.gigigo.themoviesapp.home.ui.viewholder.PopularMovieViewHolder
 import com.gigigo.themoviesapp.home.ui.viewholder.TopRatedMovieViewHolder
@@ -157,6 +156,11 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
         latest_movies_list.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         latest_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
         latest_movies_list.setHasFixedSize(true)
+        lastestAdapter.setItemClickListener { position, view ->
+            val element = lastestAdapter.getItem(position)?.let {
+                viewModel.handledMovieItemSelected(it.id)
+            }
+        }
         latest_movies_list.adapter = lastestAdapter
     }
 
@@ -168,6 +172,11 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         now_playing_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
         now_playing_movies_list.setHasFixedSize(true)
+        nowPlayingAdapter.setItemClickListener { position, view ->
+            val element = nowPlayingAdapter.getItem(position)?.let {
+                viewModel.handledMovieItemSelected(it.id)
+            }
+        }
         now_playing_movies_list.adapter = nowPlayingAdapter
     }
 
@@ -179,6 +188,11 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         popular_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
         popular_movies_list.setHasFixedSize(true)
+        popularAdapter.setItemClickListener { position, view ->
+            val element = popularAdapter.getItem(position)?.let {
+                viewModel.handledMovieItemSelected(it.id)
+            }
+        }
         popular_movies_list.adapter = popularAdapter
     }
 
@@ -190,6 +204,11 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         top_rated_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
         top_rated_movies_list.setHasFixedSize(true)
+        topRatedAdapter.setItemClickListener { position, view ->
+            val element = topRatedAdapter.getItem(position)?.let {
+                viewModel.handledMovieItemSelected(it.id)
+            }
+        }
         top_rated_movies_list.adapter = topRatedAdapter
     }
 
@@ -201,6 +220,11 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         trending_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
         trending_movies_list.setHasFixedSize(true)
+        trendingAdapter.setItemClickListener { position, view ->
+            val element = trendingAdapter.getItem(position)?.let {
+                viewModel.handledMovieItemSelected(it.id)
+            }
+        }
         trending_movies_list.adapter = trendingAdapter
     }
 
@@ -212,49 +236,98 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         upcoming_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
         upcoming_movies_list.setHasFixedSize(true)
+        upcomingAdapter.setItemClickListener { position, view ->
+            val element = upcomingAdapter.getItem(position)?.let {
+                viewModel.handledMovieItemSelected(it.id)
+            }
+        }
         upcoming_movies_list.adapter = upcomingAdapter
     }
 
     private fun initViewModel() {
-        viewModel.isLoading.observe(this, Observer { loadingMap ->
-            val loadingLatestMovie = loadingMap?.get(HomeViewModel.Loading.LATEST) ?: false
-            val loadingNowPlayingMovies = loadingMap?.get(HomeViewModel.Loading.NOW_PLAYING) ?: false
-            val loadingPopularMovies = loadingMap?.get(HomeViewModel.Loading.POPULAR) ?: false
-            val loadingTopRatedMovies = loadingMap?.get(HomeViewModel.Loading.TOP_RATED) ?: false
-            val loadingTrendingMovies = loadingMap?.get(HomeViewModel.Loading.TRENDING) ?: false
-            val loadingUpcomingMovies = loadingMap?.get(HomeViewModel.Loading.UPCOMING) ?: false
-        })
+        observe(viewModel.latestMovie) { result ->
+            when (result) {
+                is Result.Loading -> {
 
-        viewModel.latestMovie.observe(this, Observer {
-            launch {
-                lastestAdapter.addAll(it)
+                }
+                is Result.Success -> {
+                    lastestAdapter.addAll(result.data)
+                }
+                is Result.Error -> {
+
+                }
             }
-        })
-        viewModel.nowPlayingMovies.observe(this, Observer {
-            launch {
-                nowPlayingAdapter.addAll(it as List<NowPlayingMovie>)
+        }
+
+        observe(viewModel.nowPlayingMovies) { result ->
+            when (result) {
+                is Result.Loading -> {
+
+                }
+                is Result.Success -> {
+                    nowPlayingAdapter.addAll(result.data as List<NowPlayingMovie>)
+                }
+                is Result.Error -> {
+
+                }
             }
-        })
-        viewModel.popularMovies.observe(this, Observer {
-            launch {
-                popularAdapter.addAll(it as List<PopularMovie>)
+        }
+
+        observe(viewModel.popularMovies) { result ->
+            when (result) {
+                is Result.Loading -> {
+
+                }
+                is Result.Success -> {
+                    popularAdapter.addAll(result.data as List<PopularMovie>)
+                }
+                is Result.Error -> {
+
+                }
             }
-        })
-        viewModel.topRatedMovies.observe(this, Observer {
-            launch {
-                topRatedAdapter.addAll(it as List<TopRatedMovie>)
+        }
+
+        observe(viewModel.topRatedMovies) { result ->
+            when (result) {
+                is Result.Loading -> {
+
+                }
+                is Result.Success -> {
+                    topRatedAdapter.addAll(result.data as List<TopRatedMovie>)
+                }
+                is Result.Error -> {
+
+                }
             }
-        })
-        viewModel.trendingMovies.observe(this, Observer {
-            launch {
-                trendingAdapter.addAll(it as List<TrendingMovie>)
+        }
+
+        observe(viewModel.trendingMovies) { result ->
+            when (result) {
+                is Result.Loading -> {
+
+                }
+                is Result.Success -> {
+                    trendingAdapter.addAll(result.data as List<TrendingMovie>)
+                }
+                is Result.Error -> {
+
+                }
             }
-        })
-        viewModel.upcomingMovies.observe(this, Observer {
-            launch {
-                upcomingAdapter.addAll(it as List<UpcomingMovie>)
+        }
+
+        observe(viewModel.upcomingMovies) { result ->
+            when (result) {
+                is Result.Loading -> {
+
+                }
+                is Result.Success -> {
+                    upcomingAdapter.addAll(result.data as List<UpcomingMovie>)
+                }
+                is Result.Error -> {
+
+                }
             }
-        })
+        }
     }
 
     private fun showLoading(loading: Boolean) {

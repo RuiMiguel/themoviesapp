@@ -3,7 +3,7 @@ package com.gigigo.themoviesapp.home.domain.repository
 import arrow.core.Either
 import com.gigigo.themoviesapp.base.domain.error.Failure
 import com.gigigo.themoviesapp.home.domain.model.LatestTv
-import com.gigigo.themoviesapp.home.domain.model.Page
+import com.gigigo.themoviesapp.base.domain.model.Page
 import com.gigigo.themoviesapp.home.domain.model.Tv
 
 interface TvRepository {

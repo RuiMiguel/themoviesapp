@@ -1,4 +1,4 @@
-package com.gigigo.themoviesapp.home.data.source
+package com.gigigo.themoviesapp.detail.data.source
 
 import arrow.core.Either
 import arrow.core.Try
@@ -6,25 +6,24 @@ import arrow.core.left
 import arrow.core.right
 import com.gigigo.themoviesapp.base.data.utils.ErrorUtils
 import com.gigigo.themoviesapp.base.domain.error.Failure
-import com.gigigo.themoviesapp.home.data.mapper.toPageMovie
-import com.gigigo.themoviesapp.base.domain.model.Page
-import com.gigigo.themoviesapp.home.domain.model.TrendingMovie
+import com.gigigo.themoviesapp.detail.data.mapper.toMovieDetail
+import com.gigigo.themoviesapp.detail.domain.model.MovieDetail
 
-class NetworkDataSource(
+class MovieNetworkDataSource(
     private val apiKey: String,
-    private val api: ApiService
+    private val api: MovieApiService
 ) {
-    fun getTrending(media: String, time: String): Either<Failure, Page<out TrendingMovie>> {
-        return Try {
-            api.getTrending(media, time, apiKey).execute()
 
+    fun getDetail(movieId: Int, language: String): Either<Failure, MovieDetail> {
+        return Try {
+            api.getDetail(movieId, language, apiKey).execute()
         }.fold(
             {
                 Failure.NetworkFailure(it.message ?: "Network error: ${it.message}").left()
             },
             { response ->
                 if (response.isSuccessful) {
-                    response.body()?.toPageMovie<TrendingMovie>()?.right()
+                    response.body()?.toMovieDetail()?.right()
                         ?: Failure.ServerError("Response error").left()
                 } else {
                     val message =

@@ -2,10 +2,9 @@ package com.gigigo.themoviesapp.home.data.source
 
 import com.gigigo.themoviesapp.home.data.model.ApiLatestMovie
 import com.gigigo.themoviesapp.home.data.model.ApiMovie
-import com.gigigo.themoviesapp.home.data.model.ApiPage
+import com.gigigo.themoviesapp.base.data.model.ApiPage
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MovieApiService {

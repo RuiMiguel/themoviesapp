@@ -6,7 +6,7 @@ import arrow.core.right
 import com.gigigo.themoviesapp.base.domain.error.Failure
 import com.gigigo.themoviesapp.base.domain.usecases.UseCase
 import com.gigigo.themoviesapp.home.domain.model.NowPlayingMovie
-import com.gigigo.themoviesapp.home.domain.model.Page
+import com.gigigo.themoviesapp.base.domain.model.Page
 import com.gigigo.themoviesapp.home.domain.repository.MovieRepository
 
 class GetNowPlayingMovies(private val movieRepository: MovieRepository) :

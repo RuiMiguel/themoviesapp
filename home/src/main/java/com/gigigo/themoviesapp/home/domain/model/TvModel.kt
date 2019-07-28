@@ -1,5 +1,7 @@
 package com.gigigo.themoviesapp.home.domain.model
 
+import com.gigigo.themoviesapp.base.domain.model.Genre
+
 data class Tv(
     val backdropPath: String,
     val firstAirDate: String,
@@ -55,10 +57,5 @@ data class LatestTv(
         val id: Int,
         val posterPath: String,
         val seasonNumber: Int
-    )
-
-    data class Genre(
-        val id: Int,
-        val name: String
     )
 }

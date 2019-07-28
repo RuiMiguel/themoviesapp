@@ -1,15 +1,19 @@
 package com.gigigo.themoviesapp.home.data.mapper
 
+import com.gigigo.themoviesapp.base.data.mapper.toCompany
+import com.gigigo.themoviesapp.base.data.mapper.toCountry
+import com.gigigo.themoviesapp.base.data.mapper.toGenre
+import com.gigigo.themoviesapp.base.data.mapper.toLanguage
 import com.gigigo.themoviesapp.home.data.model.ApiLatestMovie
 import com.gigigo.themoviesapp.home.data.model.ApiLatestTv
 import com.gigigo.themoviesapp.home.data.model.ApiMovie
-import com.gigigo.themoviesapp.home.data.model.ApiPage
+import com.gigigo.themoviesapp.base.data.model.ApiPage
 import com.gigigo.themoviesapp.home.data.model.ApiTv
 import com.gigigo.themoviesapp.home.domain.model.LatestMovie
 import com.gigigo.themoviesapp.home.domain.model.LatestTv
 import com.gigigo.themoviesapp.home.domain.model.Movie
 import com.gigigo.themoviesapp.home.domain.model.NowPlayingMovie
-import com.gigigo.themoviesapp.home.domain.model.Page
+import com.gigigo.themoviesapp.base.domain.model.Page
 import com.gigigo.themoviesapp.home.domain.model.PopularMovie
 import com.gigigo.themoviesapp.home.domain.model.TopRatedMovie
 import com.gigigo.themoviesapp.home.domain.model.TrendingMovie
@@ -216,43 +220,6 @@ fun ApiLatestTv.toLatestTv(): LatestTv {
         type = this.type ?: "",
         voteAverage = this.voteAverage ?: 0.0,
         voteCount = this.voteCount ?: 0
-    )
-}
-
-fun ApiLatestMovie.ApiGenre.toGenre(): LatestMovie.Genre {
-    return LatestMovie.Genre(
-        id = this.id ?: 0,
-        name = this.name ?: ""
-    )
-}
-
-fun ApiLatestMovie.ApiLanguage.toLanguage(): LatestMovie.Language {
-    return LatestMovie.Language(
-        id = this.id ?: "",
-        name = this.name ?: ""
-    )
-}
-
-fun ApiLatestMovie.ApiCountry.toCountry(): LatestMovie.Country {
-    return LatestMovie.Country(
-        id = this.id ?: "",
-        name = this.name ?: ""
-    )
-}
-
-fun ApiLatestMovie.ApiCompany.toCompany(): LatestMovie.Company {
-    return LatestMovie.Company(
-        id = this.id ?: 0,
-        name = this.name ?: "",
-        logoPath = this.logoPath ?: "",
-        originCountry = this.originCountry ?: ""
-    )
-}
-
-fun ApiLatestTv.ApiGenre.toGenre(): LatestTv.Genre {
-    return LatestTv.Genre(
-        id = this.id ?: 0,
-        name = this.name ?: ""
     )
 }
 

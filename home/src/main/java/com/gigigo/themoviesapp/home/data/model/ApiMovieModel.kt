@@ -1,5 +1,9 @@
 package com.gigigo.themoviesapp.home.data.model
 
+import com.gigigo.themoviesapp.base.data.model.ApiCompany
+import com.gigigo.themoviesapp.base.data.model.ApiCountry
+import com.gigigo.themoviesapp.base.data.model.ApiGenre
+import com.gigigo.themoviesapp.base.data.model.ApiLanguage
 import com.google.gson.annotations.SerializedName
 
 data class ApiMovie(
@@ -45,26 +49,4 @@ data class ApiLatestMovie(
     @SerializedName("video") val video: Boolean? = null,
     @SerializedName("vote_average") val voteAverage: Double? = null,
     @SerializedName("vote_count") val voteCount: Int? = null
-) {
-    data class ApiGenre(
-        @SerializedName("id") val id: Int? = null,
-        @SerializedName("name") val name: String? = null
-    )
-
-    data class ApiLanguage(
-        @SerializedName("iso_639_1") val id: String? = null,
-        @SerializedName("name") val name: String? = null
-    )
-
-    data class ApiCountry(
-        @SerializedName("iso_3166_1") val id: String? = null,
-        @SerializedName("name") val name: String? = null
-    )
-
-    data class ApiCompany(
-        @SerializedName("id") val id: Int? = null,
-        @SerializedName("name") val name: String? = null,
-        @SerializedName("logo_path") val logoPath: String? = null,
-        @SerializedName("origin_country") val originCountry: String? = null
-    )
-}
+)

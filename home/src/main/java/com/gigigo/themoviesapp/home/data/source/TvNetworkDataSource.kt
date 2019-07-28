@@ -9,7 +9,7 @@ import com.gigigo.themoviesapp.base.domain.error.Failure
 import com.gigigo.themoviesapp.home.data.mapper.toLatestTv
 import com.gigigo.themoviesapp.home.data.mapper.toPageTv
 import com.gigigo.themoviesapp.home.domain.model.LatestTv
-import com.gigigo.themoviesapp.home.domain.model.Page
+import com.gigigo.themoviesapp.base.domain.model.Page
 import com.gigigo.themoviesapp.home.domain.model.Tv
 
 class TvNetworkDataSource(

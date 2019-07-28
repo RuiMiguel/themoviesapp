@@ -1,7 +1,7 @@
 package com.gigigo.themoviesapp.home.data.source
 
 import com.gigigo.themoviesapp.home.data.model.ApiLatestTv
-import com.gigigo.themoviesapp.home.data.model.ApiPage
+import com.gigigo.themoviesapp.base.data.model.ApiPage
 import com.gigigo.themoviesapp.home.data.model.ApiTv
 import retrofit2.Call
 import retrofit2.http.GET
