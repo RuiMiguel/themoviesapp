@@ -1578,6 +1578,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdelivery/src/main/java/com/gigigo/mcdonalds/mcdelivery/navigation/McDeliveryNavigator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdonalds-mcentrega-android/src/main/java/com/gigigo/macentrega/domain/usecase/GetCategoriesUseCase.kt">
           <value>
             <set />
@@ -1913,6 +1918,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/data/mapper/Api2DomainMapper.kt">
           <value>
             <set />
@@ -1954,6 +1964,36 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/domain/repository/MovieRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/domain/usecases/GetMovieDetail.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/ui/DetailActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/viewmodel/DetailViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/viewmodel/navigation/DetailCoordinator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/res/layout/activity_detail.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/res/layout/content_scrolling.xml">
           <value>
             <set />
           </value>

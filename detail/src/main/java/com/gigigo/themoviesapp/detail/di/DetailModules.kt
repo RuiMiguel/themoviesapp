@@ -6,6 +6,9 @@ import com.gigigo.themoviesapp.detail.data.repository.MovieDataRepository
 import com.gigigo.themoviesapp.detail.data.source.MovieApiService
 import com.gigigo.themoviesapp.detail.data.source.MovieNetworkDataSource
 import com.gigigo.themoviesapp.detail.domain.repository.MovieRepository
+import com.gigigo.themoviesapp.detail.domain.usecases.GetMovieDetail
+import com.gigigo.themoviesapp.detail.viewmodel.DetailViewModel
+import com.gigigo.themoviesapp.home.viewmodel.navigation.DetailCoordinator
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.bind
@@ -13,32 +16,23 @@ import org.koin.dsl.module
 
 @JvmField
 val detailPresentationModule: Module = module {
-    /*
     viewModel {
         DetailViewModel(
             coordinator = get(),
-            getTrendingMovies = get(),
-            getLatestMovie = get(),
-            getNowPlayingMovies = get(),
-            getPopularMovies = get(),
-            getTopRatedMovies = get(),
-            getUpcomingMovies = get()
+            getMovieDetail = get()
         )
     }
-    */
 
-    /*
     single {
         DetailCoordinator(
             navigation = get()
         )
     }
-    */
 }
 
 @JvmField
 val detailDomainModule: Module = module {
-    /*factory { GetMovieDetail(movieDetailRepository = get()) }*/
+    factory { GetMovieDetail(movieRepository = get()) }
 }
 
 @JvmField

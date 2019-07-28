@@ -42,22 +42,12 @@ import kotlinx.android.synthetic.main.content_main.progress_bar_layout
 import kotlinx.android.synthetic.main.content_main.top_rated_movies_list
 import kotlinx.android.synthetic.main.content_main.trending_movies_list
 import kotlinx.android.synthetic.main.content_main.upcoming_movies_list
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
-import kotlin.coroutines.CoroutineContext
 
-class HomeActivity : AppCompatActivity(), CoroutineScope {
-    private val _job = Job()
-
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main + _job
-
+class HomeActivity : AppCompatActivity() {
     private val navigator: Navigator by inject()
 
     private val viewModel by viewModel<HomeViewModel>()
@@ -83,7 +73,6 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
 
     override fun onDestroy() {
         super.onDestroy()
-        _job.cancel()
         unloadKoinModules(homeModules)
         navigator.activity = null
     }
@@ -331,14 +320,12 @@ class HomeActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun showLoading(loading: Boolean) {
-        launch(Dispatchers.Main) {
-            when (loading) {
-                true -> {
-                    progress_bar_layout.show()
-                }
-                false -> {
-                    progress_bar_layout.hide()
-                }
+        when (loading) {
+            true -> {
+                progress_bar_layout.show()
+            }
+            false -> {
+                progress_bar_layout.hide()
             }
         }
     }

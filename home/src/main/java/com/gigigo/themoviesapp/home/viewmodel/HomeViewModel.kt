@@ -156,7 +156,7 @@ class HomeViewModel(
         }
     }
 
-    fun handledMovieItemSelected(elementId: Int) {
-        coordinator.goDetail()
+    fun handledMovieItemSelected(movieId: Int) {
+        coordinator.goDetail(movieId)
     }
 }

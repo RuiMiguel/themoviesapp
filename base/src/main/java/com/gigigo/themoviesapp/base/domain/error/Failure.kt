@@ -5,5 +5,7 @@ sealed class Failure {
     class ServerError(val message: String?) : Failure()
     class NetworkFailure(val message: String?) : Failure()
 
+    class MissingParameter(val message: String?) : Failure()
+
     abstract class FeatureFailure(val message: String?) : Failure()
 }

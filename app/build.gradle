@@ -112,6 +112,7 @@ dependencies {
     implementation project(':base')
     implementation project(':splash')
     implementation project(':home')
+    implementation project(':detail')
 
     implementation "androidx.multidex:multidex:$libraries.multidex"
 
