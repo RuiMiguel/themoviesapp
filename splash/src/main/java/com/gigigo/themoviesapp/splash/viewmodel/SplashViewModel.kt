@@ -2,24 +2,15 @@ package com.gigigo.themoviesapp.splash.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.gigigo.themoviesapp.base.viewmodel.BaseViewModel
 import com.gigigo.themoviesapp.splash.domain.usecases.GetConfiguration
 import com.gigigo.themoviesapp.splash.viewmodel.navigation.SplashCoordinator
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import timber.log.Timber
-import kotlin.coroutines.CoroutineContext
 
 class SplashViewModel(
     private val coordinator: SplashCoordinator,
     private val getConfiguration: GetConfiguration
-) : ViewModel(),
-    CoroutineScope {
-    private val _job = Job()
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.IO + _job
+) : BaseViewModel() {
 
     private val _loading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean>
@@ -30,7 +21,7 @@ class SplashViewModel(
     }
 
     private fun loadConfiguration() {
-        launch {
+        scope.launch {
             _loading.postValue(true)
 
             getConfiguration().fold(
@@ -44,11 +35,5 @@ class SplashViewModel(
                 }
             )
         }
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        _job.cancel()
-        Timber.d("SplashViewModel onCleared")
     }
 }

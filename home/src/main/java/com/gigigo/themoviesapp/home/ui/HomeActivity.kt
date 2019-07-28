@@ -74,7 +74,6 @@ class HomeActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         unloadKoinModules(homeModules)
-        navigator.activity = null
     }
 
     private fun initUI() {

@@ -33,7 +33,6 @@ class SplashActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         unloadKoinModules(splashModules)
-        navigator.activity = null
     }
 
     private fun initViewModel() {

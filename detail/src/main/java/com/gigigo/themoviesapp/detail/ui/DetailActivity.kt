@@ -33,7 +33,6 @@ class DetailActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         unloadKoinModules(detailModules)
-        navigator.activity = null
     }
 
     private fun initUI() {
