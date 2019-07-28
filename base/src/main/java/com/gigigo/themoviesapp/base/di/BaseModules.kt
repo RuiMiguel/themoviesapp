@@ -2,6 +2,7 @@ package com.gigigo.themoviesapp.base.di
 
 import com.gigigo.themoviesapp.base.data.utils.ConnectionInterceptor
 import com.gigigo.themoviesapp.base.data.utils.NetworkHandler
+import com.gigigo.themoviesapp.base.navigation.NavigatorLifecycle
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -18,7 +19,9 @@ import java.util.concurrent.TimeUnit
 
 @JvmField
 val presentationModule: Module = module {
-
+    single {
+        NavigatorLifecycle()
+    }
 }
 
 @JvmField

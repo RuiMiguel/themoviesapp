@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gigigo.baserecycleradapter.adapter.BaseRecyclerAdapter
 import com.gigigo.themoviesapp.base.ui.Result
 import com.gigigo.themoviesapp.base.ui.extensions.observe
-import com.gigigo.themoviesapp.base.ui.navigation.Navigator
 import com.gigigo.themoviesapp.base.ui.utils.extensions.hide
 import com.gigigo.themoviesapp.base.ui.utils.extensions.screenSize
 import com.gigigo.themoviesapp.base.ui.utils.extensions.show
@@ -42,14 +41,11 @@ import kotlinx.android.synthetic.main.content_main.progress_bar_layout
 import kotlinx.android.synthetic.main.content_main.top_rated_movies_list
 import kotlinx.android.synthetic.main.content_main.trending_movies_list
 import kotlinx.android.synthetic.main.content_main.upcoming_movies_list
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 
 class HomeActivity : AppCompatActivity() {
-    private val navigator: Navigator by inject()
-
     private val viewModel by viewModel<HomeViewModel>()
     private lateinit var movieViewHolderFactory: MovieViewHolderFactory
     private lateinit var lastestAdapter: BaseRecyclerAdapter<LatestMovie>
@@ -67,8 +63,6 @@ class HomeActivity : AppCompatActivity() {
 
         initUI()
         initViewModel()
-
-        navigator.activity = this
     }
 
     override fun onDestroy() {

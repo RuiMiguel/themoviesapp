@@ -1,9 +1,7 @@
 package com.gigigo.themoviesapp.home.viewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.gigigo.themoviesapp.base.ui.Result
 import com.gigigo.themoviesapp.base.viewmodel.BaseViewModel
 import com.gigigo.themoviesapp.home.domain.model.LatestMovie
@@ -14,13 +12,8 @@ import com.gigigo.themoviesapp.home.domain.usecases.GetPopularMovies
 import com.gigigo.themoviesapp.home.domain.usecases.GetTopRatedMovies
 import com.gigigo.themoviesapp.home.domain.usecases.GetTrendingMovies
 import com.gigigo.themoviesapp.home.domain.usecases.GetUpcomingMovies
-import com.gigigo.themoviesapp.home.viewmodel.navigation.HomeCoordinator
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import com.gigigo.themoviesapp.home.navigation.HomeCoordinator
 import kotlinx.coroutines.launch
-import timber.log.Timber
-import kotlin.coroutines.CoroutineContext
 
 class HomeViewModel(
     private val coordinator: HomeCoordinator,

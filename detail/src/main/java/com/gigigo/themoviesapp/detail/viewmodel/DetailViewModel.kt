@@ -6,7 +6,7 @@ import com.gigigo.themoviesapp.base.ui.Result
 import com.gigigo.themoviesapp.base.viewmodel.BaseViewModel
 import com.gigigo.themoviesapp.detail.domain.model.MovieDetail
 import com.gigigo.themoviesapp.detail.domain.usecases.GetMovieDetail
-import com.gigigo.themoviesapp.home.viewmodel.navigation.DetailCoordinator
+import com.gigigo.themoviesapp.home.navigation.DetailCoordinator
 import kotlinx.coroutines.launch
 
 class DetailViewModel(

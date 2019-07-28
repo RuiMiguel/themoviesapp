@@ -1,35 +1,38 @@
-package com.gigigo.themoviesapp.navigation
+package com.gigigo.themoviesapp.base.navigation
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
-import com.gigigo.themoviesapp.base.ui.navigation.Navigator
+import androidx.fragment.app.FragmentActivity
 import com.gigigo.themoviesapp.base.ui.utils.extensions.addFragment
 import com.gigigo.themoviesapp.base.ui.utils.extensions.replaceFragment
-import com.gigigo.themoviesapp.detail.ui.DetailActivity
-import com.gigigo.themoviesapp.home.ui.HomeActivity
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-class AppNavigator() : Navigator() {
-    companion object Arguments {
-        const val MOVIE_ARG = "MOVIE_ARG"
-    }
+sealed class BaseNavigator : KoinComponent {
+    abstract class AppBaseNavigator : BaseNavigator() {
+        //TODO: better way to put these abstract functions and arguments??
 
-    override fun goHome(clearBackStack: Boolean) {
-        val intent = Intent(activity, HomeActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        companion object Arguments {
+            const val MOVIE_ARG = "MOVIE_ARG"
         }
-        navigateToActivity(intent, clearBackStack)
+
+        abstract fun goHome(clearBackStack: Boolean)
+        abstract fun goDetail(movieId: Int, clearBackStack: Boolean)
     }
 
-    override fun goDetail(movieId: Int, clearBackStack: Boolean) {
-        val intent = Intent(activity, DetailActivity::class.java).apply {
-            putExtra(MOVIE_ARG, movieId)
+    abstract class FeatureBaseNavigator : BaseNavigator()
+
+    private val navigatorLifecycle: NavigatorLifecycle by inject()
+
+    protected var activity: FragmentActivity?
+        get() = navigatorLifecycle.activity
+        set(value) {
+            navigatorLifecycle.activity = value
         }
-        navigateToActivity(intent, clearBackStack)
-    }
 
-    private fun navigateToActivityForResult(
+    protected fun navigateToActivityForResult(
         intent: Intent,
         requestCode: Int
     ) {
@@ -38,7 +41,7 @@ class AppNavigator() : Navigator() {
         }
     }
 
-    private fun returnFromActivityForResult(
+    protected fun returnFromActivityForResult(
         resultCode: Int,
         intent: Intent
     ) {
@@ -47,7 +50,7 @@ class AppNavigator() : Navigator() {
         activity?.finish()
     }
 
-    private fun navigateToActivity(
+    protected fun navigateToActivity(
         intent: Intent,
         clearBackStack: Boolean,
         options: Bundle? = null
@@ -58,7 +61,7 @@ class AppNavigator() : Navigator() {
         }
     }
 
-    private fun navigateToFragment(
+    protected fun navigateToFragment(
         fragment: Fragment,
         @IdRes frameId: Int,
         clearBackStack: Boolean

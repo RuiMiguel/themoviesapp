@@ -2,20 +2,17 @@ package com.gigigo.themoviesapp.detail.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.gigigo.themoviesapp.base.navigation.BaseNavigator.AppBaseNavigator.Arguments.MOVIE_ARG
 import com.gigigo.themoviesapp.base.ui.Result
 import com.gigigo.themoviesapp.base.ui.extensions.observe
-import com.gigigo.themoviesapp.base.ui.navigation.Navigator
 import com.gigigo.themoviesapp.detail.R
 import com.gigigo.themoviesapp.detail.viewmodel.DetailViewModel
 import com.gigigo.themoviesapp.home.di.detailModules
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 
 class DetailActivity : AppCompatActivity() {
-    private val navigator: Navigator by inject()
-
     private val viewModel by viewModel<DetailViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,8 +23,6 @@ class DetailActivity : AppCompatActivity() {
 
         initUI()
         initViewModel()
-
-        navigator.activity = this
     }
 
     override fun onDestroy() {
@@ -46,7 +41,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun initDetailView() {
-        val movieId = 0 //intent.extras.get(MOVIE_ARG) as Int
+        val movieId = intent.extras.get(MOVIE_ARG) as Int
         viewModel.loadMovieDetail(movieId)
     }
 
@@ -57,7 +52,7 @@ class DetailActivity : AppCompatActivity() {
 
                 }
                 is Result.Success -> {
-
+                    title = result.data.title
                 }
                 is Result.Error -> {
 

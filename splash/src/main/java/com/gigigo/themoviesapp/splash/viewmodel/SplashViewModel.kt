@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.gigigo.themoviesapp.base.viewmodel.BaseViewModel
 import com.gigigo.themoviesapp.splash.domain.usecases.GetConfiguration
-import com.gigigo.themoviesapp.splash.viewmodel.navigation.SplashCoordinator
+import com.gigigo.themoviesapp.splash.navigation.SplashCoordinator
 import kotlinx.coroutines.launch
 
 class SplashViewModel(

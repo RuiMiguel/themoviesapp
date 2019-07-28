@@ -18,11 +18,11 @@ import com.gigigo.themoviesapp.home.domain.usecases.GetPopularMovies
 import com.gigigo.themoviesapp.home.domain.usecases.GetTopRatedMovies
 import com.gigigo.themoviesapp.home.domain.usecases.GetTrendingMovies
 import com.gigigo.themoviesapp.home.domain.usecases.GetUpcomingMovies
+import com.gigigo.themoviesapp.home.navigation.HomeCoordinator
+import com.gigigo.themoviesapp.home.navigation.HomeNavigator
 import com.gigigo.themoviesapp.home.viewmodel.HomeViewModel
-import com.gigigo.themoviesapp.home.viewmodel.navigation.HomeCoordinator
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
-import org.koin.dsl.bind
 import org.koin.dsl.module
 
 
@@ -40,9 +40,11 @@ val homePresentationModule: Module = module {
         )
     }
 
+    single { HomeNavigator() }
     single {
         HomeCoordinator(
-            navigation = get()
+            navigator = get(),
+            appNavigator = get()
         )
     }
 }
@@ -50,7 +52,6 @@ val homePresentationModule: Module = module {
 @JvmField
 val homeDomainModule: Module = module {
     factory { GetTrendingMovies(trendingRepository = get()) }
-
     factory { GetLatestMovie(movieRepository = get()) }
     factory { GetNowPlayingMovies(movieRepository = get()) }
     factory { GetPopularMovies(movieRepository = get()) }
@@ -60,13 +61,8 @@ val homeDomainModule: Module = module {
 
 @JvmField
 val homeDataModule: Module = module {
-    single {
-        TrendingDataRepository(networkDataSource = get())
-    } bind TrendingRepository::class
-
-    single {
-        MovieDataRepository(networkDataSource = get())
-    } bind MovieRepository::class
+    single<TrendingRepository> { TrendingDataRepository(networkDataSource = get()) }
+    single<MovieRepository> { MovieDataRepository(networkDataSource = get()) }
 
     single {
         NetworkDataSource(
@@ -89,11 +85,9 @@ val homeDataModule: Module = module {
         )
     }
 
-    single { createApiService<ApiService>(get()) } bind ApiService::class
-
-    single { createApiService<MovieApiService>(get()) } bind MovieApiService::class
-
-    single { createApiService<TvApiService>(get()) } bind TvApiService::class
+    single<ApiService> { createApiService<ApiService>(retrofit = get()) }
+    single<MovieApiService> { createApiService<MovieApiService>(retrofit = get()) }
+    single<TvApiService> { createApiService<TvApiService>(retrofit = get()) }
 }
 
 @JvmField

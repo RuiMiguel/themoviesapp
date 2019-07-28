@@ -1673,6 +1673,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/gigigo/themoviesapp/navigation/TheMoviesBaseNavigator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/gigigo/themoviesapp/navigation/TheMoviesNavigator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/gigigo/themoviesapp/utils/ApplicationLogger.kt">
           <value>
             <set />
@@ -1799,6 +1809,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/domain/usecases/UseCase.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/navigation/BaseCoordinator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/navigation/BaseNavigator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/navigation/Navigator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/base/src/main/java/com/gigigo/themoviesapp/base/navigation/NavigatorLifecycle.kt">
           <value>
             <set />
           </value>
@@ -1969,6 +1999,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/domain/usecases/GetMovieDetail.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/navigation/DetailCoordinator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/detail/src/main/java/com/gigigo/themoviesapp/detail/navigation/DetailNavigator.kt">
           <value>
             <set />
           </value>
@@ -2188,6 +2228,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/navigation/HomeCoordinator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/navigation/HomeNavigator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/home/src/main/java/com/gigigo/themoviesapp/home/ui/HomeActivity.kt">
           <value>
             <set />
@@ -2384,6 +2434,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/splash/src/main/java/com/gigigo/themoviesapp/splash/domain/model/BaseModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/splash/src/main/java/com/gigigo/themoviesapp/splash/navigation/SplashCoordinator.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/splash/src/main/java/com/gigigo/themoviesapp/splash/navigation/SplashNavigator.kt">
           <value>
             <set />
           </value>

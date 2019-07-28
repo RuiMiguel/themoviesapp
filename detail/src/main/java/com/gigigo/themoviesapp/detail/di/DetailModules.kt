@@ -7,11 +7,11 @@ import com.gigigo.themoviesapp.detail.data.source.MovieApiService
 import com.gigigo.themoviesapp.detail.data.source.MovieNetworkDataSource
 import com.gigigo.themoviesapp.detail.domain.repository.MovieRepository
 import com.gigigo.themoviesapp.detail.domain.usecases.GetMovieDetail
+import com.gigigo.themoviesapp.detail.navigation.DetailNavigator
 import com.gigigo.themoviesapp.detail.viewmodel.DetailViewModel
-import com.gigigo.themoviesapp.home.viewmodel.navigation.DetailCoordinator
+import com.gigigo.themoviesapp.home.navigation.DetailCoordinator
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
-import org.koin.dsl.bind
 import org.koin.dsl.module
 
 @JvmField
@@ -23,9 +23,11 @@ val detailPresentationModule: Module = module {
         )
     }
 
+    single { DetailNavigator() }
     single {
         DetailCoordinator(
-            navigation = get()
+            navigator = get(),
+            appNavigator = get()
         )
     }
 }
@@ -37,9 +39,7 @@ val detailDomainModule: Module = module {
 
 @JvmField
 val detailDataModule: Module = module {
-    single {
-        MovieDataRepository(networkDataSource = get())
-    } bind MovieRepository::class
+    single<MovieRepository> { MovieDataRepository(networkDataSource = get()) }
 
     single {
         MovieNetworkDataSource(
@@ -48,7 +48,7 @@ val detailDataModule: Module = module {
         )
     }
 
-    single { createApiService<MovieApiService>(get()) } bind MovieApiService::class
+    single<MovieApiService> { createApiService<MovieApiService>(retrofit = get()) }
 }
 
 @JvmField
