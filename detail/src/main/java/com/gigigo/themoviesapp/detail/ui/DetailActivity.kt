@@ -2,7 +2,7 @@ package com.gigigo.themoviesapp.detail.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.gigigo.themoviesapp.base.navigation.BaseNavigator.AppBaseNavigator.Arguments.MOVIE_ARG
+import com.gigigo.themoviesapp.base.navigation.AppNavigator.Arguments.MOVIE_ARG
 import com.gigigo.themoviesapp.base.ui.Result
 import com.gigigo.themoviesapp.base.ui.extensions.observe
 import com.gigigo.themoviesapp.detail.R

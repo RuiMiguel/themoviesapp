@@ -1,9 +1,9 @@
 package com.gigigo.themoviesapp.splash.navigation
 
-import com.gigigo.themoviesapp.base.navigation.BaseNavigator
+import com.gigigo.themoviesapp.base.navigation.AppNavigator
 
 class SplashCoordinator(
-    private val appNavigator: BaseNavigator.AppBaseNavigator
+    private val appNavigator: AppNavigator
 ) {
 
     fun goHome() {

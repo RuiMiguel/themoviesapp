@@ -9,7 +9,7 @@ import com.gigigo.themoviesapp.detail.domain.repository.MovieRepository
 import com.gigigo.themoviesapp.detail.domain.usecases.GetMovieDetail
 import com.gigigo.themoviesapp.detail.navigation.DetailNavigator
 import com.gigigo.themoviesapp.detail.viewmodel.DetailViewModel
-import com.gigigo.themoviesapp.home.navigation.DetailCoordinator
+import com.gigigo.themoviesapp.detail.navigation.DetailCoordinator
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module

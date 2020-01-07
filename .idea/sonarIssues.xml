@@ -1508,6 +1508,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/core_ui/src/main/java/com/gigigo/mcdonalds/ui/Result.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/core_ui/src/main/java/com/gigigo/mcdonalds/ui/extension/Text.kt">
           <value>
             <set />
@@ -1583,6 +1588,56 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdelivery/src/main/java/com/gigigo/mcdonalds/mcdelivery/ui/base/BaseActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdelivery/src/main/java/com/gigigo/mcdonalds/mcdelivery/ui/cart/CartOrderFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdelivery/src/main/java/com/gigigo/mcdonalds/mcdelivery/ui/cart/CategoryProductsPageFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdelivery/src/main/java/com/gigigo/mcdonalds/mcdelivery/ui/cart/viewholder/ProductSuggestionOrderViewHolder.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdelivery/src/main/java/com/gigigo/mcdonalds/mcdelivery/ui/directions/DirectionSpinnerView.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdelivery/src/main/java/com/gigigo/mcdonalds/mcdelivery/ui/toolbar/ToolbarCatalogView.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdelivery/src/main/java/com/gigigo/mcdonalds/mcdelivery/viewmodel/cart/CartViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdelivery/src/main/res/layout/item_product_suggestion_order.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdelivery/src/main/res/layout/view_toolbar_catalog.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdelivery_core/src/main/java/com/gigigo/mcdonalds/mcdelivery/core/domain/model/DomainModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/mcdonalds-mcentrega-android/src/main/java/com/gigigo/macentrega/domain/usecase/GetCategoriesUseCase.kt">
           <value>
             <set />
@@ -1599,6 +1654,146 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../mcdonalds-brasil-android/variants.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/app/src/main/java/com/gigigo/m5k/activities/PlaylistActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/app/src/main/java/com/gigigo/m5k/activities/RunningSessionActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/app/src/main/java/com/gigigo/m5k/activities/SettingsActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/app/src/main/java/com/gigigo/m5k/di/AppModules.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/app/src/main/java/com/gigigo/m5k/presenter/PlaylistPresenter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/app/src/main/java/com/gigigo/m5k/presenter/SettingsPresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/dependencies.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/Preferences.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/SpotifyActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/SpotifyAuthActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/SpotifyAuthentication.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/error/ErrorUtils.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/error/Failure.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/network/ApiModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/network/ConnectionInterceptor.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/network/MiddlewareApiService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/network/NetworkDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/network/NetworkHandler.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/network/SpotifyApiService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/repository/NetworkDataSource.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/repository/SpotifyDataRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/authorization/repository/SpotifyRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/di/SpotifyModules.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/java/com/gigigo/m5k/spotify/remote/SpotifyApiHelper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../mcdonalds-m5k-android/spotify/src/main/res/layout/activity_spotify.xml">
           <value>
             <set />
           </value>

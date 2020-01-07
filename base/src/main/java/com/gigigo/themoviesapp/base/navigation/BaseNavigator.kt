@@ -5,23 +5,17 @@ import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.gigigo.themoviesapp.base.ui.utils.extensions.addFragment
-import com.gigigo.themoviesapp.base.ui.utils.extensions.replaceFragment
+import com.gigigo.themoviesapp.base.ui.extensions.addFragment
+import com.gigigo.themoviesapp.base.ui.extensions.addFragmentToBackStack
+import com.gigigo.themoviesapp.base.ui.extensions.replaceFragment
+import com.gigigo.themoviesapp.base.ui.extensions.replaceFragmentIntoBackStack
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
+enum class ReplaceOrAdd { REPLACE, ADD }
+
 sealed class BaseNavigator : KoinComponent {
-    abstract class AppBaseNavigator : BaseNavigator() {
-        //TODO: better way to put these abstract functions and arguments??
-
-        companion object Arguments {
-            const val MOVIE_ARG = "MOVIE_ARG"
-        }
-
-        abstract fun goHome(clearBackStack: Boolean)
-        abstract fun goDetail(movieId: Int, clearBackStack: Boolean)
-    }
-
+    abstract class AppBaseNavigator : BaseNavigator()
     abstract class FeatureBaseNavigator : BaseNavigator()
 
     private val navigatorLifecycle: NavigatorLifecycle by inject()
@@ -64,6 +58,27 @@ sealed class BaseNavigator : KoinComponent {
     protected fun navigateToFragment(
         fragment: Fragment,
         @IdRes frameId: Int,
+        clearBackStack: Boolean,
+        replaceOrAdd: ReplaceOrAdd = ReplaceOrAdd.REPLACE
+    ) {
+        navigatorLifecycle.activity?.apply {
+            if (clearBackStack) {
+                when (replaceOrAdd) {
+                    ReplaceOrAdd.REPLACE -> replaceFragment(fragment, frameId)
+                    ReplaceOrAdd.ADD -> addFragment(fragment, frameId)
+                }
+            } else {
+                when (replaceOrAdd) {
+                    ReplaceOrAdd.REPLACE -> replaceFragmentIntoBackStack(fragment, frameId)
+                    ReplaceOrAdd.ADD -> addFragmentToBackStack(fragment, frameId)
+                }
+            }
+        }
+    }
+/*
+    protected fun navigateToFragment(
+        fragment: Fragment,
+        @IdRes frameId: Int,
         clearBackStack: Boolean
     ) {
         activity?.apply {
@@ -74,4 +89,5 @@ sealed class BaseNavigator : KoinComponent {
             }
         }
     }
+ */
 }

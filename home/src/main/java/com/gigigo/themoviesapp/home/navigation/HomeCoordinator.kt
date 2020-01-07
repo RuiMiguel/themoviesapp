@@ -1,10 +1,10 @@
 package com.gigigo.themoviesapp.home.navigation
 
-import com.gigigo.themoviesapp.base.navigation.BaseNavigator
+import com.gigigo.themoviesapp.base.navigation.AppNavigator
 
 class HomeCoordinator(
     private val navigator: HomeNavigator,
-    private val appNavigator: BaseNavigator.AppBaseNavigator
+    private val appNavigator: AppNavigator
 ) {
 
     fun goDetail(movieId: Int) {
