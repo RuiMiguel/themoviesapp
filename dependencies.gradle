@@ -33,13 +33,13 @@ ext {
 
             koin               : '2.0.0',
             coroutines         : '1.1.1',
-            ktx                : '1.2.0-alpha02',
+            ktx                : '1.2.0-rc01',
 
             arrow              : '0.8.2',
 
-            retrofit           : '2.5.0',
-            okhttp3            : '3.12.0',
-            gson               : '2.8.2',
+            retrofit           : '2.6.0',
+            okhttp3            : '3.14.2',
+            gson               : '2.8.5',
 
             scan               : '1.9.13',
             glide              : '4.9.0',
@@ -47,7 +47,7 @@ ext {
             timber             : '4.7.1',
 
             permissions        : '0.3RC',
-            baseRecyclerAdapter: '2.3.0',
+            baseRecyclerAdapter: '2.3.2',
 
             debugDatabase      : '1.0.4'
     ]

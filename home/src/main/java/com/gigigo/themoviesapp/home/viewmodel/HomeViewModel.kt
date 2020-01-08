@@ -1,5 +1,7 @@
 package com.gigigo.themoviesapp.home.viewmodel
 
+import android.view.View
+import androidx.core.util.Pair as AndroidPair
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.gigigo.themoviesapp.base.ui.Result
@@ -149,7 +151,7 @@ class HomeViewModel(
         }
     }
 
-    fun handledMovieItemSelected(movieId: Int) {
-        coordinator.goDetail(movieId)
+    fun handledMovieItemSelected(view: View, movieId: Int) {
+        coordinator.goDetail(movieId, AndroidPair(view, movieId.toString()))
     }
 }

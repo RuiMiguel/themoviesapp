@@ -140,7 +140,7 @@ class HomeActivity : AppCompatActivity() {
         latest_movies_list.setHasFixedSize(true)
         lastestAdapter.setItemClickListener { position, view ->
             val element = lastestAdapter.getItem(position)?.let {
-                viewModel.handledMovieItemSelected(it.id)
+                viewModel.handledMovieItemSelected(view, it.id)
             }
         }
         latest_movies_list.adapter = lastestAdapter
@@ -156,7 +156,7 @@ class HomeActivity : AppCompatActivity() {
         now_playing_movies_list.setHasFixedSize(true)
         nowPlayingAdapter.setItemClickListener { position, view ->
             val element = nowPlayingAdapter.getItem(position)?.let {
-                viewModel.handledMovieItemSelected(it.id)
+                viewModel.handledMovieItemSelected(view, it.id)
             }
         }
         now_playing_movies_list.adapter = nowPlayingAdapter
@@ -172,7 +172,7 @@ class HomeActivity : AppCompatActivity() {
         popular_movies_list.setHasFixedSize(true)
         popularAdapter.setItemClickListener { position, view ->
             val element = popularAdapter.getItem(position)?.let {
-                viewModel.handledMovieItemSelected(it.id)
+                viewModel.handledMovieItemSelected(view, it.id)
             }
         }
         popular_movies_list.adapter = popularAdapter
@@ -188,7 +188,7 @@ class HomeActivity : AppCompatActivity() {
         top_rated_movies_list.setHasFixedSize(true)
         topRatedAdapter.setItemClickListener { position, view ->
             val element = topRatedAdapter.getItem(position)?.let {
-                viewModel.handledMovieItemSelected(it.id)
+                viewModel.handledMovieItemSelected(view, it.id)
             }
         }
         top_rated_movies_list.adapter = topRatedAdapter
@@ -204,7 +204,7 @@ class HomeActivity : AppCompatActivity() {
         trending_movies_list.setHasFixedSize(true)
         trendingAdapter.setItemClickListener { position, view ->
             val element = trendingAdapter.getItem(position)?.let {
-                viewModel.handledMovieItemSelected(it.id)
+                viewModel.handledMovieItemSelected(view, it.id)
             }
         }
         trending_movies_list.adapter = trendingAdapter
@@ -220,7 +220,7 @@ class HomeActivity : AppCompatActivity() {
         upcoming_movies_list.setHasFixedSize(true)
         upcomingAdapter.setItemClickListener { position, view ->
             val element = upcomingAdapter.getItem(position)?.let {
-                viewModel.handledMovieItemSelected(it.id)
+                viewModel.handledMovieItemSelected(view, it.id)
             }
         }
         upcoming_movies_list.adapter = upcomingAdapter

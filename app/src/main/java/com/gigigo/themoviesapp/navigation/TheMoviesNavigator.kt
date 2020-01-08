@@ -1,6 +1,10 @@
 package com.gigigo.themoviesapp.navigation
 
+import android.app.Activity
 import android.content.Intent
+import android.view.View
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair as AndroidPair
 import com.gigigo.themoviesapp.base.navigation.AppNavigator
 import com.gigigo.themoviesapp.detail.ui.DetailActivity
 import com.gigigo.themoviesapp.home.ui.HomeActivity
@@ -17,10 +21,16 @@ class TheMoviesNavigator : AppNavigator() {
         navigateToActivity(intent, clearBackStack)
     }
 
-    override fun goDetail(movieId: Int, clearBackStack: Boolean) {
+    override fun goDetail(movieId: Int, clearBackStack: Boolean, vararg transitions: AndroidPair<View, String>) {
+        val activityOptionsCompat: ActivityOptionsCompat =
+            ActivityOptionsCompat.makeSceneTransitionAnimation(
+                activity as Activity,
+                *transitions
+            )
+
         val intent = Intent(activity, DetailActivity::class.java).apply {
             putExtra(MOVIE_ARG, movieId)
         }
-        navigateToActivity(intent, clearBackStack)
+        navigateToActivity(intent, clearBackStack, activityOptionsCompat.toBundle())
     }
 }

@@ -1,6 +1,7 @@
 package com.gigigo.themoviesapp.home.ui.viewholder
 
 import android.content.Context
+import android.os.Build
 import android.util.DisplayMetrics
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -27,6 +28,10 @@ class LatestMovieViewHolder(
 
         val imageWidthRatio = if (size.widthPixels < size.heightPixels) 3 else 4
         val imageHeightRatio = 3.0 / 2.0
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            image.transitionName = data.id.toString()
+        }
 
         image?.let {
             it.layoutParams.width = size.widthPixels / imageWidthRatio
