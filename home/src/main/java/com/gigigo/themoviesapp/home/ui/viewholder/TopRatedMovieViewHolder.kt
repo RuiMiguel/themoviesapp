@@ -8,7 +8,7 @@ import com.gigigo.themoviesapp.home.R
 import com.gigigo.themoviesapp.home.domain.model.TopRatedMovie
 
 class TopRatedMovieViewHolder(
-    context: Context,
+    private val context: Context,
     parent: ViewGroup,
     size: DisplayMetrics,
     apiImageUrl: String
@@ -28,6 +28,6 @@ class TopRatedMovieViewHolder(
         super.bindTo(data, position)
 
         voteAverage?.text = data.voteAverage.toString()
-        voteCount?.text = "${data.voteCount.toString()} votes"
+        voteCount?.text = "${data.voteCount} votes"
     }
 }

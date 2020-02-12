@@ -1,7 +1,6 @@
 package com.gigigo.themoviesapp.base.navigation
 
 import android.view.View
-import androidx.core.util.Pair as AndroidPair
 
 abstract class AppNavigator : BaseNavigator.AppBaseNavigator() {
     companion object Arguments {
@@ -10,5 +9,9 @@ abstract class AppNavigator : BaseNavigator.AppBaseNavigator() {
 
     abstract fun goHome(clearBackStack: Boolean)
 
-    abstract fun goDetail(movieId: Int, clearBackStack: Boolean, vararg transitions: AndroidPair<View, String>)
+    abstract fun goDetail(
+        movieId: Int,
+        transitions: List<Pair<View?, String>>,
+        clearBackStack: Boolean
+    )
 }

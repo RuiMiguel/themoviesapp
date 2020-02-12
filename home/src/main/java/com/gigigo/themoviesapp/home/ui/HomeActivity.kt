@@ -3,6 +3,7 @@ package com.gigigo.themoviesapp.home.ui
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -139,8 +140,9 @@ class HomeActivity : AppCompatActivity() {
         latest_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
         latest_movies_list.setHasFixedSize(true)
         lastestAdapter.setItemClickListener { position, view ->
-            val element = lastestAdapter.getItem(position)?.let {
-                viewModel.handledMovieItemSelected(view, it.id)
+            lastestAdapter.getItem(position)?.let {
+                val image = view.findViewById<ImageView>(R.id.movie_thumbnail)
+                viewModel.handledMovieItemSelected(image, it.id)
             }
         }
         latest_movies_list.adapter = lastestAdapter
@@ -155,8 +157,9 @@ class HomeActivity : AppCompatActivity() {
         now_playing_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
         now_playing_movies_list.setHasFixedSize(true)
         nowPlayingAdapter.setItemClickListener { position, view ->
-            val element = nowPlayingAdapter.getItem(position)?.let {
-                viewModel.handledMovieItemSelected(view, it.id)
+            nowPlayingAdapter.getItem(position)?.let {
+                val image = view.findViewById<ImageView>(R.id.movie_thumbnail)
+                viewModel.handledMovieItemSelected(image, it.id)
             }
         }
         now_playing_movies_list.adapter = nowPlayingAdapter
@@ -171,8 +174,9 @@ class HomeActivity : AppCompatActivity() {
         popular_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
         popular_movies_list.setHasFixedSize(true)
         popularAdapter.setItemClickListener { position, view ->
-            val element = popularAdapter.getItem(position)?.let {
-                viewModel.handledMovieItemSelected(view, it.id)
+            popularAdapter.getItem(position)?.let {
+                val image = view.findViewById<ImageView>(R.id.movie_thumbnail)
+                viewModel.handledMovieItemSelected(image, it.id)
             }
         }
         popular_movies_list.adapter = popularAdapter
@@ -187,8 +191,9 @@ class HomeActivity : AppCompatActivity() {
         top_rated_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
         top_rated_movies_list.setHasFixedSize(true)
         topRatedAdapter.setItemClickListener { position, view ->
-            val element = topRatedAdapter.getItem(position)?.let {
-                viewModel.handledMovieItemSelected(view, it.id)
+            topRatedAdapter.getItem(position)?.let {
+                val image = view.findViewById<ImageView>(R.id.movie_thumbnail)
+                viewModel.handledMovieItemSelected(image, it.id)
             }
         }
         top_rated_movies_list.adapter = topRatedAdapter
@@ -203,8 +208,9 @@ class HomeActivity : AppCompatActivity() {
         trending_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
         trending_movies_list.setHasFixedSize(true)
         trendingAdapter.setItemClickListener { position, view ->
-            val element = trendingAdapter.getItem(position)?.let {
-                viewModel.handledMovieItemSelected(view, it.id)
+            trendingAdapter.getItem(position)?.let {
+                val image = view.findViewById<ImageView>(R.id.movie_thumbnail)
+                viewModel.handledMovieItemSelected(image, it.id)
             }
         }
         trending_movies_list.adapter = trendingAdapter
@@ -219,8 +225,9 @@ class HomeActivity : AppCompatActivity() {
         upcoming_movies_list.addItemDecoration(PaddingDecoration(resources, 12, 6, 12))
         upcoming_movies_list.setHasFixedSize(true)
         upcomingAdapter.setItemClickListener { position, view ->
-            val element = upcomingAdapter.getItem(position)?.let {
-                viewModel.handledMovieItemSelected(view, it.id)
+            upcomingAdapter.getItem(position)?.let {
+                val image = view.findViewById<ImageView>(R.id.movie_thumbnail)
+                viewModel.handledMovieItemSelected(image, it.id)
             }
         }
         upcoming_movies_list.adapter = upcomingAdapter
@@ -247,7 +254,7 @@ class HomeActivity : AppCompatActivity() {
 
                 }
                 is Result.Success -> {
-                    nowPlayingAdapter.addAll(result.data as List<NowPlayingMovie>)
+                    nowPlayingAdapter.addAll(result.data)
                 }
                 is Result.Error -> {
 
@@ -261,7 +268,7 @@ class HomeActivity : AppCompatActivity() {
 
                 }
                 is Result.Success -> {
-                    popularAdapter.addAll(result.data as List<PopularMovie>)
+                    popularAdapter.addAll(result.data)
                 }
                 is Result.Error -> {
 
@@ -275,7 +282,7 @@ class HomeActivity : AppCompatActivity() {
 
                 }
                 is Result.Success -> {
-                    topRatedAdapter.addAll(result.data as List<TopRatedMovie>)
+                    topRatedAdapter.addAll(result.data)
                 }
                 is Result.Error -> {
 
@@ -289,7 +296,7 @@ class HomeActivity : AppCompatActivity() {
 
                 }
                 is Result.Success -> {
-                    trendingAdapter.addAll(result.data as List<TrendingMovie>)
+                    trendingAdapter.addAll(result.data)
                 }
                 is Result.Error -> {
 
@@ -303,7 +310,7 @@ class HomeActivity : AppCompatActivity() {
 
                 }
                 is Result.Success -> {
-                    upcomingAdapter.addAll(result.data as List<UpcomingMovie>)
+                    upcomingAdapter.addAll(result.data)
                 }
                 is Result.Error -> {
 

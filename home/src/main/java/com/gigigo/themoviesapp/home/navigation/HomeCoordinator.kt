@@ -1,7 +1,6 @@
 package com.gigigo.themoviesapp.home.navigation
 
 import android.view.View
-import androidx.core.util.Pair as AndroidPair
 import com.gigigo.themoviesapp.base.navigation.AppNavigator
 
 class HomeCoordinator(
@@ -9,7 +8,7 @@ class HomeCoordinator(
     private val appNavigator: AppNavigator
 ) {
 
-    fun goDetail(movieId: Int, vararg transitions: AndroidPair<View, String>) {
-        appNavigator.goDetail(movieId, false, *transitions)
+    fun goDetail(movieId: Int, transitions: List<Pair<View?, String>>) {
+        appNavigator.goDetail(movieId, transitions, false)
     }
 }

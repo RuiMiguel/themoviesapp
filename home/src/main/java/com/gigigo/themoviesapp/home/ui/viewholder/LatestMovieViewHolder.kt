@@ -6,7 +6,6 @@ import android.util.DisplayMetrics
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.gigigo.baserecycleradapter.viewholder.BaseViewHolder
 import com.gigigo.themoviesapp.home.R
@@ -30,7 +29,8 @@ class LatestMovieViewHolder(
         val imageHeightRatio = 3.0 / 2.0
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            image.transitionName = data.id.toString()
+            image.transitionName =
+                "${data.id}"//"${context.getString(R.string.movie_image_transition_name)}_${data.id}"
         }
 
         image?.let {
@@ -39,9 +39,9 @@ class LatestMovieViewHolder(
 
             Glide.with(context)
                 .load("${apiImageUrl}w500${data.posterPath}")
-                .transition(DrawableTransitionOptions.withCrossFade())
-                .thumbnail(Glide.with(context).load("").apply(requestOption))
-                .apply(requestOption)
+                //.transition(DrawableTransitionOptions.withCrossFade())
+                //.thumbnail(Glide.with(context).load("").apply(requestOption))
+                //.apply(requestOption)
                 .into(it)
         }
     }

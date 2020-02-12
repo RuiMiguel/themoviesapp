@@ -1,13 +1,17 @@
 package com.gigigo.themoviesapp.home.viewmodel
 
 import android.view.View
-import androidx.core.util.Pair as AndroidPair
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.gigigo.themoviesapp.base.ui.Result
 import com.gigigo.themoviesapp.base.viewmodel.BaseViewModel
 import com.gigigo.themoviesapp.home.domain.model.LatestMovie
 import com.gigigo.themoviesapp.home.domain.model.Movie
+import com.gigigo.themoviesapp.home.domain.model.NowPlayingMovie
+import com.gigigo.themoviesapp.home.domain.model.PopularMovie
+import com.gigigo.themoviesapp.home.domain.model.TopRatedMovie
+import com.gigigo.themoviesapp.home.domain.model.TrendingMovie
+import com.gigigo.themoviesapp.home.domain.model.UpcomingMovie
 import com.gigigo.themoviesapp.home.domain.usecases.GetLatestMovie
 import com.gigigo.themoviesapp.home.domain.usecases.GetNowPlayingMovies
 import com.gigigo.themoviesapp.home.domain.usecases.GetPopularMovies
@@ -27,28 +31,28 @@ class HomeViewModel(
     private val getUpcomingMovies: GetUpcomingMovies
 ) : BaseViewModel() {
 
-    private val _trendingMovies = MutableLiveData<Result<List<Movie>>>()
-    val trendingMovies: LiveData<Result<List<Movie>>>
+    private val _trendingMovies = MutableLiveData<Result<List<TrendingMovie>>>()
+    val trendingMovies: LiveData<Result<List<TrendingMovie>>>
         get() = _trendingMovies
 
     private val _latestMovie = MutableLiveData<Result<List<LatestMovie>>>()
     val latestMovie: LiveData<Result<List<LatestMovie>>>
         get() = _latestMovie
 
-    private val _nowPlayingMovies = MutableLiveData<Result<List<Movie>>>()
-    val nowPlayingMovies: LiveData<Result<List<Movie>>>
+    private val _nowPlayingMovies = MutableLiveData<Result<List<NowPlayingMovie>>>()
+    val nowPlayingMovies: LiveData<Result<List<NowPlayingMovie>>>
         get() = _nowPlayingMovies
 
-    private val _popularMovies = MutableLiveData<Result<List<Movie>>>()
-    val popularMovies: LiveData<Result<List<Movie>>>
+    private val _popularMovies = MutableLiveData<Result<List<PopularMovie>>>()
+    val popularMovies: LiveData<Result<List<PopularMovie>>>
         get() = _popularMovies
 
-    private val _topRatedMovies = MutableLiveData<Result<List<Movie>>>()
-    val topRatedMovies: LiveData<Result<List<Movie>>>
+    private val _topRatedMovies = MutableLiveData<Result<List<TopRatedMovie>>>()
+    val topRatedMovies: LiveData<Result<List<TopRatedMovie>>>
         get() = _topRatedMovies
 
-    private val _upcomingMovies = MutableLiveData<Result<List<Movie>>>()
-    val upcomingMovies: LiveData<Result<List<Movie>>>
+    private val _upcomingMovies = MutableLiveData<Result<List<UpcomingMovie>>>()
+    val upcomingMovies: LiveData<Result<List<UpcomingMovie>>>
         get() = _upcomingMovies
 
 
@@ -151,7 +155,8 @@ class HomeViewModel(
         }
     }
 
-    fun handledMovieItemSelected(view: View, movieId: Int) {
-        coordinator.goDetail(movieId, AndroidPair(view, movieId.toString()))
+    fun handledMovieItemSelected(view: View?, movieId: Int) {
+        val transition = view to movieId.toString()
+        coordinator.goDetail(movieId, listOf(transition))
     }
 }

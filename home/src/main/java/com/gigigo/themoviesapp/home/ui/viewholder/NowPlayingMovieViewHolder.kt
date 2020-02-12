@@ -7,7 +7,7 @@ import com.gigigo.themoviesapp.home.R
 import com.gigigo.themoviesapp.home.domain.model.NowPlayingMovie
 
 class NowPlayingMovieViewHolder(
-    context: Context,
+    private val context: Context,
     parent: ViewGroup,
     size: DisplayMetrics,
     apiImageUrl: String

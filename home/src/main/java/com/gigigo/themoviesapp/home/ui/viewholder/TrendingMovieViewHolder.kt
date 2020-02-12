@@ -7,7 +7,7 @@ import com.gigigo.themoviesapp.home.R
 import com.gigigo.themoviesapp.home.domain.model.TrendingMovie
 
 class TrendingMovieViewHolder(
-    context: Context,
+    private val context: Context,
     parent: ViewGroup,
     size: DisplayMetrics,
     apiImageUrl: String

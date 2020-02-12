@@ -1,11 +1,18 @@
 package com.gigigo.themoviesapp.detail.ui
 
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
+import android.transition.ChangeBounds
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.gigigo.themoviesapp.base.navigation.AppNavigator.Arguments.MOVIE_ARG
 import com.gigigo.themoviesapp.base.ui.Result
 import com.gigigo.themoviesapp.base.ui.extensions.observe
@@ -49,7 +56,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun initDetailView() {
-        val movieId = intent.extras.get(MOVIE_ARG) as Int
+        val movieId = intent?.extras?.get(MOVIE_ARG) as Int
         viewModel.loadMovieDetail(movieId)
     }
 
@@ -66,20 +73,14 @@ class DetailActivity : AppCompatActivity() {
                         movie_description.text = overview
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            movie_image.transitionName = id.toString()
+                            movie_image.transitionName = "$id"//"${resources.getString(R.string.movie_image_transition_name)}_${id}"
                         }
 
                         movie_image?.let {
-                            val requestOption = RequestOptions()
-                                .placeholder(R.drawable.ic_movie_placeholder).centerCrop()
-
                             val apiImageUrl = "https://image.tmdb.org/t/p/"
 
                             Glide.with(baseContext)
                                 .load("${apiImageUrl}w500${posterPath}")
-                                .transition(DrawableTransitionOptions.withCrossFade())
-                                .thumbnail(Glide.with(baseContext).load("").apply(requestOption))
-                                .apply(requestOption)
                                 .into(it)
                         }
                     }

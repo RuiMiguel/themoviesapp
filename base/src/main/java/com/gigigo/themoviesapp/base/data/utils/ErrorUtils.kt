@@ -14,7 +14,9 @@ object ErrorUtils: KoinComponent {
         val converter = retrofit.responseBodyConverter<ApiError>(ApiError::class.java, arrayOf())
 
         return try {
-            converter.convert(response.errorBody())
+            response.errorBody()?.let {
+                converter.convert(it)
+            } ?: ApiError()
         }
         catch (error: IOException) {
             ApiError()
